@@ -37,6 +37,8 @@ setup(name='ric.core',
       zip_safe=False,
       install_requires=[
           'setuptools',
+          'collective.contact.core',
+          'collective.contact.membrane',
           'Plone',
           # -*- Extra requirements: -*-
       ],
