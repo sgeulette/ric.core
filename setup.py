@@ -39,6 +39,8 @@ setup(name='ric.core',
           'setuptools',
           'collective.contact.core',
           'collective.contact.membrane',
+          'plone.app.dexterity',
+          'plone.directives.dexterity',
           'Plone',
           # -*- Extra requirements: -*-
       ],
