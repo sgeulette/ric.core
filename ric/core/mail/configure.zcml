@@ -1,0 +1,29 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:grok="http://namespaces.zope.org/grok"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:five="http://namespaces.zope.org/five">
+
+    <interface
+      interface="ric.core.mail.interfaces.ISendNonContributor"
+      type="plone.contentrules.rule.interfaces.IRuleEventType"
+      name="Envoi aux non-cotisants"
+      />
+
+    <grok:grok package=".events"/>
+
+    <browser:page
+      for="*"
+      name="send_mail"
+      permission="cmf.ManagePortal"
+      class=".send_mail.SendMail"
+      attribute="send_mail"
+      />
+
+    <adapter
+        for="Products.CMFCore.interfaces.IDublinCore"
+        provides="plone.stringinterp.interfaces.IStringSubstitution"
+        factory=".substitution.RecipientsSubstitution"
+        name="recipients"
+    />
+
+</configure>
