@@ -3,11 +3,7 @@
            xmlns:browser="http://namespaces.zope.org/browser"
            xmlns:five="http://namespaces.zope.org/five">
 
-    <interface
-      interface="ric.core.mail.interfaces.ISendNonContributor"
-      type="plone.contentrules.rule.interfaces.IRuleEventType"
-      name="Envoi aux non-cotisants"
-      />
+    <include file="events.zcml" />
 
     <grok:grok package=".events"/>
 
@@ -16,7 +12,7 @@
       name="send_mail"
       permission="cmf.ManagePortal"
       class=".send_mail.SendMail"
-      attribute="send_mail"
+      template="send_mail.pt"
       />
 
     <adapter
