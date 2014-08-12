@@ -7,4 +7,5 @@ from five import grok
 
 class OrganizationEditForm(dexterity.EditForm):
     grok.context(IOrganization)
+    schema = None
     fields = z3c.form.field.Fields(IOrganization).select('logo')
