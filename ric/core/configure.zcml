@@ -1,6 +1,17 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup">
+
+  <include package="collective.jekyll" />
+
   <include package=".content"/>
+
+  <genericsetup:registerProfile
+      name="default"
+      title="ric.core"
+      directory="profiles/default"
+      description="Installs the RIC core package"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
 
 </configure>

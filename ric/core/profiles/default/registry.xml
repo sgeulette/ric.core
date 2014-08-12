@@ -1,0 +1,8 @@
+<registry>
+  <record field="activeSymptoms"
+          interface="collective.jekyll.interfaces.IJekyllSettings"
+          name="collective.jekyll.interfaces.IJekyllSettings.activeSymptoms">
+    <value>
+    </value>
+  </record>
+</registry>
