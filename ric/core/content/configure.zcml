@@ -2,9 +2,14 @@
            xmlns:grok="http://namespaces.zope.org/grok">
   <include package="collective.contact.core" />
   <grok:grok package=".organization" />
+  <grok:grok package=".person" />
 
   <adapter factory=".organization.OrganizationEditFormExtender"
            provides="plone.z3cform.fieldsets.interfaces.IFormExtender" />
   <adapter factory=".organization.OrganizationAddFormExtender"
+           provides="plone.z3cform.fieldsets.interfaces.IFormExtender" />
+  <adapter factory=".person.PersonEditFormExtender"
+           provides="plone.z3cform.fieldsets.interfaces.IFormExtender" />
+  <adapter factory=".person.PersonAddFormExtender"
            provides="plone.z3cform.fieldsets.interfaces.IFormExtender" />
 </configure>
