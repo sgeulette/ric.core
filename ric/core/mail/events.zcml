@@ -1,0 +1,33 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+    <interface
+      interface="ric.core.mail.interfaces.ISendNonContributor"
+      type="plone.contentrules.rule.interfaces.IRuleEventType"
+      name="RIC: Envoi aux non-cotisants"
+      />
+
+    <interface
+      interface="ric.core.mail.interfaces.ISendCotisationPerson"
+      type="plone.contentrules.rule.interfaces.IRuleEventType"
+      name="RIC: Personne avec caracteristique Envoi Cotisation"
+      />
+
+    <interface
+      interface="ric.core.mail.interfaces.ISendOrganisationMembers"
+      type="plone.contentrules.rule.interfaces.IRuleEventType"
+      name="RIC: Membres d'une organisation"
+      />
+
+    <interface
+      interface="ric.core.mail.interfaces.ISendNonConnectedMembers"
+      type="plone.contentrules.rule.interfaces.IRuleEventType"
+      name="RIC: Membres non connectes"
+      />
+
+    <interface
+      interface="ric.core.mail.interfaces.ISendMailField"
+      type="plone.contentrules.rule.interfaces.IRuleEventType"
+      name="RIC: Selon champ Envoi Mail d'une personne"
+      />
+
+</configure>

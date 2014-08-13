@@ -1,6 +1,11 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup">
+
   <include package=".content"/>
+
+  <include package="Products.CMFCore" file="permissions.zcml" />
+
+  <include package="ric.core.mail" />
 
 </configure>
