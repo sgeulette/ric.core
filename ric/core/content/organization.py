@@ -3,6 +3,7 @@ import z3c.form
 
 from AccessControl import getSecurityManager
 from five import grok
+from plone import api
 from plone.directives import dexterity
 from plone.directives import form
 from plone.z3cform.fieldsets import extensible
@@ -64,15 +65,14 @@ class OrganizationEditFormExtender(extensible.FormExtender):
         self.form = form
 
     def update(self):
-        loggedUser = getSecurityManager().getUser()
-        userRolesForParty = loggedUser.getRoles()
         if not IOrganizationCustom.providedBy(self.context):
             alsoProvides(self.context, IOrganizationCustom)
         self.remove('logo')
         self.remove('activity')
         self.add(z3c.form.field.Fields(IOrganizationCustom))
         self.form.fields['cotisations'].widgetFactory = DataGridFieldFactory
-        if 'Manager' not in userRolesForParty:
+        sm = getSecurityManager()
+        if not sm.checkPermission('RIC: Administer website', api.user.get_current()):
             self.remove('cotisations')
 
 
@@ -90,13 +90,12 @@ class OrganizationAddFormExtender(extensible.FormExtender):
         self.form = form
 
     def update(self):
-        loggedUser = getSecurityManager().getUser()
-        userRolesForParty = loggedUser.getRoles()
         if not IOrganizationCustom.providedBy(self.context):
             alsoProvides(self.context, IOrganizationCustom)
         self.remove('logo')
         self.remove('activity')
         self.add(z3c.form.field.Fields(IOrganizationCustom))
         self.form.fields['cotisations'].widgetFactory = DataGridFieldFactory
-        if 'Manager' not in userRolesForParty:
+        sm = getSecurityManager()
+        if not sm.checkPermission('RIC: Administer website', api.user.get_current()):
             self.remove('cotisations')

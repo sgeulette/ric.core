@@ -1,10 +1,13 @@
 import z3c.form
 
+from AccessControl import getSecurityManager
 from five import grok
+from plone import api
 from plone.directives import dexterity
 from plone.z3cform.fieldsets import extensible
 from plone.z3cform.fieldsets.interfaces import IFormExtender
 from zope.component import adapts
+from zope import schema
 from zope.interface import Interface
 from zope.interface import alsoProvides
 from zope.interface import implements
@@ -14,7 +17,9 @@ from collective.contact.core.content.person import IPerson
 
 
 class IPersonCustom(Interface):
-    pass
+
+    mailstatus = schema.Bool(title=u"Statut e-mail",
+                             required=True)
 
 
 class PersonEditForm(dexterity.EditForm):
@@ -38,6 +43,9 @@ class PersonEditFormExtender(extensible.FormExtender):
         self.remove('photo')
         self.form.groups[0].fields['IContactDetails.email'].field.required = True
         self.add(z3c.form.field.Fields(IPersonCustom))
+        sm = getSecurityManager()
+        if not sm.checkPermission('RIC: Administer website', api.user.get_current()):
+            self.remove('mailstatus')
 
 
 class PersonAddForm(dexterity.AddForm):
@@ -61,3 +69,6 @@ class PersonAddFormExtender(extensible.FormExtender):
         self.remove('photo')
         self.form.groups[0].fields['IContactDetails.email'].field.required = True
         self.add(z3c.form.field.Fields(IPersonCustom))
+        sm = getSecurityManager()
+        if not sm.checkPermission('RIC: Administer website', api.user.get_current()):
+            self.remove('mailstatus')
