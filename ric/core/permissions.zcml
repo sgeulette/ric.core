@@ -6,4 +6,9 @@
     title="RIC: View warning viewlets"
     />
 
+  <permission
+    id="RIC.Administrator"
+    title="RIC: Administer website"
+    />
+
 </configure>
