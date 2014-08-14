@@ -21,6 +21,12 @@ class IPersonCustom(Interface):
     mailstatus = schema.Bool(title=u"Statut e-mail",
                              required=True)
 
+    multimail = schema.List(title=u"Envoi mail",
+                            required=False,
+                            value_type=schema.Choice(['contact cotisation',
+                                                      'formation']),
+                            )
+
 
 class PersonEditForm(dexterity.EditForm):
     grok.context(IPerson)
