@@ -5,5 +5,9 @@
       <role name="Site Administrator"/>
       <role name="Member"/>
     </permission>
+    <permission name="RIC: Administer website" acquire="True">
+      <role name="Site Administrator"/>
+      <role name="Manager"/>
+    </permission>
   </permissions>
 </rolemap>
