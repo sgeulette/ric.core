@@ -3,6 +3,10 @@
 
   <include file="configure.zcml" />
 
+  <include package="dexterity.membrane" />
+  <include package="Products.membrane" />
+  <include package="collective.contact.membrane" />
+
   <genericsetup:registerProfile
       name="testing"
       title="ric.core: testing"
