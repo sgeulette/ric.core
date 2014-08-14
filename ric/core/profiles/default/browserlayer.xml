@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<layers>
+    <layer name="ric.core" interface="ric.core.interfaces.IRICCoreLayer" />
+</layers>

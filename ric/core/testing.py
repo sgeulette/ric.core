@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from plone.testing import z2
+from plone.app.testing import applyProfile
 from plone.app.testing import FunctionalTesting
 from plone.app.testing import IntegrationTesting
 from plone.app.testing import PloneWithPackageLayer
@@ -14,13 +15,14 @@ class RICCorePloneWithPackageLayer(PloneWithPackageLayer):
     """
 
     def setUpPloneSite(self, portal):
-        pass
+        applyProfile(portal, 'ric.core:testing')
 
 
 RIC_CORE_FIXTURE = RICCorePloneWithPackageLayer(
     name="RIC_CORE_FIXTURE",
     zcml_filename="testing.zcml",
-    zcml_package=ric.core)
+    zcml_package=ric.core,
+    gs_profile_id="ric.core:testing")
 
 RIC_CORE_INTEGRATION_TESTING = IntegrationTesting(
     bases=(RIC_CORE_FIXTURE,),

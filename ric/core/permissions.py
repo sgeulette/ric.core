@@ -1,0 +1,10 @@
+# -*- coding: utf-8 -*-
+
+from AccessControl.SecurityInfo import ModuleSecurityInfo
+from Products.CMFCore.permissions import setDefaultRoles
+
+security = ModuleSecurityInfo('ric.core.permissions')
+
+security.declarePublic('RICViewWarningViewlets')
+RICViewWarningViewlets = 'RIC: View warning viewlets'
+setDefaultRoles(RICViewWarningViewlets, ('Site Administrator', 'Member'))

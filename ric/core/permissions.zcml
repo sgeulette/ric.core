@@ -1,0 +1,9 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope">
+
+  <permission
+    id="RIC.ViewWarningViewlets"
+    title="RIC: View warning viewlets"
+    />
+
+</configure>
