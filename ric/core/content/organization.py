@@ -72,7 +72,7 @@ class OrganizationEditFormExtender(extensible.FormExtender):
         self.add(z3c.form.field.Fields(IOrganizationCustom))
         self.form.fields['cotisations'].widgetFactory = DataGridFieldFactory
         sm = getSecurityManager()
-        if not sm.checkPermission('RIC: Administer website', api.user.get_current()):
+        if not sm.checkPermission('RIC: Administer website', api.portal.get()):
             self.remove('cotisations')
 
 
@@ -97,5 +97,5 @@ class OrganizationAddFormExtender(extensible.FormExtender):
         self.add(z3c.form.field.Fields(IOrganizationCustom))
         self.form.fields['cotisations'].widgetFactory = DataGridFieldFactory
         sm = getSecurityManager()
-        if not sm.checkPermission('RIC: Administer website', api.user.get_current()):
+        if not sm.checkPermission('RIC: Administer website', api.portal.get()):
             self.remove('cotisations')

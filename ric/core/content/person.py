@@ -44,7 +44,7 @@ class PersonEditFormExtender(extensible.FormExtender):
         self.form.groups[0].fields['IContactDetails.email'].field.required = True
         self.add(z3c.form.field.Fields(IPersonCustom))
         sm = getSecurityManager()
-        if not sm.checkPermission('RIC: Administer website', api.user.get_current()):
+        if not sm.checkPermission('RIC: Administer website', api.portal.get()):
             self.remove('mailstatus')
 
 
@@ -70,5 +70,5 @@ class PersonAddFormExtender(extensible.FormExtender):
         self.form.groups[0].fields['IContactDetails.email'].field.required = True
         self.add(z3c.form.field.Fields(IPersonCustom))
         sm = getSecurityManager()
-        if not sm.checkPermission('RIC: Administer website', api.user.get_current()):
+        if not sm.checkPermission('RIC: Administer website', api.portal.get()):
             self.remove('mailstatus')
