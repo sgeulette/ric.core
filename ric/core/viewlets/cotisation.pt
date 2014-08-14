@@ -1,6 +1,7 @@
 <div id="ric-cotisation-viewlet" class="ric-warning"
+     i18n:domain="ric"
      tal:condition="view/available">
 
-    Cette organisation n'a pas de personne désignée comme contact cotisation.
+    <span i18n:translate="">Cette organisation n'a pas de personne designee comme contact cotisation.</span>
 
 </div>

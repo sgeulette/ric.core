@@ -1,4 +1,5 @@
 <div id="ric-profile-viewlet" class="ric-warning"
+     i18n:domain="ric"
      tal:condition="view/available">
 
 </div>
