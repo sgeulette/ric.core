@@ -1,0 +1,4 @@
+<div id="ric-profile-viewlet" class="ric-warning"
+     tal:condition="view/available">
+
+</div>
