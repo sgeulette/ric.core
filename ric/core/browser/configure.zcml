@@ -1,0 +1,23 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser">
+
+  <browser:page
+      for="ric.core.content.organization.IOrganizationCustom"
+      name="is_profile_completed"
+      class=".utils.OrganizationView"
+      attribute="isProfileCompleted"
+      permission="zope.Public"
+      layer="..interfaces.IRICCoreLayer"
+      />
+
+  <browser:page
+      for="ric.core.content.person.IPersonCustom"
+      name="is_profile_completed"
+      class=".utils.PersonView"
+      attribute="isProfileCompleted"
+      permission="zope.Public"
+      layer="..interfaces.IRICCoreLayer"
+      />
+
+</configure>

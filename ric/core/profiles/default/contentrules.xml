@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<contentrules>
+
+    <rule
+        name="non_contributor"
+        title="Non contributor"
+        description=""
+        event="ric.core.mail.interfaces.ISendNonContributor"
+        enabled="True"
+        stop-after="False">
+        <actions>
+            <action type="plone.actions.Mail">
+                <property name="subject">RIC</property>
+                <property name="source"></property>
+                <property name="recipients">${recipients}</property>
+                <property name="exclude_actor">false</property>
+                <property name="message">Mail template</property>
+            </action>
+        </actions>
+    </rule>
+
+    <assignment
+        location="/"
+        name="non_contributor"
+        enabled="True"
+        bubbles="True"
+        />
+
+    <rule
+        name="cotisation_person"
+        title="Cotisation person"
+        description=""
+        event="ric.core.mail.interfaces.ISendCotisationPerson"
+        enabled="True"
+        stop-after="False">
+        <actions>
+            <action type="plone.actions.Mail">
+                <property name="subject">RIC</property>
+                <property name="source"></property>
+                <property name="recipients">${recipients}</property>
+                <property name="exclude_actor">false</property>
+                <property name="message">Mail template</property>
+            </action>
+        </actions>
+    </rule>
+
+    <assignment
+        location="/"
+        name="cotisation_person"
+        enabled="True"
+        bubbles="True"
+        />
+
+    <rule
+        name="organisation_members"
+        title="Organisation members"
+        description=""
+        event="ric.core.mail.interfaces.ISendOrganisationMembers"
+        enabled="True"
+        stop-after="False">
+        <actions>
+            <action type="plone.actions.Mail">
+                <property name="subject">RIC</property>
+                <property name="source"></property>
+                <property name="recipients">${recipients}</property>
+                <property name="exclude_actor">false</property>
+                <property name="message">Mail template</property>
+            </action>
+        </actions>
+    </rule>
+
+    <assignment
+        location="/"
+        name="organisation_members"
+        enabled="True"
+        bubbles="True"
+        />
+
+    <rule
+        name="non_connected_members"
+        title="Non connected members"
+        description=""
+        event="ric.core.mail.interfaces.ISendNonConnectedMembers"
+        enabled="True"
+        stop-after="False">
+        <actions>
+            <action type="plone.actions.Mail">
+                <property name="subject">RIC</property>
+                <property name="source"></property>
+                <property name="recipients">${recipients}</property>
+                <property name="exclude_actor">false</property>
+                <property name="message">Mail template</property>
+            </action>
+        </actions>
+    </rule>
+
+    <assignment
+        location="/"
+        name="non_connected_members"
+        enabled="True"
+        bubbles="True"
+        />
+
+    <rule
+        name="send_mail_field"
+        title="Send mail field"
+        description=""
+        event="ric.core.mail.interfaces.ISendMailField"
+        enabled="True"
+        stop-after="False">
+        <actions>
+            <action type="plone.actions.Mail">
+                <property name="subject">RIC</property>
+                <property name="source"></property>
+                <property name="recipients">${recipients}</property>
+                <property name="exclude_actor">false</property>
+                <property name="message">Mail template</property>
+            </action>
+        </actions>
+    </rule>
+
+    <assignment
+        location="/"
+        name="send_mail_field"
+        enabled="True"
+        bubbles="True"
+        />
+
+</contentrules>
