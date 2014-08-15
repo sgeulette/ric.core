@@ -1,18 +1,26 @@
-<configure xmlns="http://namespaces.zope.org/zope"
-           xmlns:grok="http://namespaces.zope.org/grok">
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:grok="http://namespaces.zope.org/grok">
 
-  <include package="collective.contact.core" />
+    <include package="collective.contact.core" />
+    <include package="plone.behavior" file="meta.zcml" />
 
-  <grok:grok package=".organization" />
-  <grok:grok package=".person" />
+    <grok:grok package=".behaviors" />
 
-  <adapter factory=".organization.OrganizationExtenderFactory"
-           provides=".organization.IOrganizationCustom" />
+    <plone:behavior
+        title="RIC fields for Person"
+        description="RIC specific fields for Person"
+        provides=".behaviors.IPersonCustom"
+        />
 
-  <adapter factory=".person.PersonExtenderFactory"
-           provides=".person.IPersonCustom" />
+    <plone:behavior
+        title="RIC fields for Organization"
+        description="RIC specific fields for Organization"
+        provides=".behaviors.IOrganizationCustom"
+        />
 
-  <adapter factory=".extender.ContactFormExtender"
-           provides="plone.z3cform.fieldsets.interfaces.IFormExtender" />
+    <adapter factory=".extender.ContactFormExtender"
+             provides="plone.z3cform.fieldsets.interfaces.IFormExtender" />
 
 </configure>
