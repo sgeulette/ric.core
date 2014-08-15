@@ -10,7 +10,7 @@ from collective.z3cform.datagridfield import DataGridField, DictRow
 from ric.core import RICMessageFactory as _
 
 
-class IPersonCustom(model.Schema):
+class IRICPerson(model.Schema):
 
     form.read_permission(mailstatus='RIC: Administer website')
     form.write_permission(mailstatus='RIC: Administer website')
@@ -24,7 +24,7 @@ class IPersonCustom(model.Schema):
                                                       'formation']),
                             )
 
-alsoProvides(IPersonCustom, IFormFieldProvider)
+alsoProvides(IRICPerson, IFormFieldProvider)
 
 
 class ICotisationRow(model.Schema):
@@ -35,7 +35,7 @@ class ICotisationRow(model.Schema):
                             required=True)
 
 
-class IOrganizationCustom(model.Schema):
+class IRICOrganization(model.Schema):
 
     form.read_permission(cotisations='RIC: Administer website')
     form.write_permission(cotisations='RIC: Administer website')
@@ -64,4 +64,4 @@ class IOrganizationCustom(model.Schema):
     )
 
 
-alsoProvides(IOrganizationCustom, IFormFieldProvider)
+alsoProvides(IRICOrganization, IFormFieldProvider)

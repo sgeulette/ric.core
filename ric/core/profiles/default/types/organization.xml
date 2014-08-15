@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<object name="organization">
+ <property name="allowed_content_types">
+  <element value="person"/>
+  <element value="position"/>
+  <element value="organization"/>
+ </property>
+ <property name="behaviors">
+  <element value="plone.app.dexterity.behaviors.metadata.IBasic" />
+  <element value="plone.app.content.interfaces.INameFromTitle" />
+  <element value="collective.contact.core.behaviors.IContactDetails" />
+  <element value="ric.core.content.behaviors.IRICOrganization" />
+ </property>
+</object>

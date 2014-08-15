@@ -22,7 +22,7 @@ Test example
     Click Button  Rename All
     Go to  ${PLONE_URL}/annuaire/createObject?type_name=organization
     Input text  name=form.widgets.IBasic.title  Organization
-    Input text  name=form.widgets.habitants  100
-    Input text  name=form.widgets.serveurs  Linux
-    Input text  name=form.widgets.logiciels  Firefox
+    Input text  name=form.widgets.IRICOrganization.habitants  100
+    Input text  name=form.widgets.IRICOrganization.serveurs  Linux
+    Input text  name=form.widgets.IRICOrganization.logiciels  Firefox
     Click Button  Save

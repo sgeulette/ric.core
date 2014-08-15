@@ -11,13 +11,13 @@
     <plone:behavior
         title="RIC fields for Person"
         description="RIC specific fields for Person"
-        provides=".behaviors.IPersonCustom"
+        provides=".behaviors.IRICPerson"
         />
 
     <plone:behavior
         title="RIC fields for Organization"
         description="RIC specific fields for Organization"
-        provides=".behaviors.IOrganizationCustom"
+        provides=".behaviors.IRICOrganization"
         />
 
     <adapter factory=".extender.ContactFormExtender"
