@@ -28,9 +28,7 @@ class OrganizationView(UtilsView):
     """
     importantFields = ['title',
                        'description',
-                       'activity',
                        'organization_type',
-                       'logo',
                        'phone',
                        'cell_phone',
                        'fax',
@@ -51,9 +49,6 @@ class PersonView(UtilsView):
     """
     importantFields = ['lastname',
                        'firstname',
-                       'gender',
-                       'person_title',
-                       'photo',
                        'birthday',
                        'phone',
                        'cell_phone',
