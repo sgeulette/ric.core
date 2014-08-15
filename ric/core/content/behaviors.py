@@ -29,34 +29,35 @@ alsoProvides(IRICPerson, IFormFieldProvider)
 
 class ICotisationRow(model.Schema):
 
-    annee = schema.TextLine(title=_(u"Année"),
-                            required=True)
-    versement = schema.Bool(title=_(u"Versement"),
-                            required=True)
+    year = schema.TextLine(title=_(u"Année"),
+                           required=True)
+
+    payment = schema.Bool(title=_(u"Versement"),
+                          required=True)
 
 
 class IRICOrganization(model.Schema):
 
-    form.read_permission(cotisations='RIC: Administer website')
-    form.write_permission(cotisations='RIC: Administer website')
-    form.widget('cotisations', DataGridField)
+    form.read_permission(subscriptions='RIC: Administer website')
+    form.write_permission(subscriptions='RIC: Administer website')
+    form.widget('subscriptions', DataGridField)
 
-    habitants = schema.TextLine(
+    citizen = schema.TextLine(
         title=_(u"Nombre d'habitants"),
         required=True
     )
 
-    serveurs = schema.TextLine(
+    servers = schema.TextLine(
         title=_(u"Serveurs"),
         required=True
     )
 
-    logiciels = schema.TextLine(
+    softwares = schema.TextLine(
         title=_(u"Logiciels"),
         required=True
     )
 
-    cotisations = schema.List(
+    subscriptions = schema.List(
         title=_(u"Cotisations"),
         value_type=DictRow(title=_(u"Cotisation"),
                            schema=ICotisationRow),

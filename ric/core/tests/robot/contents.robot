@@ -21,8 +21,8 @@ Test example
     Input text  name=new_ids:list  annuaire
     Click Button  Rename All
     Go to  ${PLONE_URL}/annuaire/createObject?type_name=organization
-    Input text  name=form.widgets.IBasic.title  Organization
-    Input text  name=form.widgets.IRICOrganization.habitants  100
-    Input text  name=form.widgets.IRICOrganization.serveurs  Linux
-    Input text  name=form.widgets.IRICOrganization.logiciels  Firefox
+    Input text  name=form.widgets.IBasic.title  Organisation
+    Input text  name=form.widgets.IRICOrganization.citizen  100
+    Input text  name=form.widgets.IRICOrganization.servers  Linux
+    Input text  name=form.widgets.IRICOrganization.softwares  Firefox
     Click Button  Save

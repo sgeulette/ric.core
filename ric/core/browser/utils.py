@@ -39,9 +39,9 @@ class OrganizationView(UtilsView):
                        'zip_code',
                        'city',
                        'region',
-                       'habitants',
-                       'serveurs',
-                       'logiciels']
+                       'citizen',
+                       'servers',
+                       'softwares']
 
 
 class PersonView(UtilsView):
