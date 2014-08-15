@@ -5,10 +5,7 @@
   <element value="position"/>
   <element value="organization"/>
  </property>
- <property name="behaviors">
-  <element value="plone.app.dexterity.behaviors.metadata.IBasic" />
-  <element value="plone.app.content.interfaces.INameFromTitle" />
-  <element value="collective.contact.core.behaviors.IContactDetails" />
+ <property name="behaviors" purge="False">
   <element value="ric.core.content.behaviors.IRICOrganization" />
  </property>
 </object>
