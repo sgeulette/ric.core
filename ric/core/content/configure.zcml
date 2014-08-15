@@ -6,13 +6,13 @@
   <grok:grok package=".organization" />
   <grok:grok package=".person" />
 
-  <adapter factory=".organization.OrganizationEditFormExtender"
-           provides="plone.z3cform.fieldsets.interfaces.IFormExtender" />
-  <adapter factory=".organization.OrganizationAddFormExtender"
-           provides="plone.z3cform.fieldsets.interfaces.IFormExtender" />
-  <adapter factory=".person.PersonEditFormExtender"
-           provides="plone.z3cform.fieldsets.interfaces.IFormExtender" />
-  <adapter factory=".person.PersonAddFormExtender"
+  <adapter factory=".organization.OrganizationExtenderFactory"
+           provides=".organization.IOrganizationCustom" />
+
+  <adapter factory=".person.PersonExtenderFactory"
+           provides=".person.IPersonCustom" />
+
+  <adapter factory=".extender.ContactFormExtender"
            provides="plone.z3cform.fieldsets.interfaces.IFormExtender" />
 
 </configure>

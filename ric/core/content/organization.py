@@ -1,22 +1,13 @@
 # encoding: utf-8
-import z3c.form
 
-from AccessControl import getSecurityManager
-from five import grok
-from plone import api
-from plone.directives import dexterity
+from persistent import Persistent
 from plone.directives import form
-from plone.z3cform.fieldsets import extensible
-from plone.z3cform.fieldsets.interfaces import IFormExtender
 from zope import schema
+from zope.annotation import factory
 from zope.component import adapts
-from zope.interface import Interface
-from zope.interface import alsoProvides
 from zope.interface import implements
-from zope.publisher.interfaces.browser import IDefaultBrowserLayer
-
-from collective.contact.core.content.organization import IOrganization
-from collective.z3cform.datagridfield import DataGridFieldFactory, DictRow
+from collective.z3cform.datagridfield import DictRow
+from collective.contact.core.content.organization import Organization
 
 
 class ICotisationRow(form.Schema):
@@ -51,51 +42,13 @@ class IOrganizationCustom(form.Schema):
     )
 
 
-class OrganizationEditForm(dexterity.EditForm):
-    grok.context(IOrganization)
+class OrganizationExtenderFields(Persistent):
+    implements(IOrganizationCustom)
+    adapts(Organization)
+    habitants = u""
+    serveurs = u""
+    logiciels = u""
+    cotisations = []
 
 
-class OrganizationEditFormExtender(extensible.FormExtender):
-    implements(IFormExtender)
-    adapts(Interface, IDefaultBrowserLayer, OrganizationEditForm)
-
-    def __init__(self, context, request, form):
-        self.context = context
-        self.request = request
-        self.form = form
-
-    def update(self):
-        if not IOrganizationCustom.providedBy(self.context):
-            alsoProvides(self.context, IOrganizationCustom)
-        self.remove('logo')
-        self.remove('activity')
-        self.add(z3c.form.field.Fields(IOrganizationCustom))
-        self.form.fields['cotisations'].widgetFactory = DataGridFieldFactory
-        sm = getSecurityManager()
-        if not sm.checkPermission('RIC: Administer website', api.portal.get()):
-            self.remove('cotisations')
-
-
-class OrganizationAddForm(dexterity.AddForm):
-    grok.name('organization')
-
-
-class OrganizationAddFormExtender(extensible.FormExtender):
-    implements(IFormExtender)
-    adapts(Interface, IDefaultBrowserLayer, OrganizationAddForm)
-
-    def __init__(self, context, request, form):
-        self.context = context
-        self.request = request
-        self.form = form
-
-    def update(self):
-        if not IOrganizationCustom.providedBy(self.context):
-            alsoProvides(self.context, IOrganizationCustom)
-        self.remove('logo')
-        self.remove('activity')
-        self.add(z3c.form.field.Fields(IOrganizationCustom))
-        self.form.fields['cotisations'].widgetFactory = DataGridFieldFactory
-        sm = getSecurityManager()
-        if not sm.checkPermission('RIC: Administer website', api.portal.get()):
-            self.remove('cotisations')
+OrganizationExtenderFactory = factory(OrganizationExtenderFields)
