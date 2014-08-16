@@ -18,6 +18,14 @@
         layer="..interfaces.IRICCoreLayer"
         />
 
+    <browser:viewlet
+        name="ric.viewlet.email"
+        manager="plone.app.layout.viewlets.interfaces.IPortalTop"
+        class=".viewlets.EmailViewlet"
+        permission="RIC.ViewWarningViewlets"
+        layer="..interfaces.IRICCoreLayer"
+        />
+
     <browser:resource
         file="viewlets.css"
         name="ric.core.viewlets.css"
