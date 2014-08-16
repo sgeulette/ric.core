@@ -19,17 +19,18 @@ class CotisationViewlet(RICViewletBase):
     def available(self):
         organization = getMultiAdapter((self.context, self.request),
                                        name="get_organization_for_user")()
+        if not organization:
+            return False
+        catalog = api.portal.get_tool('portal_catalog')
+        persons = catalog.searchResults(portal_type="person",
+                                        path={'query': '/'.join(organization.getPhysicalPath()),
+                                              'depth': 1})
         contactCotisation = False
-        if organization:
-            catalog = api.portal.get_tool('portal_catalog')
-            persons = catalog.searchResults(portal_type="person",
-                                            path={'query': '/'.join(organization.getPhysicalPath()),
-                                                  'depth': 1})
-            for person in persons:
-                personObj = person.getObject()
-                if 'contact cotisation' in personObj.multimail:
-                    contactCotisation = True
-                    break
+        for person in persons:
+            personObj = person.getObject()
+            if 'contact cotisation' in personObj.multimail:
+                contactCotisation = True
+                break
         if not contactCotisation:
             self.organizationlink = organization.absolute_url()
             return True
