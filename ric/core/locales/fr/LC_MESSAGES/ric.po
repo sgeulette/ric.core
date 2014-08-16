@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.1\n"
-"POT-Creation-Date: 2014-08-14 12:49+0000\n"
+"POT-Creation-Date: 2014-08-16 13:40+0000\n"
 "PO-Revision-Date: 2014-08-14 14:30+0000\n"
 "Last-Translator: support@lists.affinitic.be\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,3 +15,56 @@ msgstr ""
 "Domain: ric\n"
 "Language: \n"
 "X-Is-Fallback-For: fr-be fr-ca fr-lu fr-mc fr-ch fr-fr\n"
+
+#: ric/core/content/behaviors.py:32
+msgid "Année"
+msgstr ""
+
+#: ric/core/viewlets/cotisation.pt:5
+msgid "Cette organisation n'a pas de personne design&eacute;e comme contact cotisation."
+msgstr ""
+
+#: ric/core/viewlets/email.pt:7
+msgid "Cliquez ici pour la modifier."
+msgstr ""
+
+#: ric/core/content/behaviors.py:62
+msgid "Cotisation"
+msgstr ""
+
+#: ric/core/content/behaviors.py:61
+msgid "Cotisations"
+msgstr ""
+
+#: ric/core/content/behaviors.py:18
+msgid "E-mail invalide"
+msgstr ""
+
+#: ric/core/content/behaviors.py:21
+msgid "Envoi mail"
+msgstr ""
+
+#: ric/core/profiles/default/actions.xml
+msgid "Exporter les organisations et personnes"
+msgstr ""
+
+#: ric/core/viewlets/email.pt:5
+msgid "L'adresse email renseign&eacute;e dans votre description n'est pas valide."
+msgstr ""
+
+#: ric/core/content/behaviors.py:56
+msgid "Logiciels"
+msgstr ""
+
+#: ric/core/content/behaviors.py:46
+msgid "Nombre d'habitants"
+msgstr ""
+
+#: ric/core/content/behaviors.py:51
+msgid "Serveurs"
+msgstr ""
+
+#: ric/core/content/behaviors.py:35
+msgid "Versement"
+msgstr ""
+

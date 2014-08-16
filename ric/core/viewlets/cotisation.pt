@@ -2,6 +2,6 @@
      i18n:domain="ric"
      tal:condition="view/available">
 
-    <span i18n:translate="">Cette organisation n'a pas de personne designee comme contact cotisation.</span>
+    <span i18n:translate="">Cette organisation n'a pas de personne design&eacute;e comme contact cotisation.</span>
 
 </div>
