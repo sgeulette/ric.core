@@ -38,4 +38,10 @@
       layer="..interfaces.IRICCoreLayer"
       />
 
+  <browser:resource
+      file="views.css"
+      name="ric.core.views.css"
+      layer="..interfaces.IRICCoreLayer"
+      />
+
 </configure>

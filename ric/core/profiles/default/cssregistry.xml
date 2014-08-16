@@ -8,4 +8,11 @@
     enabled="1" expression="not: portal/portal_membership/isAnonymousUser"
     insert-before="ploneCustom.css" />
 
+ <stylesheet title="RIC views styles"
+    id="++resource++ric.core.views.css"
+    media="screen" rel="stylesheet" rendering="import"
+    cacheable="True" compression="safe" cookable="True"
+    enabled="1" expression=""
+    insert-before="ploneCustom.css" />
+
 </object>
