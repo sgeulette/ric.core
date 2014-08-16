@@ -23,4 +23,13 @@
     <adapter factory=".extender.ContactFormExtender"
              provides="plone.z3cform.fieldsets.interfaces.IFormExtender" />
 
+    <subscriber for="plone.dexterity.events.EditBegunEvent"
+                handler=".events.edit_begun" />
+
+    <subscriber for="plone.dexterity.events.EditCancelledEvent"
+                handler=".events.edit_canceled" />
+
+    <subscriber for="plone.dexterity.events.EditFinishedEvent"
+                handler=".events.edit_modified" />
+
 </configure>
