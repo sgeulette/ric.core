@@ -3,7 +3,10 @@
      tal:condition="view/available">
 
      <tal:if tal:condition="view/personlink">
-         <span i18n:translate="">Votre description comprend plus de 15% de donn&eacute;es non remplies.</span>
+         <span i18n:translate=""
+               tal:condition="view/isManager">La description de ce profil comprend plus de 15% de donn&eacute;es non remplies.</span>
+         <span i18n:translate=""
+               tal:condition="not: view/isManager">Votre description comprend plus de 15% de donn&eacute;es non remplies.</span>
          <br />
          <a href=""
             tal:attributes="href string:${view/personlink}/edit"
@@ -13,7 +16,10 @@
 
 
      <tal:if tal:condition="view/organizationlink">
-         <span i18n:translate="">La description de votre organisation comprend plus de 15% de donn&eacute;es non remplies.</span>
+         <span i18n:translate=""
+               tal:condition="view/isManager">La description de cette organisation comprend plus de 15% de donn&eacute;es non remplies.</span>
+         <span i18n:translate=""
+               tal:condition="not: view/isManager">La description de votre organisation comprend plus de 15% de donn&eacute;es non remplies.</span>
          <br />
          <a href=""
             tal:attributes="href string:${view/organizationlink}/edit"

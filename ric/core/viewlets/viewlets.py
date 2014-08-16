@@ -1,3 +1,4 @@
+from AccessControl import getSecurityManager
 from plone import api
 from zope.component import getMultiAdapter
 from plone.app.layout.viewlets.common import ViewletBase
@@ -5,18 +6,27 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 
 class RICViewletBase(ViewletBase):
-    """
-    """
 
-    def available():
-        pass
+    def viewletsToShowTomanager(self):
+        context = self.context
+        if context.portal_type not in ['organization', 'person']:
+            return None
+        sm = getSecurityManager()
+        if sm.checkPermission('RIC: Administer website', context):
+            return context.portal_type
+        return None
 
 
 class CotisationViewlet(RICViewletBase):
     render = ViewPageTemplateFile('cotisation.pt')
     organizationlink = ""
+    isManager = False
 
     def available(self):
+        if self.viewletsToShowTomanager() == 'organization':
+            self.organizationlink = self.context.absolute_url()
+            self.isManager = True
+            return True
         organization = getMultiAdapter((self.context, self.request),
                                        name="get_organization_for_user")()
         if not organization:
@@ -41,8 +51,17 @@ class ProfileViewlet(RICViewletBase):
     render = ViewPageTemplateFile('profile.pt')
     personlink = ""
     organizationlink = ""
+    isManager = False
 
     def available(self):
+        if self.viewletsToShowTomanager() == 'organization':
+            self.organizationlink = self.context.absolute_url()
+            self.isManager = True
+            return True
+        elif self.viewletsToShowTomanager() == 'person':
+            self.personlink = self.context.absolute_url()
+            self.isManager = True
+            return True
         person = getMultiAdapter((self.context, self.request),
                                  name="get_person_for_user")()
         if person:
