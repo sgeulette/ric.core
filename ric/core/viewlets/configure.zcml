@@ -3,6 +3,14 @@
     xmlns:browser="http://namespaces.zope.org/browser">
 
     <browser:viewlet
+        name="ric.viewlet.email"
+        manager="plone.app.layout.viewlets.interfaces.IPortalTop"
+        class=".viewlets.EmailViewlet"
+        permission="RIC.ViewWarningViewlets"
+        layer="..interfaces.IRICCoreLayer"
+        />
+
+    <browser:viewlet
         name="ric.viewlet.cotisation"
         manager="plone.app.layout.viewlets.interfaces.IPortalTop"
         class=".viewlets.CotisationViewlet"
@@ -14,14 +22,6 @@
         name="ric.viewlet.profile"
         manager="plone.app.layout.viewlets.interfaces.IPortalTop"
         class=".viewlets.ProfileViewlet"
-        permission="RIC.ViewWarningViewlets"
-        layer="..interfaces.IRICCoreLayer"
-        />
-
-    <browser:viewlet
-        name="ric.viewlet.email"
-        manager="plone.app.layout.viewlets.interfaces.IPortalTop"
-        class=".viewlets.EmailViewlet"
         permission="RIC.ViewWarningViewlets"
         layer="..interfaces.IRICCoreLayer"
         />
