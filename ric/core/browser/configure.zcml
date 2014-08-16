@@ -20,4 +20,22 @@
       layer="..interfaces.IRICCoreLayer"
       />
 
+  <browser:page
+      for="*"
+      name="get_person_for_user"
+      class=".utils.PersonView"
+      attribute="getPersonForUser"
+      permission="zope.Public"
+      layer="..interfaces.IRICCoreLayer"
+      />
+
+  <browser:page
+      for="*"
+      name="get_organization_for_user"
+      class=".utils.PersonView"
+      attribute="getOrganizationForUser"
+      permission="zope.Public"
+      layer="..interfaces.IRICCoreLayer"
+      />
+
 </configure>

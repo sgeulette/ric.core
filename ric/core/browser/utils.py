@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from Acquisition import aq_parent
+from plone import api
 from Products.Five.browser import BrowserView
 
 
@@ -21,6 +23,28 @@ class UtilsView(BrowserView):
                 completedFields += 1
         completion = float(completedFields) / len(self.importantFields)
         return completion > 0.85
+
+    def getPersonForUser(self):
+        """
+        Returns Person object associated to logged in user (if any)
+        """
+        userName = api.user.get_current().getUserName()
+        membrane = api.portal.get_tool('membrane_tool')
+        membraneInfos = membrane.searchResults(id=userName)
+        if membraneInfos:
+            return membraneInfos[0].getObject()
+
+    def getOrganizationForUser(self):
+        """
+        Returns Organization object associated to Person of logged in user
+        (if any)
+        """
+        person = self.getPersonForUser()
+        if not person:
+            return
+        parent = aq_parent(person)
+        if parent.portal_type == 'organization':
+            return parent
 
 
 class OrganizationView(UtilsView):
