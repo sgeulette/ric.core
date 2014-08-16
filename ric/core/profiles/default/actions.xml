@@ -10,7 +10,7 @@
    <property name="icon_expr"></property>
    <property name="available_expr">python:member is not None</property>
    <property name="permissions">
-      <permission>RIC: Administer website</permission>
+      <element value="RIC: Administer website"/>
    </property>
    <property name="visible">True</property>
   </object>
