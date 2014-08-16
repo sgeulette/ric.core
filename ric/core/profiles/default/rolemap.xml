@@ -2,8 +2,9 @@
 <rolemap>
   <permissions>
     <permission name="RIC: View warning viewlets" acquire="True">
+      <role name="Authenticated"/>
       <role name="Site Administrator"/>
-      <role name="Member"/>
+      <role name="Manager"/>
     </permission>
     <permission name="RIC: Administer website" acquire="True">
       <role name="Site Administrator"/>

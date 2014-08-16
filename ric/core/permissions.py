@@ -7,7 +7,7 @@ security = ModuleSecurityInfo('ric.core.permissions')
 
 security.declarePublic('RICViewWarningViewlets')
 RICViewWarningViewlets = 'RIC: View warning viewlets'
-setDefaultRoles(RICViewWarningViewlets, ('Member', 'Site Administrator', 'Manager'))
+setDefaultRoles(RICViewWarningViewlets, ('Authenticated', 'Site Administrator', 'Manager'))
 
 security.declarePublic('RICAdministrator')
 RICAdministrator = 'RIC: Administer website'
