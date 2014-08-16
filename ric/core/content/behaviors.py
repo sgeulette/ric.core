@@ -12,10 +12,10 @@ from ric.core import RICMessageFactory as _
 
 class IRICPerson(model.Schema):
 
-    form.read_permission(mailstatus='RIC: Administer website')
-    form.write_permission(mailstatus='RIC: Administer website')
+    form.read_permission(invalidmail='RIC: Administer website')
+    form.write_permission(invalidmail='RIC: Administer website')
 
-    mailstatus = schema.Bool(title=_(u"Statut e-mail"),
+    invalidmail = schema.Bool(title=_(u"E-mail invalide"),
                              required=True)
 
     multimail = schema.List(title=_(u"Envoi mail"),
