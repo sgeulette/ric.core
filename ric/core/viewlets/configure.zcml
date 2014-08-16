@@ -18,4 +18,10 @@
         layer="..interfaces.IRICCoreLayer"
         />
 
+    <browser:resource
+        file="viewlets.css"
+        name="ric.core.viewlets.css"
+        layer="..interfaces.IRICCoreLayer"
+        />
+
 </configure>

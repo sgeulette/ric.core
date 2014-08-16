@@ -1,0 +1,11 @@
+div.ric-error {
+    background-color: #D95757;
+	background: -moz-linear-gradient(center top , #D87777 1%, #D95757 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 1px solid #B72224;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px rgba(50, 50, 50, 0.7);
+	max-width: 80%;
+    padding: 6px 24px;
+	color: #FFFFFF;
+	margin: 25px auto;
+}
