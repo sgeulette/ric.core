@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.1\n"
-"POT-Creation-Date: 2014-08-16 14:39+0000\n"
+"POT-Creation-Date: 2014-08-16 22:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,16 +20,24 @@ msgstr ""
 msgid "Année"
 msgstr ""
 
-#: ric/core/viewlets/cotisation.pt:7
+#: ric/core/viewlets/cotisation.pt:5
+msgid "Cette organisation ne comprend aucun contact de cotisation"
+msgstr ""
+
+#: ric/core/viewlets/cotisation.pt:10
 msgid "Cliquez ici pour en ajouter un."
 msgstr ""
 
-#: ric/core/viewlets/profile.pt:8
+#: ric/core/viewlets/profile.pt:11
 msgid "Cliquez ici pour la compl&eacute;ter."
 msgstr ""
 
 #: ric/core/viewlets/email.pt:7
 msgid "Cliquez ici pour la modifier."
+msgstr ""
+
+#: ric/core/content/behaviors.py:23
+msgid "Contact cotisation"
 msgstr ""
 
 #: ric/core/content/behaviors.py:62
@@ -52,11 +60,23 @@ msgstr ""
 msgid "Exporter les organisations et personnes"
 msgstr ""
 
+#: ric/core/content/behaviors.py:24
+msgid "Formation"
+msgstr ""
+
 #: ric/core/viewlets/email.pt:5
 msgid "L'adresse email renseign&eacute;e dans votre description n'est pas valide."
 msgstr ""
 
-#: ric/core/viewlets/profile.pt:16
+#: ric/core/viewlets/profile.pt:6
+msgid "La description de ce profil comprend plus de 15% de donn&eacute;es non remplies."
+msgstr ""
+
+#: ric/core/viewlets/profile.pt:19
+msgid "La description de cette organisation comprend plus de 15% de donn&eacute;es non remplies."
+msgstr ""
+
+#: ric/core/viewlets/profile.pt:21
 msgid "La description de votre organisation comprend plus de 15% de donn&eacute;es non remplies."
 msgstr ""
 
@@ -76,11 +96,11 @@ msgstr ""
 msgid "Versement"
 msgstr ""
 
-#: ric/core/viewlets/profile.pt:6
+#: ric/core/viewlets/profile.pt:8
 msgid "Votre description comprend plus de 15% de donn&eacute;es non remplies."
 msgstr ""
 
-#: ric/core/viewlets/cotisation.pt:5
+#: ric/core/viewlets/cotisation.pt:7
 msgid "Votre organisation ne comprend aucun contact de cotisation"
 msgstr ""
 

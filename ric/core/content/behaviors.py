@@ -20,8 +20,8 @@ class IRICPerson(model.Schema):
 
     multimail = schema.List(title=_(u"Envoi mail"),
                             required=False,
-                            value_type=schema.Choice(['contact cotisation',
-                                                      'formation']),
+                            value_type=schema.Choice([_("Contact cotisation"),
+                                                      _("Formation")]),
                             )
 
 alsoProvides(IRICPerson, IFormFieldProvider)
