@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.1\n"
-"POT-Creation-Date: 2014-08-16 13:40+0000\n"
+"POT-Creation-Date: 2014-08-16 14:39+0000\n"
 "PO-Revision-Date: 2014-08-14 14:30+0000\n"
 "Last-Translator: support@lists.affinitic.be\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,8 +20,12 @@ msgstr ""
 msgid "Année"
 msgstr ""
 
-#: ric/core/viewlets/cotisation.pt:5
-msgid "Cette organisation n'a pas de personne design&eacute;e comme contact cotisation."
+#: ric/core/viewlets/cotisation.pt:7
+msgid "Cliquez ici pour en ajouter un."
+msgstr ""
+
+#: ric/core/viewlets/profile.pt:8
+msgid "Cliquez ici pour la compl&eacute;ter."
 msgstr ""
 
 #: ric/core/viewlets/email.pt:7
@@ -52,6 +56,10 @@ msgstr ""
 msgid "L'adresse email renseign&eacute;e dans votre description n'est pas valide."
 msgstr ""
 
+#: ric/core/viewlets/profile.pt:16
+msgid "La description de votre organisation comprend plus de 15% de donn&eacute;es non remplies."
+msgstr ""
+
 #: ric/core/content/behaviors.py:56
 msgid "Logiciels"
 msgstr ""
@@ -66,5 +74,13 @@ msgstr ""
 
 #: ric/core/content/behaviors.py:35
 msgid "Versement"
+msgstr ""
+
+#: ric/core/viewlets/profile.pt:6
+msgid "Votre description comprend plus de 15% de donn&eacute;es non remplies."
+msgstr ""
+
+#: ric/core/viewlets/cotisation.pt:5
+msgid "Votre organisation ne comprend aucun contact de cotisation"
 msgstr ""
 
