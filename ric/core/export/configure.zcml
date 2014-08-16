@@ -1,0 +1,36 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope">
+
+    <!-- person -->
+
+    <adapter factory=".export.PersonExportablesFactory"
+             provides="collective.excelexport.interfaces.IExportableFactory"
+             name="person" />
+
+    <adapter factory=".export.RelatedOrganizationRenderer"
+             provides="ric.core.export.interfaces.IExtendedPersonExportable"
+             name="relatedOrganization" />
+
+    <adapter factory=".export.PathRenderer"
+             provides="ric.core.export.interfaces.IExtendedPersonExportable"
+             name="path" />
+
+
+    <!-- organization -->
+
+    <adapter factory=".export.OrganizationExportablesFactory"
+             provides="collective.excelexport.interfaces.IExportableFactory"
+             name="organization" />
+
+    <adapter factory=".export.PathRenderer"
+             provides="ric.core.export.interfaces.IExtendedOrganizationExportable"
+             name="path" />
+
+
+    <!-- data source -->
+
+    <adapter factory=".datasource.RICContentsDataSource"
+             provides="collective.excelexport.interfaces.IDataSource"
+             name="ric.export" />
+
+</configure>
