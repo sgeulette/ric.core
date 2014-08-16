@@ -7,5 +7,17 @@ div.ric-error {
 	max-width: 80%;
     padding: 6px 24px;
 	color: #FFFFFF;
-	margin: 25px auto;
+	margin: 15px auto;
+}
+
+div.ric-warning {
+    background-color: #f1da36;
+	background: -moz-linear-gradient(center top , #fefcea 1%, #f1da36 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 1px solid #f1da36;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px rgba(50, 50, 50, 0.7);
+	max-width: 80%;
+    padding: 6px 24px;
+	color: #919191;
+	margin: 15px auto;
 }

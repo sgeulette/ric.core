@@ -2,6 +2,10 @@
      i18n:domain="ric"
      tal:condition="view/available">
 
-    <span i18n:translate="">Cette organisation n'a pas de personne design&eacute;e comme contact cotisation.</span>
+     <span i18n:translate="">Votre organisation ne comprend aucun contact de cotisation</span>
+     <br />
+     <a href=""
+        tal:attributes="href view/organizationlink"
+        i18n:translate="">Cliquez ici pour en ajouter un.</a>
 
 </div>

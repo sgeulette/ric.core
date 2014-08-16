@@ -2,4 +2,22 @@
      i18n:domain="ric"
      tal:condition="view/available">
 
+     <tal:if tal:condition="view/personlink">
+         <span i18n:translate="">Votre description comprend plus de 15% de donn&eacute;es non remplies.</span>
+         <br />
+         <a href=""
+            tal:attributes="href string:${view/personlink}/edit"
+            i18n:translate="">Cliquez ici pour la compl&eacute;ter.</a>
+         <br />
+     </tal:if>
+
+
+     <tal:if tal:condition="view/organizationlink">
+         <span i18n:translate="">La description de votre organisation comprend plus de 15% de donn&eacute;es non remplies.</span>
+         <br />
+         <a href=""
+            tal:attributes="href string:${view/organizationlink}/edit"
+            i18n:translate="">Cliquez ici pour la compl&eacute;ter.</a>
+     </tal:if>
+
 </div>
