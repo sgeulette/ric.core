@@ -32,7 +32,10 @@ class UtilsView(BrowserView):
         membrane = api.portal.get_tool('membrane_tool')
         membraneInfos = membrane.searchResults(id=userName)
         if membraneInfos:
-            return membraneInfos[0].getObject()
+            person = membraneInfos[0].getObject()
+            if person.portal_type == 'person':
+                # Temporary check because of membrane returning organization
+                return person
 
     def getOrganizationForUser(self):
         """
