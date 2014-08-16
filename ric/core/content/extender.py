@@ -29,9 +29,16 @@ class ContactFormExtender(extensible.FormExtender):
         if self.form.portal_type == 'organization':
             self.remove('logo')
             self.remove('activity')
+            self.remove('IContactDetails.im_handle')
+            self.remove('IContactDetails.country')
+            contactFields = self.form.groups[0].fields
+            contactFields['IContactDetails.email'].field.required = True
 
         elif self.form.portal_type == 'person':
             self.remove('gender')
             self.remove('person_title')
             self.remove('photo')
-            self.form.groups[0].fields['IContactDetails.email'].field.required = True
+            self.remove('IContactDetails.im_handle')
+            self.remove('IContactDetails.country')
+            contactFields = self.form.groups[0].fields
+            contactFields['IContactDetails.email'].field.required = True
