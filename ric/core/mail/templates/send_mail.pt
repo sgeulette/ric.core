@@ -11,10 +11,6 @@
 <div metal:fill-slot="main">
   <H1>Envoi d'e-mail</H1>
 
-  <span tal:define="result view/send_mail">
-    <h2 tal:content="result" />
-  </span>
-
   <form method="post">
     <fieldset>
       <legend>Non-cotisants une année spécifiée</legend>

@@ -6,14 +6,7 @@
     <include file="events.zcml" />
 
     <grok:grok package=".events"/>
-
-    <browser:page
-      for="*"
-      name="send_mail"
-      permission="cmf.ManagePortal"
-      class=".send_mail.SendMail"
-      template="send_mail.pt"
-      />
+    <grok:grok package=".send_mail" />
 
     <adapter
         for="Products.CMFCore.interfaces.IDublinCore"

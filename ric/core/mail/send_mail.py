@@ -1,23 +1,39 @@
 # -*- coding: utf-8 -*-
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
+from plone.api.portal import show_message
 
+from five import grok
+from zope.interface import Interface
 from Products.CMFCore.utils import getToolByName
-from Products.Five.browser import BrowserView
 from ric.core.mail import events
 from zope.event import notify
+from ric.core import RICMessageFactory as _
 
 
-class SendMail(BrowserView):
+grok.templatedir('templates')
+grok.context(Interface)
 
-    def send_mail(self):
-        """
-        Fire the event to send mails
-        """
+
+class SendMail(grok.View):
+    grok.name('send_mail')
+    grok.require('cmf.ManagePortal')
+    grok.template('send_mail')
+
+    def update(self):
         filter = self.request.get('filter') or None
         if not filter:
             return
 
+        recipients = self.send_mail(filter)
+        message = _(u"E-mail envoyé à")
+        message = '%s: %s' % (message, ', '.join(recipients))
+        show_message(message, self.request, type='info')
+
+    def send_mail(self, filter):
+        """
+        Fire the event to send mails
+        """
         if filter == "non_contributor":
             year = int(self.request.get('option'))
             recipients = [str(year) + '@foo.be']
@@ -43,7 +59,7 @@ class SendMail(BrowserView):
             recipients = fields
             notify(events.SendMailField(self.context, recipients))
 
-        return u'Mails envoyés'
+        return recipients
 
     def get_non_connected_members(self, days):
         """
