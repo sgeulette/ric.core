@@ -31,7 +31,7 @@ class UtilsView(BrowserView):
         """
         userName = api.user.get_current().getUserName()
         membrane = api.portal.get_tool('membrane_tool')
-        membraneInfos = membrane.unrestrictedSearchResults(id=userName)
+        membraneInfos = membrane.unrestrictedSearchResults(getUserId=userName)
         if membraneInfos:
             try:
                 # Temporary fix because of insufficient rights on parent
