@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from plone import api
+from zope.component import getMultiAdapter
 from z3c.form import button, form, field
 from plone.z3cform.layout import wrap_form
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
@@ -16,6 +17,19 @@ class RICSearchForm(form.Form):
     template = ViewPageTemplateFile('templates/search.pt')
     ignoreContext = True
     _data = None
+    canSearch = True
+    personLink = ""
+
+    def update(self):
+        person = getMultiAdapter((self.context, self.request),
+                                 name="get_person_for_user")()
+        if person:
+            isCompleted = getMultiAdapter((person, self.request),
+                                          name="is_profile_completed")()
+            if not isCompleted:
+                self.personLink = person.absolute_url()
+                self.canSearch = False
+        super(RICSearchForm, self).update()
 
     @button.buttonAndHandler(_(u'Rechercher'))
     def handleSave(self, action):

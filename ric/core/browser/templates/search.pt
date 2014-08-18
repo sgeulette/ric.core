@@ -7,9 +7,26 @@
 
     <metal:main fill-slot="formbottom">
 
+        <div id="ric-search-warning"
+             tal:define="canSearch view/canSearch;
+                         results view/getResults | nothing"
+             tal:condition="python: not canSearch and results is not None">
+
+             <h3 i18n:translate="">Vous ne pouvez pas effectuer de recherche</h3>
+             <p>
+                 <span i18n:translate="">Vous devez compléter votre description pour pouvoir effectuer une recherche.</span>
+                 <br />
+                 <a href=""
+                    tal:attributes="href string:${view/personLink}/edit"
+                    i18n:translate="">Cliquez ici pour la compl&eacute;ter.</a>
+             </p>
+             
+        </div>
+
         <div id="ric-search-results"
-             tal:define="results view/getResults | nothing"
-             tal:condition="python: results is not None">
+             tal:define="canSearch view/canSearch;
+                         results view/getResults | nothing"
+             tal:condition="python: canSearch and results is not None">
 
           <tal:if tal:condition="results">
 
