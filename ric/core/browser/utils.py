@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from Acquisition import aq_parent
+from AccessControl.unauthorized import Unauthorized
 from plone import api
 from Products.Five.browser import BrowserView
 
@@ -30,9 +31,14 @@ class UtilsView(BrowserView):
         """
         userName = api.user.get_current().getUserName()
         membrane = api.portal.get_tool('membrane_tool')
-        membraneInfos = membrane.searchResults(id=userName)
+        membraneInfos = membrane.unrestrictedSearchResults(id=userName)
         if membraneInfos:
-            person = membraneInfos[0].getObject()
+            try:
+                # Temporary fix because of insufficient rights on parent
+                # organization
+                person = membraneInfos[0].getObject()
+            except Unauthorized:
+                return
             if person.portal_type == 'person':
                 # Temporary check because of membrane returning organization
                 return person
