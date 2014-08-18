@@ -35,8 +35,8 @@ class SendMail(grok.View):
         Fire the event to send mails
         """
         if filter == "non_contributor":
-            year = int(self.request.get('option'))
-            recipients = [str(year) + '@foo.be']
+            year = self.request.get('option')
+            recipients = self.get_non_contributor_organisations(year)
             event = events.SendNonContributor(self.context, recipients)
 
         elif filter == "cotisation_person":
@@ -71,6 +71,26 @@ class SendMail(grok.View):
             notify(event)
         except:
             raise(Exception(_(u"Un problème est survenu lors de l'envoi de l'e-mail")))
+
+    def get_non_contributor_organisations(self, year):
+        """
+        Return organisations that are not contributor at a specific year
+        """
+        portal_catalog = getToolByName(self.context, 'portal_catalog')
+        queryDict = {}
+        queryDict['portal_type'] = 'organization'
+        queryDict['sort_on'] = 'getObjPositionInParent'
+        results = portal_catalog.searchResults(queryDict)
+        organizations = [result.getObject() for result in results]
+
+        non_contributors = []
+
+        for organization in organizations:
+            for subscription in organization.subscriptions:
+                if subscription.get('year') == year and subscription.get('payment') == False:
+                    non_contributors.append(organization.email)
+
+        return non_contributors
 
     def get_non_connected_members(self, days):
         """
