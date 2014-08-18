@@ -22,4 +22,8 @@
         name="recipients"
     />
 
+    <browser:resource
+        name="ric_send_mail.js"
+        file="js/send_mail.js" />
+
 </configure>
