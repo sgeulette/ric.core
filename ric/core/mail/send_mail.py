@@ -35,7 +35,7 @@ class SendMail(grok.View):
         Fire the event to send mails
         """
         if filter == "non_contributor":
-            year = self.request.get('option')
+            year = int(self.request.get('option'))
             recipients = self.get_non_contributor_organisations(year)
             event = events.SendNonContributor(self.context, recipients)
 

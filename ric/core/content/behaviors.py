@@ -29,8 +29,8 @@ alsoProvides(IRICPerson, IFormFieldProvider)
 
 class ICotisationRow(model.Schema):
 
-    year = schema.TextLine(title=_(u"Année"),
-                           required=True)
+    year = schema.Int(title=_(u"Année"),
+                      required=True)
 
     payment = schema.Bool(title=_(u"Versement"),
                           required=True)
