@@ -3,5 +3,6 @@
   <dependencies>
    <dependency>profile-collective.contact.core:default</dependency>
    <dependency>profile-collective.contact.membrane:default</dependency>
+   <dependency>profile-plone.app.jquery:default</dependency>
   </dependencies>
 </metadata>
