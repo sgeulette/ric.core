@@ -2,6 +2,7 @@
 <object name="portal_actions"
         xmlns:i18n="http://xml.zope.org/namespaces/i18n">
  <object name="user" purge="False">
+
   <object name="ric_export" meta_type="CMF Action" i18n:domain="ric">
    <property name="title" i18n:translate="">Exporter les organisations et personnes</property>
    <property name="description"></property>
@@ -14,5 +15,19 @@
    </property>
    <property name="visible">True</property>
   </object>
+
+  <object name="ric_send_mail" meta_type="CMF Action" i18n:domain="ric">
+   <property name="title" i18n:translate="">Envoyer des e-mails</property>
+   <property name="description"></property>
+   <property
+      name="url_expr">string:${globals_view/navigationRootUrl}/send_mail</property>
+   <property name="icon_expr"></property>
+   <property name="available_expr">python:member is not None</property>
+   <property name="permissions">
+      <element value="RIC: Administer website"/>
+   </property>
+   <property name="visible">True</property>
+  </object>
+
  </object>
 </object>
