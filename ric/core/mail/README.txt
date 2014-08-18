@@ -1,9 +1,7 @@
-Add a new content rule
+Content rules are automatically created at package installation
 
-Select a custom Event
+Go to http://localhost:8080/plone/send_mail view
 
-Add a Send Mail action with ${recipients} as recipient
+Edit the mail templates (do not change the ${recipients})
 
-Activate the Content Rule for all the site
-
-Send mail with the http://localhost:8080/plone/send_mail view
+Send e-mails

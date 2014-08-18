@@ -1,6 +1,7 @@
-<html metal:use-macro="here/main_template/macros/master">
+<html metal:use-macro="here/main_template/macros/master"
+      i18n:domain="ric">
   <head>
-   <title metal:fill-slot="title">Envoi d'e-mail</title>
+   <title metal:fill-slot="title" i18n:translate="envoi_emails">Envoi d'e-mails</title>
    <metal:javascript_head_slot fill-slot="javascript_head_slot">
      <script type="text/javascript"
              tal:attributes="src string:$portal_url/++resource++ric_send_mail.js"></script>
@@ -9,43 +10,45 @@
 
 <body>
 <div metal:fill-slot="main">
-  <H1>Envoi d'e-mail</H1>
+  <H1 i18n:translate="envoi_emails">Envoi d'e-mails</H1>
 
   <form method="post">
     <fieldset>
-      <legend>Non-cotisants une année spécifiée</legend>
+      <legend i18n:translate="non_cotisants_annee_specifiee">Non-cotisants une année spécifiée</legend>
       <input type="hidden" name="filter" value="non_contributor" />
-      Ann&eacute;e: <input type="text" name="option" value="2014" />
+      <span i18n:translate="Annee">Ann&eacute;e</span>: <input type="text" name="option" value="2014" />
       <br />
 
       <div class="edit_mail_template">
         <a href=""
-           tal:attributes="href string:${portal_url}/++rule++non_contributor/++action++0/edit">Modifier la template</a>
+           tal:attributes="href string:${portal_url}/++rule++non_contributor/++action++0/edit"
+           i18n:translate="modifier_la_template">Modifier la template</a>
       </div>
       <br />
-      <input type="submit" value="Envoyer" />
+      <input type="submit" i18n:attributes="value Envoyer" value="Envoyer" />
     </fieldset>
   </form>
 
   <form method="post">
     <fieldset>
-      <legend>Envoi à la personne ayant la caractéristique « envoi cotisation »</legend>
+      <legend i18n:translate="Envoi_personne_caracteristique_envoi_cotisation">Envoi à la personne ayant la caractéristique « envoi cotisation »</legend>
       <input type="hidden" name="filter" value="cotisation_person" />
 
       <div class="edit_mail_template">
         <a href=""
-           tal:attributes="href string:${portal_url}/++rule++cotisation_person/++action++0/edit">Modifier la template</a>
+           tal:attributes="href string:${portal_url}/++rule++cotisation_person/++action++0/edit"
+           i18n:translate="modifier_la_template">Modifier la template</a>
       </div>
       <br />
-      <input type="submit" value="Envoyer" />
+      <input type="submit" i18n:attributes="value Envoyer" value="Envoyer" />
     </fieldset>
   </form>
 
   <form method="post">
     <fieldset>
-      <legend>Envoi à tous les membres d'une organisation</legend>
+      <legend i18n:translate="Envoi_tous_membres_organisation">Envoi à tous les membres d'une organisation</legend>
       <input type="hidden" name="filter" value="organisation_members" />
-      Organisation:
+      <span i18n:translate="Organisation">Organisation</span>:
       <select name="option">
         <option value="organisation_1">Organisation 1</option>
         <option value="organisation_2">Organisation 2</option>
@@ -54,42 +57,45 @@
 
       <div class="edit_mail_template">
         <a href=""
-           tal:attributes="href string:${portal_url}/++rule++organisation_members/++action++0/edit">Modifier la template</a>
+           tal:attributes="href string:${portal_url}/++rule++organisation_members/++action++0/edit"
+           i18n:translate="modifier_la_template">Modifier la template</a>
       </div>
       <br />
-      <input type="submit" value="Envoyer" />
+      <input type="submit" i18n:attributes="value Envoyer" value="Envoyer" />
     </fieldset>
   </form>
 
   <form method="post">
     <fieldset>
-      <legend>Envoi à tous les membres non connectés depuis un nombre de jours spécifié</legend>
+      <legend i18n:translate="Envoi_tous_membres_non_connectes_nombre_jours">Envoi à tous les membres non connectés depuis un nombre de jours spécifié</legend>
       <input type="hidden" name="filter" value="non_connected_members" />
-      Jours: <input type="text" name="option" value="0" />
+      <span i18n:translate="Jours">Jours</span>: <input type="text" name="option" value="0" />
       <br />
 
       <div class="edit_mail_template">
         <a href=""
-           tal:attributes="href string:${portal_url}/++rule++non_connected_members/++action++0/edit">Modifier la template</a>
+           tal:attributes="href string:${portal_url}/++rule++non_connected_members/++action++0/edit"
+           i18n:translate="modifier_la_template">Modifier la template</a>
       </div>
       <br />
-      <input type="submit" value="Envoyer" />
+      <input type="submit" i18n:attributes="value Envoyer" value="Envoyer" />
     </fieldset>
   </form>
 
   <form method="post">
     <fieldset>
-      <legend>Envoi selon la valeur du champ « envoi mail » d’une personne</legend>
+      <legend i18n:translate="Envoi_selon_valeur_champ_envoi_mail">Envoi selon la valeur du champ « envoi mail » d’une personne</legend>
       <input type="hidden" name="filter" value="send_mail_field" />
-      <input type="checkbox" name="option" value="contact_cotisation" /> Contact cotisation<br />
-      <input type="checkbox" name="option" value="formation" /> Formation<br />
+      <input type="checkbox" name="option" value="contact_cotisation" /> <span i18n:translate="Contact_cotisation">Contact cotisation</span><br />
+      <input type="checkbox" name="option" value="formation" /> <span i18n:translate="Formation">Formation</span><br />
 
       <div class="edit_mail_template">
         <a href=""
-           tal:attributes="href string:${portal_url}/++rule++send_mail_field/++action++0/edit">Modifier la template</a>
+           tal:attributes="href string:${portal_url}/++rule++send_mail_field/++action++0/edit"
+           i18n:translate="modifier_la_template">Modifier la template</a>
       </div>
       <br />
-      <input type="submit" value="Envoyer" />
+      <input type="submit" i18n:attributes="value Envoyer" value="Envoyer" />
     </fieldset>
   </form>
 

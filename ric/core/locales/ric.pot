@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.1\n"
-"POT-Creation-Date: 2014-08-16 22:06+0000\n"
+"POT-Creation-Date: 2014-08-18 10:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,6 +15,11 @@ msgstr ""
 "Domain: ric\n"
 "Language: \n"
 "X-Is-Fallback-For: fr-be fr-ca fr-lu fr-mc fr-ch fr-fr\n"
+
+#. Default: "Ann&eacute;e"
+#: ric/core/mail/templates/send_mail.pt:19
+msgid "Annee"
+msgstr ""
 
 #: ric/core/content/behaviors.py:32
 msgid "Année"
@@ -40,12 +45,25 @@ msgstr ""
 msgid "Contact cotisation"
 msgstr ""
 
+#. Default: "Contact cotisation"
+#: ric/core/mail/templates/send_mail.pt:89
+msgid "Contact_cotisation"
+msgstr ""
+
 #: ric/core/content/behaviors.py:62
 msgid "Cotisation"
 msgstr ""
 
 #: ric/core/content/behaviors.py:61
 msgid "Cotisations"
+msgstr ""
+
+#: ric/core/mail/substitution.py:12
+msgid "Destinataires"
+msgstr ""
+
+#: ric/core/mail/send_mail.py:29
+msgid "E-mail envoyé à"
 msgstr ""
 
 #: ric/core/content/behaviors.py:18
@@ -56,12 +74,41 @@ msgstr ""
 msgid "Envoi mail"
 msgstr ""
 
+#. Default: "Envoi à la personne ayant la caractéristique « envoi cotisation »"
+#: ric/core/mail/templates/send_mail.pt:34
+msgid "Envoi_personne_caracteristique_envoi_cotisation"
+msgstr ""
+
+#. Default: "Envoi selon la valeur du champ « envoi mail » d’une personne"
+#: ric/core/mail/templates/send_mail.pt:87
+msgid "Envoi_selon_valeur_champ_envoi_mail"
+msgstr ""
+
+#. Default: "Envoi à tous les membres non connectés depuis un nombre de jours spécifié"
+#: ric/core/mail/templates/send_mail.pt:70
+msgid "Envoi_tous_membres_non_connectes_nombre_jours"
+msgstr ""
+
+#. Default: "Envoi à tous les membres d'une organisation"
+#: ric/core/mail/templates/send_mail.pt:49
+msgid "Envoi_tous_membres_organisation"
+msgstr ""
+
+#: ric/core/mail/templates/send_mail.pt:28
+msgid "Envoyer"
+msgstr ""
+
 #: ric/core/profiles/default/actions.xml
 msgid "Exporter les organisations et personnes"
 msgstr ""
 
 #: ric/core/content/behaviors.py:24
+#: ric/core/mail/templates/send_mail.pt:90
 msgid "Formation"
+msgstr ""
+
+#: ric/core/mail/templates/send_mail.pt:72
+msgid "Jours"
 msgstr ""
 
 #: ric/core/viewlets/email.pt:5
@@ -88,8 +135,16 @@ msgstr ""
 msgid "Nombre d'habitants"
 msgstr ""
 
+#: ric/core/mail/templates/send_mail.pt:51
+msgid "Organisation"
+msgstr ""
+
 #: ric/core/content/behaviors.py:51
 msgid "Serveurs"
+msgstr ""
+
+#: ric/core/mail/send_mail.py:73
+msgid "Un problème est survenu lors de l'envoi de l'e-mail"
 msgstr ""
 
 #: ric/core/content/behaviors.py:35
@@ -102,5 +157,20 @@ msgstr ""
 
 #: ric/core/viewlets/cotisation.pt:7
 msgid "Votre organisation ne comprend aucun contact de cotisation"
+msgstr ""
+
+#. Default: "Envoi d'e-mails"
+#: ric/core/mail/templates/send_mail.pt:4
+msgid "envoi_emails"
+msgstr ""
+
+#. Default: "Modifier la template"
+#: ric/core/mail/templates/send_mail.pt:23
+msgid "modifier_la_template"
+msgstr ""
+
+#. Default: "Non-cotisants une année spécifiée"
+#: ric/core/mail/templates/send_mail.pt:17
+msgid "non_cotisants_annee_specifiee"
 msgstr ""
 

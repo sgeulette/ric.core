@@ -7,10 +7,6 @@ from plone.app.contentrules import handlers
 from ric.core.mail import interfaces
 
 
-# XXX en fait on a pas besoin d'avoir un event different par filtre?
-# XXX quid des templates de mail alors? Elles sont spécifiques à quoi?
-
-
 class SendBase(ObjectEvent):
 
     def __init__(self, context, recipients):

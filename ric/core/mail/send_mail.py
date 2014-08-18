@@ -37,29 +37,40 @@ class SendMail(grok.View):
         if filter == "non_contributor":
             year = int(self.request.get('option'))
             recipients = [str(year) + '@foo.be']
-            notify(events.SendNonContributor(self.context, recipients))
+            event = events.SendNonContributor(self.context, recipients)
 
         elif filter == "cotisation_person":
             recipients = ['cotisation@foo.be']
-            notify(events.SendCotisationPerson(self.context, recipients))
+            event = events.SendCotisationPerson(self.context, recipients)
 
         elif filter == "organisation_members":
             organisation = self.request.get('option')
             recipients = [organisation + '@foo.be']
-            notify(events.SendOrganisationMembers(self.context, recipients))
+            event = events.SendOrganisationMembers(self.context, recipients)
 
         elif filter == "non_connected_members":
             days = int(self.request.get('option'))
             members = self.get_non_connected_members(days)
             recipients = [member.getProperty('email') for member in members]
-            notify(events.SendNonConnectedMembers(self.context, recipients))
+            event = events.SendNonConnectedMembers(self.context, recipients)
 
         elif filter == "send_mail_field":
             fields = self.request.get('option')
             recipients = fields
-            notify(events.SendMailField(self.context, recipients))
+            event = events.SendMailField(self.context, recipients)
 
+        self._notify(event)
         return recipients
+
+    @staticmethod
+    def _notify(event):
+        """
+        Notify event
+        """
+        try:
+            notify(event)
+        except:
+            raise(Exception(_(u"Un problème est survenu lors de l'envoi de l'e-mail")))
 
     def get_non_connected_members(self, days):
         """
