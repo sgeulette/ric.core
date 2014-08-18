@@ -2,9 +2,12 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser">
 
+
+  <!-- Search -->
+
   <browser:page
-      for="*"
-      name="ric-search"
+      name="view"
+      for="collective.contact.core.content.directory.IDirectory"
       class=".search.RICSearchFormView"
       permission="zope2.View"
       layer="..interfaces.IRICCoreLayer"
@@ -12,6 +15,9 @@
 
   <utility name="ric.search.contents"
            component=".vocabulary.ContentsVocabularyFactory" />
+
+
+  <!-- Useful methods -->
 
   <browser:page
       for="collective.contact.core.content.organization.IOrganization"
@@ -48,6 +54,9 @@
       permission="zope.Public"
       layer="..interfaces.IRICCoreLayer"
       />
+
+
+  <!-- CSS -->
 
   <browser:resource
       file="views.css"
