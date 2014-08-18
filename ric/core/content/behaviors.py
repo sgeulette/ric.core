@@ -8,6 +8,7 @@ from plone.supermodel import model
 from collective.z3cform.datagridfield import DataGridField, DictRow
 
 from ric.core import RICMessageFactory as _
+from ric.core.content import vocabularies
 
 
 class IRICPerson(model.Schema):
@@ -20,8 +21,7 @@ class IRICPerson(model.Schema):
 
     multimail = schema.List(title=_(u"Envoi mail"),
                             required=False,
-                            value_type=schema.Choice([_("Contact cotisation"),
-                                                      _("Formation")]),
+                            value_type=schema.Choice(vocabulary=vocabularies.multimail),
                             )
 
 alsoProvides(IRICPerson, IFormFieldProvider)

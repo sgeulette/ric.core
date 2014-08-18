@@ -33,12 +33,12 @@ def send_cotisation_person_subscriber(event):
     handlers.execute(event.object, event)
 
 
-class SendOrganisationMembers(SendBase):
-    grok.implements(interfaces.ISendOrganisationMembers)
+class SendOrganizationMembers(SendBase):
+    grok.implements(interfaces.ISendOrganizationMembers)
 
 
-@grok.subscribe(interfaces.ISendOrganisationMembers)
-def send_organisation_members_subscriber(event):
+@grok.subscribe(interfaces.ISendOrganizationMembers)
+def send_organization_members_subscriber(event):
     handlers.execute(event.object, event)
 
 

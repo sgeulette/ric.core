@@ -47,7 +47,7 @@
   <form method="post">
     <fieldset>
       <legend i18n:translate="Envoi_tous_membres_organisation">Envoi à tous les membres d'une organisation</legend>
-      <input type="hidden" name="filter" value="organisation_members" />
+      <input type="hidden" name="filter" value="organization_members" />
       <span i18n:translate="Organisation">Organisation</span>:
       <select name="option">
         <option value="organisation_1">Organisation 1</option>
@@ -57,7 +57,7 @@
 
       <div class="edit_mail_template">
         <a href=""
-           tal:attributes="href string:${portal_url}/++rule++organisation_members/++action++0/edit"
+           tal:attributes="href string:${portal_url}/++rule++organization_members/++action++0/edit"
            i18n:translate="modifier_la_template">Modifier la template</a>
       </div>
       <br />
@@ -86,8 +86,8 @@
     <fieldset>
       <legend i18n:translate="Envoi_selon_valeur_champ_envoi_mail">Envoi selon la valeur du champ « envoi mail » d’une personne</legend>
       <input type="hidden" name="filter" value="send_mail_field" />
-      <input type="checkbox" name="option" value="contact_cotisation" /> <span i18n:translate="Contact_cotisation">Contact cotisation</span><br />
-      <input type="checkbox" name="option" value="formation" /> <span i18n:translate="Formation">Formation</span><br />
+      <input type="checkbox" name="option:list" value="contact_cotisation" /> <span i18n:translate="Contact_cotisation">Contact cotisation</span><br />
+      <input type="checkbox" name="option:list" value="formation" /> <span i18n:translate="Formation">Formation</span><br />
 
       <div class="edit_mail_template">
         <a href=""

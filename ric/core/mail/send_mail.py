@@ -36,17 +36,17 @@ class SendMail(grok.View):
         """
         if filter == "non_contributor":
             year = int(self.request.get('option'))
-            recipients = self.get_non_contributor_organisations(year)
+            recipients = self.get_non_contributor_organizations(year)
             event = events.SendNonContributor(self.context, recipients)
 
         elif filter == "cotisation_person":
-            recipients = ['cotisation@foo.be']
+            recipients = self.get_cotisation_person()
             event = events.SendCotisationPerson(self.context, recipients)
 
-        elif filter == "organisation_members":
-            organisation = self.request.get('option')
-            recipients = [organisation + '@foo.be']
-            event = events.SendOrganisationMembers(self.context, recipients)
+        elif filter == "organization_members":
+            organization = self.request.get('option')
+            recipients = self.get_organization_members(organization)
+            event = events.SendOrganizationMembers(self.context, recipients)
 
         elif filter == "non_connected_members":
             days = int(self.request.get('option'))
@@ -56,7 +56,7 @@ class SendMail(grok.View):
 
         elif filter == "send_mail_field":
             fields = self.request.get('option')
-            recipients = fields
+            recipients = self.get_person_by_fields(fields)
             event = events.SendMailField(self.context, recipients)
 
         self._notify(event)
@@ -72,9 +72,9 @@ class SendMail(grok.View):
         except:
             raise(Exception(_(u"Un problème est survenu lors de l'envoi de l'e-mail")))
 
-    def get_non_contributor_organisations(self, year):
+    def get_non_contributor_organizations(self, year):
         """
-        Return organisations that are not contributor at a specific year
+        Return organizations that are not contributor at a specific year
         """
         portal_catalog = getToolByName(self.context, 'portal_catalog')
         queryDict = {}
@@ -92,6 +92,18 @@ class SendMail(grok.View):
 
         return non_contributors
 
+    def get_cotisation_person(self):
+        """
+        Return cotisation registered persons
+        """
+        return []
+
+    def get_organization_members(self, organization):
+        """
+        Return all members of a specific organization
+        """
+        return []
+
     def get_non_connected_members(self, days):
         """
         Return members not seen since days time
@@ -107,6 +119,26 @@ class SendMail(grok.View):
                 non_connected_members.append(m)
 
         return non_connected_members
+
+    def get_person_by_fields(self, fields):
+        """
+        Return all persons by 'send mail' field selected
+        """
+        portal_catalog = getToolByName(self.context, 'portal_catalog')
+        queryDict = {}
+        queryDict['portal_type'] = 'person'
+        queryDict['sort_on'] = 'getObjPositionInParent'
+        results = portal_catalog.searchResults(queryDict)
+        persons = [result.getObject() for result in results]
+
+        persons_by_fields = []
+
+        for field in fields:
+            for person in persons:
+                if field in person.multimail:
+                    persons_by_fields.append(person.email)
+
+        return list(set(persons_by_fields))
 
 
 def convert_datetime(plone_datetime):
