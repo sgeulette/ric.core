@@ -3,6 +3,17 @@
     xmlns:browser="http://namespaces.zope.org/browser">
 
   <browser:page
+      for="*"
+      name="ric-search"
+      class=".search.RICSearchFormView"
+      permission="zope2.View"
+      layer="..interfaces.IRICCoreLayer"
+      />
+
+  <utility name="ric.search.contents"
+           component=".vocabulary.ContentsVocabularyFactory" />
+
+  <browser:page
       for="collective.contact.core.content.organization.IOrganization"
       name="is_profile_completed"
       class=".utils.OrganizationView"

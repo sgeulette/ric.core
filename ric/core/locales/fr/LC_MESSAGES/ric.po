@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.1\n"
-"POT-Creation-Date: 2014-08-18 10:11+0000\n"
+"POT-Creation-Date: 2014-08-18 10:27+0000\n"
 "PO-Revision-Date: 2014-08-14 14:30+0000\n"
 "Last-Translator: support@lists.affinitic.be\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -107,6 +107,14 @@ msgstr ""
 msgid "Formation"
 msgstr ""
 
+#: ric/core/browser/templates/search.pt:31
+msgid "Il n'y a pas de r&eacute;sultat correspondant &agrave; votre recherche ..."
+msgstr ""
+
+#: ric/core/browser/templates/search.pt:16
+msgid "Il y a ${number} r&eacute;sultat(s) correspondant &agrave; votre recherche (20 maximum) :"
+msgstr ""
+
 #: ric/core/mail/templates/send_mail.pt:72
 msgid "Jours"
 msgstr ""
@@ -131,6 +139,10 @@ msgstr ""
 msgid "Logiciels"
 msgstr ""
 
+#: ric/core/browser/interfaces.py:14
+msgid "Nom à rechercher"
+msgstr ""
+
 #: ric/core/content/behaviors.py:46
 msgid "Nombre d'habitants"
 msgstr ""
@@ -139,12 +151,29 @@ msgstr ""
 msgid "Organisation"
 msgstr ""
 
+#: ric/core/browser/search.py:15
+msgid "Recherche dans l'annuaire du RIC"
+msgstr ""
+
+#: ric/core/browser/interfaces.py:11
+#: ric/core/browser/search.py:20
+msgid "Rechercher"
+msgstr ""
+
 #: ric/core/content/behaviors.py:51
 msgid "Serveurs"
 msgstr ""
 
 #: ric/core/mail/send_mail.py:73
 msgid "Un problème est survenu lors de l'envoi de l'e-mail"
+msgstr ""
+
+#: ric/core/browser/vocabulary.py:12
+msgid "Une organisation"
+msgstr ""
+
+#: ric/core/browser/vocabulary.py:13
+msgid "Une personne"
 msgstr ""
 
 #: ric/core/content/behaviors.py:35

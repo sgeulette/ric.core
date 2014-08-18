@@ -1,0 +1,40 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      metal:use-macro="context/@@ploneform-macros/titlelessform"
+      i18n:domain="ric">
+<body>
+
+    <metal:main fill-slot="formbottom">
+
+        <div id="ric-search-results"
+             tal:define="results view/getResults | nothing"
+             tal:condition="python: results is not None">
+
+          <tal:if tal:condition="results">
+
+             <h3 i18n:translate="">Il y a <span tal:replace="python: len(results)" i18n:name="number" /> r&eacute;sultat(s) correspondant &agrave; votre recherche (20 maximum) :</h3>
+
+             <ul>
+                <li class="result"
+                     tal:repeat="result results">
+                    <a href=""
+                       tal:attributes="href result/getURL"
+                       tal:content="result/Title" />
+                </li>
+             </ul>
+             
+          </tal:if>
+
+          <tal:else tal:condition="not: results">
+
+             <h3 i18n:translate="">Il n'y a pas de r&eacute;sultat correspondant &agrave; votre recherche ...</h3>
+
+          </tal:else>
+
+        </div>
+
+    </metal:main>
+
+</body>
+</html>
