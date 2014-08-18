@@ -9,6 +9,7 @@ from Products.CMFCore.utils import getToolByName
 from ric.core.mail import events
 from zope.event import notify
 from ric.core import RICMessageFactory as _
+from ric.core.content import vocabularies
 
 
 grok.templatedir('templates')
@@ -139,6 +140,13 @@ class SendMail(grok.View):
                     persons_by_fields.append(person.email)
 
         return list(set(persons_by_fields))
+
+    def get_multimail_fields(self):
+        """
+        Return vocabulary values for multimail field
+        """
+        multimail = vocabularies.multimail
+        return [(value, multimail.by_value[value].title) for value in multimail.by_value]
 
 
 def convert_datetime(plone_datetime):

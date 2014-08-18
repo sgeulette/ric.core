@@ -86,8 +86,9 @@
     <fieldset>
       <legend i18n:translate="Envoi_selon_valeur_champ_envoi_mail">Envoi selon la valeur du champ « envoi mail » d’une personne</legend>
       <input type="hidden" name="filter" value="send_mail_field" />
-      <input type="checkbox" name="option:list" value="contact_cotisation" /> <span i18n:translate="Contact_cotisation">Contact cotisation</span><br />
-      <input type="checkbox" name="option:list" value="formation" /> <span i18n:translate="Formation">Formation</span><br />
+      <tal:for tal:repeat="field view/get_multimail_fields">
+        <input type="checkbox" name="option:list" value="" tal:attributes="value python:field[0]" /> <span tal:content="python:field[1]"></span><br />
+      </tal:for>
 
       <div class="edit_mail_template">
         <a href=""

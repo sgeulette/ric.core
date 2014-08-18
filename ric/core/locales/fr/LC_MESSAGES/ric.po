@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.1\n"
-"POT-Creation-Date: 2014-08-18 10:27+0000\n"
+"POT-Creation-Date: 2014-08-18 12:57+0000\n"
 "PO-Revision-Date: 2014-08-14 14:30+0000\n"
 "Last-Translator: support@lists.affinitic.be\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,13 +41,8 @@ msgstr ""
 msgid "Cliquez ici pour la modifier."
 msgstr ""
 
-#: ric/core/content/behaviors.py:23
+#: ric/core/content/vocabularies.py:9
 msgid "Contact cotisation"
-msgstr ""
-
-#. Default: "Contact cotisation"
-#: ric/core/mail/templates/send_mail.pt:89
-msgid "Contact_cotisation"
 msgstr ""
 
 #: ric/core/content/behaviors.py:62
@@ -62,15 +57,15 @@ msgstr ""
 msgid "Destinataires"
 msgstr ""
 
-#: ric/core/mail/send_mail.py:29
+#: ric/core/mail/send_mail.py:30
 msgid "E-mail envoyé à"
 msgstr ""
 
-#: ric/core/content/behaviors.py:18
+#: ric/core/content/behaviors.py:19
 msgid "E-mail invalide"
 msgstr ""
 
-#: ric/core/content/behaviors.py:21
+#: ric/core/content/behaviors.py:22
 msgid "Envoi mail"
 msgstr ""
 
@@ -99,20 +94,15 @@ msgid "Envoyer"
 msgstr ""
 
 #: ric/core/profiles/default/actions.xml
+msgid "Envoyer des e-mails"
+msgstr ""
+
+#: ric/core/profiles/default/actions.xml
 msgid "Exporter les organisations et personnes"
 msgstr ""
 
-#: ric/core/content/behaviors.py:24
-#: ric/core/mail/templates/send_mail.pt:90
+#: ric/core/content/vocabularies.py:10
 msgid "Formation"
-msgstr ""
-
-#: ric/core/browser/templates/search.pt:31
-msgid "Il n'y a pas de r&eacute;sultat correspondant &agrave; votre recherche ..."
-msgstr ""
-
-#: ric/core/browser/templates/search.pt:16
-msgid "Il y a ${number} r&eacute;sultat(s) correspondant &agrave; votre recherche (20 maximum) :"
 msgstr ""
 
 #: ric/core/mail/templates/send_mail.pt:72
@@ -151,12 +141,12 @@ msgstr ""
 msgid "Organisation"
 msgstr ""
 
-#: ric/core/browser/search.py:15
+#: ric/core/browser/search.py:16
 msgid "Recherche dans l'annuaire du RIC"
 msgstr ""
 
 #: ric/core/browser/interfaces.py:11
-#: ric/core/browser/search.py:20
+#: ric/core/browser/search.py:34
 msgid "Rechercher"
 msgstr ""
 
@@ -164,7 +154,7 @@ msgstr ""
 msgid "Serveurs"
 msgstr ""
 
-#: ric/core/mail/send_mail.py:73
+#: ric/core/mail/send_mail.py:74
 msgid "Un problème est survenu lors de l'envoi de l'e-mail"
 msgstr ""
 
@@ -186,6 +176,10 @@ msgstr ""
 
 #: ric/core/viewlets/cotisation.pt:7
 msgid "Votre organisation ne comprend aucun contact de cotisation"
+msgstr ""
+
+#: ric/core/browser/templates/search.pt:15
+msgid "Vous ne pouvez pas effectuer de recherche"
 msgstr ""
 
 #. Default: "Envoi d'e-mails"
