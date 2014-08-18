@@ -77,13 +77,7 @@ class SendMail(grok.View):
         """
         Return organizations that are not contributor at a specific year
         """
-        portal_catalog = getToolByName(self.context, 'portal_catalog')
-        queryDict = {}
-        queryDict['portal_type'] = 'organization'
-        queryDict['sort_on'] = 'getObjPositionInParent'
-        results = portal_catalog.searchResults(queryDict)
-        organizations = [result.getObject() for result in results]
-
+        organizations = self.get_all_organizations()
         non_contributors = []
 
         for organization in organizations:
@@ -103,7 +97,19 @@ class SendMail(grok.View):
         """
         Return all members of a specific organization
         """
-        return []
+        portal_catalog = getToolByName(self.context, 'portal_catalog')
+        queryDict = {}
+        queryDict['portal_type'] = 'organization'
+        queryDict['sort_on'] = 'getObjPositionInParent'
+        queryDict['id'] = organization
+        organization = portal_catalog.searchResults(queryDict)[0].getObject()
+
+        queryDict = {}
+        queryDict['portal_type'] = 'person'
+        queryDict['path'] = {'query': '/'.join(organization.getPhysicalPath()),
+                             'depth': 1}
+        results = portal_catalog.searchResults(queryDict)
+        return [result.getObject().email for result in results]
 
     def get_non_connected_members(self, days):
         """
@@ -147,6 +153,17 @@ class SendMail(grok.View):
         """
         multimail = vocabularies.multimail
         return [(value, multimail.by_value[value].title) for value in multimail.by_value]
+
+    def get_all_organizations(self):
+        """
+        Return all organizations registered on the site
+        """
+        portal_catalog = getToolByName(self.context, 'portal_catalog')
+        queryDict = {}
+        queryDict['portal_type'] = 'organization'
+        queryDict['sort_on'] = 'getObjPositionInParent'
+        results = portal_catalog.searchResults(queryDict)
+        return [result.getObject() for result in results]
 
 
 def convert_datetime(plone_datetime):

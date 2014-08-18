@@ -50,8 +50,11 @@
       <input type="hidden" name="filter" value="organization_members" />
       <span i18n:translate="Organisation">Organisation</span>:
       <select name="option">
-        <option value="organisation_1">Organisation 1</option>
-        <option value="organisation_2">Organisation 2</option>
+        <tal:for tal:repeat="organization view/get_all_organizations">
+          <option value=""
+                  tal:attributes="value organization/id"
+                  tal:content="organization/title"></option>
+        </tal:for>
       </select>
       <br />
 
