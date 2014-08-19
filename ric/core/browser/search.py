@@ -47,7 +47,7 @@ class RICSearchForm(form.Form):
         contentName = '*%s*' % contentName
         catalog = api.portal.get_tool('portal_catalog')
         brains = catalog.searchResults(portal_type=contentType,
-                                       SearchableText=contentName)[:20]
+                                       Title=contentName)[:20]
         return brains
 
 RICSearchFormView = wrap_form(RICSearchForm)
