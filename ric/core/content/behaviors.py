@@ -4,11 +4,12 @@ from zope import schema
 from zope.component import getMultiAdapter
 from zope.interface import alsoProvides
 from plone.autoform.interfaces import IFormFieldProvider
-from plone.directives import form
+from plone.autoform import directives as form
 from plone.supermodel import model
 from collective.z3cform.datagridfield import DataGridField, DictRow
 from plone import api
 from zope.interface import Invalid, invariant
+from z3c.form.browser.radio import RadioFieldWidget
 
 from ric.core import RICMessageFactory as _
 from ric.core.content import vocabularies
@@ -16,8 +17,9 @@ from ric.core.content import vocabularies
 
 class IRICPerson(model.Schema):
 
-    form.read_permission(invalidmail='RIC: Administer website')
-    form.write_permission(invalidmail='RIC: Administer website')
+    form.read_permission(invalidmail='RIC.Administrator')
+    form.write_permission(invalidmail='RIC.Administrator')
+    form.widget('invalidmail', RadioFieldWidget)
 
     invalidmail = schema.Bool(title=_(u"E-mail invalide"),
                               required=True)
