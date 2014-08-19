@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.1\n"
-"POT-Creation-Date: 2014-08-19 08:57+0000\n"
+"POT-Creation-Date: 2014-08-19 10:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid "Annee"
 msgstr ""
 
-#: ric/core/content/behaviors.py:32
+#: ric/core/content/behaviors.py:48
 msgid "Année"
 msgstr ""
 
@@ -50,11 +50,11 @@ msgstr ""
 msgid "Contact cotisation"
 msgstr ""
 
-#: ric/core/content/behaviors.py:62
+#: ric/core/content/behaviors.py:78
 msgid "Cotisation"
 msgstr ""
 
-#: ric/core/content/behaviors.py:61
+#: ric/core/content/behaviors.py:77
 msgid "Cotisations"
 msgstr ""
 
@@ -66,11 +66,11 @@ msgstr ""
 msgid "E-mail envoyé à"
 msgstr ""
 
-#: ric/core/content/behaviors.py:19
+#: ric/core/content/behaviors.py:22
 msgid "E-mail invalide"
 msgstr ""
 
-#: ric/core/content/behaviors.py:22
+#: ric/core/content/behaviors.py:25
 msgid "Envoi mail"
 msgstr ""
 
@@ -110,6 +110,10 @@ msgstr ""
 msgid "Formation"
 msgstr ""
 
+#: ric/core/content/behaviors.py:30
+msgid "Identifiant de l'utilisateur"
+msgstr ""
+
 #: ric/core/browser/templates/forbidden_search.pt:9
 msgid "Il faut &ecirc;tre membre du RIC et connect&eacute; au site pour pouvoir effectuer des recherches dans l'annuaire."
 msgstr ""
@@ -142,15 +146,19 @@ msgstr ""
 msgid "La description de votre organisation comprend plus de 15% de donn&eacute;es non remplies."
 msgstr ""
 
-#: ric/core/content/behaviors.py:56
+#: ric/core/content/behaviors.py:72
 msgid "Logiciels"
+msgstr ""
+
+#: ric/core/browser/templates/organization.pt:73
+msgid "Membres de cette organisation"
 msgstr ""
 
 #: ric/core/browser/interfaces.py:14
 msgid "Nom à rechercher"
 msgstr ""
 
-#: ric/core/content/behaviors.py:46
+#: ric/core/content/behaviors.py:62
 msgid "Nombre d'habitants"
 msgstr ""
 
@@ -167,7 +175,7 @@ msgstr ""
 msgid "Rechercher"
 msgstr ""
 
-#: ric/core/content/behaviors.py:51
+#: ric/core/content/behaviors.py:67
 msgid "Serveurs"
 msgstr ""
 
@@ -183,7 +191,11 @@ msgstr ""
 msgid "Une personne"
 msgstr ""
 
-#: ric/core/content/behaviors.py:35
+#: ric/core/content/behaviors.py:40
+msgid "Utilisateur déjà existant"
+msgstr ""
+
+#: ric/core/content/behaviors.py:51
 msgid "Versement"
 msgstr ""
 
