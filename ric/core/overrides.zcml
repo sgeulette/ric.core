@@ -1,11 +1,15 @@
 <configure
-    xmlns="http://namespaces.zope.org/zope"
-    xmlns:browser="http://namespaces.zope.org/browser">
+    xmlns="http://namespaces.zope.org/zope">
 
     <adapter
         for="collective.contact.membrane.behaviors.personmembraneuser.IPersonMembraneUser"
         provides="dexterity.membrane.behavior.membraneuser.IMembraneUserObject"
         factory=".membrane.RICPersonMembraneUserAdapter"
+        />
+
+    <adapter
+        name="sortable_title"
+        factory=".indexers.person_sortable_title"
         />
 
 </configure>
