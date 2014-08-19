@@ -1,9 +1,21 @@
 <?xml version="1.0"?>
-<registry>
+<registry xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+          i18n:domain="ric">
   <record name="dexterity.membrane.behavior.settings.IDexterityMembraneSettings.use_email_as_username">
     <value>False</value>
   </record>
   <record name="dexterity.membrane.behavior.settings.IDexterityMembraneSettings.use_uuid_as_userid">
     <value>False</value>
+  </record>
+  <record name="ric.core.multimail">
+    <field type="plone.registry.field.Dict">
+        <title>Multimail</title>
+        <key_type type="plone.registry.field.TextLine" />
+        <value_type type="plone.registry.field.TextLine" />
+    </field>
+    <value>
+        <element key="contact_cotisation" i18n:translate="contact_cotisation">Contact cotisation</element>
+        <element key="formation" i18n:translate="formation">Formation</element>
+    </value>
   </record>
 </registry>

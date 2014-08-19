@@ -9,7 +9,6 @@
   <include package="Products.CMFCore" file="permissions.zcml" />
 
   <include file="permissions.zcml" />
-  <includeOverrides file="overrides.zcml" />
 
   <include package=".browser"/>
   <include package=".content"/>
@@ -25,5 +24,7 @@
       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
+
+  <includeOverrides file="overrides.zcml" />
 
 </configure>

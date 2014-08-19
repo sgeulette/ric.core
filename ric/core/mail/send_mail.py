@@ -2,6 +2,7 @@
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 from plone.api.portal import show_message
+from plone.registry.interfaces import IRegistry
 
 from five import grok
 from zope.interface import Interface
@@ -9,7 +10,7 @@ from Products.CMFCore.utils import getToolByName
 from ric.core.mail import events
 from zope.event import notify
 from ric.core import RICMessageFactory as _
-from ric.core.content import vocabularies
+from zope.component import getUtility
 
 
 grok.templatedir('templates')
@@ -141,8 +142,9 @@ class SendMail(grok.View):
         """
         Return vocabulary values for multimail field
         """
-        multimail = vocabularies.multimail
-        return [(value, multimail.by_value[value].title) for value in multimail.by_value]
+        registry = getUtility(IRegistry)
+        multimail = registry.get('ric.core.multimail', {})
+        return [(i, multimail[i]) for i in multimail]
 
     def get_all_organizations(self):
         """

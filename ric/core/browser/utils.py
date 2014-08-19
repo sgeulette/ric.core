@@ -29,7 +29,7 @@ class UtilsView(BrowserView):
         """
         Returns Person object associated to logged in user (if any)
         """
-        if not userName:
+        if userName is None:
             userName = api.user.get_current().getUserName()
         membrane = api.portal.get_tool('membrane_tool')
         membraneInfos = membrane.unrestrictedSearchResults(getUserId=userName)
