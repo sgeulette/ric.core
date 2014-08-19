@@ -13,6 +13,15 @@
       layer="..interfaces.IRICCoreLayer"
       />
 
+  <browser:page
+      name="nosearch"
+      for="collective.contact.core.content.directory.IDirectory"
+      class=".search.RICNoSearchFormView"
+      permission="zope2.View"
+      layer="..interfaces.IRICCoreLayer"
+      template="templates/forbidden_search.pt"
+      />
+
   <utility name="ric.search.contents"
            component=".vocabulary.ContentsVocabularyFactory" />
 

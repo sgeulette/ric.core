@@ -4,10 +4,17 @@ from plone import api
 from zope.component import getMultiAdapter
 from z3c.form import button, form, field
 from plone.z3cform.layout import wrap_form
+from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 from ric.core import RICMessageFactory as _
 from ric.core.browser.interfaces import IRICSearch
+
+
+class RICNoSearchFormView(BrowserView):
+    """
+    View displayed for anonymous user, asking them to connect
+    """
 
 
 class RICSearchForm(form.Form):
@@ -21,6 +28,9 @@ class RICSearchForm(form.Form):
     personLink = ""
 
     def update(self):
+        if api.user.is_anonymous():
+            self.request.response.redirect("%s/@@nosearch" % self.context.absolute_url())
+            return ''
         person = getMultiAdapter((self.context, self.request),
                                  name="get_person_for_user")()
         if person:
