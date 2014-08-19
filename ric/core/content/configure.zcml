@@ -23,6 +23,9 @@
     <adapter factory=".extender.ContactFormExtender"
              provides="plone.z3cform.fieldsets.interfaces.IFormExtender" />
 
+    <adapter factory=".roles.MembraneGroupRoleProvider"
+             name="ric.core.content.roles.MembraneGroupRoleProvider" />
+
     <subscriber for="plone.dexterity.events.EditBegunEvent"
                 handler=".events.edit_begun" />
 

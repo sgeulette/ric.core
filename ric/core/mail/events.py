@@ -24,15 +24,6 @@ def send_non_contributor_subscriber(event):
     handlers.execute(event.object, event)
 
 
-class SendCotisationPerson(SendBase):
-    grok.implements(interfaces.ISendCotisationPerson)
-
-
-@grok.subscribe(interfaces.ISendCotisationPerson)
-def send_cotisation_person_subscriber(event):
-    handlers.execute(event.object, event)
-
-
 class SendOrganizationMembers(SendBase):
     grok.implements(interfaces.ISendOrganizationMembers)
 

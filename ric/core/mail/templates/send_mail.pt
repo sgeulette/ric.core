@@ -31,21 +31,6 @@
 
   <form method="post">
     <fieldset>
-      <legend i18n:translate="Envoi_personne_caracteristique_envoi_cotisation">Envoi à la personne ayant la caractéristique « envoi cotisation »</legend>
-      <input type="hidden" name="filter" value="cotisation_person" />
-
-      <div class="edit_mail_template">
-        <a href=""
-           tal:attributes="href string:${portal_url}/++rule++cotisation_person/++action++0/edit"
-           i18n:translate="modifier_la_template">Modifier la template</a>
-      </div>
-      <br />
-      <input type="submit" i18n:attributes="value Envoyer" value="Envoyer" />
-    </fieldset>
-  </form>
-
-  <form method="post">
-    <fieldset>
       <legend i18n:translate="Envoi_tous_membres_organisation">Envoi à tous les membres d'une organisation</legend>
       <input type="hidden" name="filter" value="organization_members" />
       <span i18n:translate="Organisation">Organisation</span>:

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.1\n"
-"POT-Creation-Date: 2014-08-19 14:58+0000\n"
+"POT-Creation-Date: 2014-08-19 15:06+0000\n"
 "PO-Revision-Date: 2014-08-14 14:30+0000\n"
 "Last-Translator: support@lists.affinitic.be\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -52,7 +52,7 @@ msgstr ""
 
 #: ric/core/content/behaviors.py:95
 msgid "Cotisations"
-msgstr ""
+msgstr "Cotisations "
 
 #: ric/core/mail/substitution.py:12
 msgid "Destinataires"
@@ -64,29 +64,24 @@ msgstr ""
 
 #: ric/core/content/behaviors.py:40
 msgid "E-mail invalide"
-msgstr ""
+msgstr "E-mail invalide "
 
 #: ric/core/content/behaviors.py:43
 msgid "Envoi mail"
-msgstr ""
-
-#. Default: "Envoi à la personne ayant la caractéristique « envoi cotisation »"
-#: ric/core/mail/templates/send_mail.pt:34
-msgid "Envoi_personne_caracteristique_envoi_cotisation"
-msgstr ""
+msgstr "Envoi mail "
 
 #. Default: "Envoi selon la valeur du champ « envoi mail » d’une personne"
-#: ric/core/mail/templates/send_mail.pt:90
+#: ric/core/mail/templates/send_mail.pt:75
 msgid "Envoi_selon_valeur_champ_envoi_mail"
 msgstr ""
 
 #. Default: "Envoi à tous les membres non connectés depuis un nombre de jours spécifié"
-#: ric/core/mail/templates/send_mail.pt:73
+#: ric/core/mail/templates/send_mail.pt:58
 msgid "Envoi_tous_membres_non_connectes_nombre_jours"
 msgstr ""
 
 #. Default: "Envoi à tous les membres d'une organisation"
-#: ric/core/mail/templates/send_mail.pt:49
+#: ric/core/mail/templates/send_mail.pt:34
 msgid "Envoi_tous_membres_organisation"
 msgstr ""
 
@@ -104,7 +99,7 @@ msgstr ""
 
 #: ric/core/content/behaviors.py:48
 msgid "Identifiant de l'utilisateur"
-msgstr ""
+msgstr "Identifiant de l'utilisateur "
 
 #: ric/core/browser/templates/forbidden_search.pt:9
 msgid "Il faut &ecirc;tre membre du RIC et connect&eacute; au site pour pouvoir effectuer des recherches dans l'annuaire."
@@ -118,7 +113,7 @@ msgstr ""
 msgid "Il y a ${number} r&eacute;sultat(s) correspondant &agrave; votre recherche (20 maximum) :"
 msgstr ""
 
-#: ric/core/mail/templates/send_mail.pt:75
+#: ric/core/mail/templates/send_mail.pt:60
 msgid "Jours"
 msgstr ""
 
@@ -140,7 +135,7 @@ msgstr ""
 
 #: ric/core/content/behaviors.py:90
 msgid "Logiciels"
-msgstr ""
+msgstr "Logiciels "
 
 #: ric/core/browser/templates/organization.pt:73
 msgid "Membres de cette organisation"
@@ -152,9 +147,9 @@ msgstr ""
 
 #: ric/core/content/behaviors.py:80
 msgid "Nombre d'habitants"
-msgstr ""
+msgstr "Nombre d'habitants "
 
-#: ric/core/mail/templates/send_mail.pt:51
+#: ric/core/mail/templates/send_mail.pt:36
 msgid "Organisation"
 msgstr ""
 
@@ -169,9 +164,9 @@ msgstr ""
 
 #: ric/core/content/behaviors.py:85
 msgid "Serveurs"
-msgstr ""
+msgstr "Serveurs "
 
-#: ric/core/mail/send_mail.py:75
+#: ric/core/mail/send_mail.py:71
 msgid "Un problème est survenu lors de l'envoi de l'e-mail"
 msgstr ""
 

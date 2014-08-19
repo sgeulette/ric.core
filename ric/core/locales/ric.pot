@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.1\n"
-"POT-Creation-Date: 2014-08-19 14:58+0000\n"
+"POT-Creation-Date: 2014-08-19 15:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -70,23 +70,18 @@ msgstr ""
 msgid "Envoi mail"
 msgstr ""
 
-#. Default: "Envoi à la personne ayant la caractéristique « envoi cotisation »"
-#: ric/core/mail/templates/send_mail.pt:34
-msgid "Envoi_personne_caracteristique_envoi_cotisation"
-msgstr ""
-
 #. Default: "Envoi selon la valeur du champ « envoi mail » d’une personne"
-#: ric/core/mail/templates/send_mail.pt:90
+#: ric/core/mail/templates/send_mail.pt:75
 msgid "Envoi_selon_valeur_champ_envoi_mail"
 msgstr ""
 
 #. Default: "Envoi à tous les membres non connectés depuis un nombre de jours spécifié"
-#: ric/core/mail/templates/send_mail.pt:73
+#: ric/core/mail/templates/send_mail.pt:58
 msgid "Envoi_tous_membres_non_connectes_nombre_jours"
 msgstr ""
 
 #. Default: "Envoi à tous les membres d'une organisation"
-#: ric/core/mail/templates/send_mail.pt:49
+#: ric/core/mail/templates/send_mail.pt:34
 msgid "Envoi_tous_membres_organisation"
 msgstr ""
 
@@ -118,7 +113,7 @@ msgstr ""
 msgid "Il y a ${number} r&eacute;sultat(s) correspondant &agrave; votre recherche (20 maximum) :"
 msgstr ""
 
-#: ric/core/mail/templates/send_mail.pt:75
+#: ric/core/mail/templates/send_mail.pt:60
 msgid "Jours"
 msgstr ""
 
@@ -154,7 +149,7 @@ msgstr ""
 msgid "Nombre d'habitants"
 msgstr ""
 
-#: ric/core/mail/templates/send_mail.pt:51
+#: ric/core/mail/templates/send_mail.pt:36
 msgid "Organisation"
 msgstr ""
 
@@ -171,7 +166,7 @@ msgstr ""
 msgid "Serveurs"
 msgstr ""
 
-#: ric/core/mail/send_mail.py:75
+#: ric/core/mail/send_mail.py:71
 msgid "Un problème est survenu lors de l'envoi de l'e-mail"
 msgstr ""
 

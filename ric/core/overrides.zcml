@@ -12,4 +12,8 @@
         factory=".indexers.person_sortable_title"
         />
 
+    <adapter
+        factory=".formatter.RICIntegerDataConverter"
+        />
+
 </configure>
