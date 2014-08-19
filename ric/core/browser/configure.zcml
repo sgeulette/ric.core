@@ -26,6 +26,18 @@
            component=".vocabulary.ContentsVocabularyFactory" />
 
 
+  <!-- Other views -->
+
+  <browser:page
+      name="view"
+      for="collective.contact.core.content.organization.IOrganization"
+      class="collective.contact.core.browser.organization.Organization"
+      permission="zope2.View"
+      layer="..interfaces.IRICCoreLayer"
+      template="templates/organization.pt"
+      />
+
+
   <!-- Useful methods -->
 
   <browser:page
