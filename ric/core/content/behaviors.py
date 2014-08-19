@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
 
 from zope import schema
+from zope.component import getMultiAdapter
 from zope.interface import alsoProvides
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.directives import form
 from plone.supermodel import model
 from collective.z3cform.datagridfield import DataGridField, DictRow
+from plone import api
+from zope.interface import Invalid, invariant
 
 from ric.core import RICMessageFactory as _
 from ric.core.content import vocabularies
@@ -17,12 +20,25 @@ class IRICPerson(model.Schema):
     form.write_permission(invalidmail='RIC: Administer website')
 
     invalidmail = schema.Bool(title=_(u"E-mail invalide"),
-                             required=True)
+                              required=True)
 
     multimail = schema.List(title=_(u"Envoi mail"),
                             required=False,
                             value_type=schema.Choice(vocabulary=vocabularies.multimail),
                             )
+
+    userid = schema.TextLine(title=_(u"Identifiant de l'utilisateur"),
+                             required=False)
+
+    @invariant
+    def userid_unique(data):
+        portal = api.portal.get()
+        request = getattr(portal, "REQUEST", None)
+        person = getMultiAdapter((portal, request),
+                                 name="get_person_for_user")(data.userid)
+        if person:
+            raise Invalid(_(u"Utilisateur déjà existant"))
+
 
 alsoProvides(IRICPerson, IFormFieldProvider)
 
