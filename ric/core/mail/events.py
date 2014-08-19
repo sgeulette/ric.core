@@ -7,10 +7,6 @@ from plone.app.contentrules import handlers
 from ric.core.mail import interfaces
 
 
-# XXX en fait on a pas besoin d'avoir un event different par filtre?
-# XXX quid des templates de mail alors? Elles sont spécifiques à quoi?
-
-
 class SendBase(ObjectEvent):
 
     def __init__(self, context, recipients):
@@ -37,12 +33,12 @@ def send_cotisation_person_subscriber(event):
     handlers.execute(event.object, event)
 
 
-class SendOrganisationMembers(SendBase):
-    grok.implements(interfaces.ISendOrganisationMembers)
+class SendOrganizationMembers(SendBase):
+    grok.implements(interfaces.ISendOrganizationMembers)
 
 
-@grok.subscribe(interfaces.ISendOrganisationMembers)
-def send_organisation_members_subscriber(event):
+@grok.subscribe(interfaces.ISendOrganizationMembers)
+def send_organization_members_subscriber(event):
     handlers.execute(event.object, event)
 
 

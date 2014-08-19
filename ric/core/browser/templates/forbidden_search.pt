@@ -1,0 +1,19 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="ric">
+
+<body>
+
+    <div metal:fill-slot="content-core">
+
+        <span i18n:translate="">Il faut &ecirc;tre membre du RIC et connect&eacute; au site pour pouvoir effectuer des recherches dans l'annuaire.</span>
+        <br />
+        <a href=""
+           tal:attributes="href string:${context/absolute_url}/login"
+           i18n:translate="">Cliquez ici pour vous connecter.</a>
+
+    </div>
+
+</body>
+
+</html>

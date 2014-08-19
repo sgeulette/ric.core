@@ -10,7 +10,7 @@ class ISendCotisationPerson(IObjectEvent):
     pass
 
 
-class ISendOrganisationMembers(IObjectEvent):
+class ISendOrganizationMembers(IObjectEvent):
     pass
 
 

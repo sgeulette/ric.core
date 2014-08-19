@@ -1,9 +1,9 @@
-Add a new content rule
+Configure email in plone control panel
 
-Select a custom Event
+Content rules are automatically created at package installation
 
-Add a Send Mail action with ${recipients} as recipient
+Go to http://localhost:8080/plone/send_mail view (available in portal actions menu)
 
-Activate the Content Rule for all the site
+Edit the mail templates (do not change the ${recipients})
 
-Send mail with the http://localhost:8080/plone/send_mail view
+Send e-mails

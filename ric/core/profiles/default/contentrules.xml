@@ -52,10 +52,10 @@
         />
 
     <rule
-        name="organisation_members"
-        title="Organisation members"
+        name="organization_members"
+        title="Organization members"
         description=""
-        event="ric.core.mail.interfaces.ISendOrganisationMembers"
+        event="ric.core.mail.interfaces.ISendOrganizationMembers"
         enabled="True"
         stop-after="False">
         <actions>
@@ -71,7 +71,7 @@
 
     <assignment
         location="/"
-        name="organisation_members"
+        name="organization_members"
         enabled="True"
         bubbles="True"
         />

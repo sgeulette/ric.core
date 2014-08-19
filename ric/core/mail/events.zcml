@@ -13,7 +13,7 @@
       />
 
     <interface
-      interface="ric.core.mail.interfaces.ISendOrganisationMembers"
+      interface="ric.core.mail.interfaces.ISendOrganizationMembers"
       type="plone.contentrules.rule.interfaces.IRuleEventType"
       name="RIC: Membres d'une organisation"
       />

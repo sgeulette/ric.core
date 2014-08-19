@@ -2,6 +2,44 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser">
 
+
+  <!-- Search -->
+
+  <browser:page
+      name="view"
+      for="collective.contact.core.content.directory.IDirectory"
+      class=".search.RICSearchFormView"
+      permission="zope2.View"
+      layer="..interfaces.IRICCoreLayer"
+      />
+
+  <browser:page
+      name="nosearch"
+      for="collective.contact.core.content.directory.IDirectory"
+      class=".search.RICNoSearchFormView"
+      permission="zope2.View"
+      layer="..interfaces.IRICCoreLayer"
+      template="templates/forbidden_search.pt"
+      />
+
+  <utility name="ric.search.contents"
+           component=".vocabulary.ContentsVocabularyFactory" />
+
+
+  <!-- Other views -->
+
+  <browser:page
+      name="view"
+      for="collective.contact.core.content.organization.IOrganization"
+      class="collective.contact.core.browser.organization.Organization"
+      permission="zope2.View"
+      layer="..interfaces.IRICCoreLayer"
+      template="templates/organization.pt"
+      />
+
+
+  <!-- Useful methods -->
+
   <browser:page
       for="collective.contact.core.content.organization.IOrganization"
       name="is_profile_completed"
@@ -37,6 +75,9 @@
       permission="zope.Public"
       layer="..interfaces.IRICCoreLayer"
       />
+
+
+  <!-- CSS -->
 
   <browser:resource
       file="views.css"

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<import-steps>
+  <import-step id="ric.core.default"
+               handler="ric.core.setuphandlers.installCore"
+               title="ric.core: install import step">
+    <dependency step="metadata" />
+  </import-step>
+</import-steps>
