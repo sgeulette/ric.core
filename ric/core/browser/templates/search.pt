@@ -14,7 +14,7 @@
 
              <h3 i18n:translate="">Vous ne pouvez pas effectuer de recherche</h3>
              <p>
-                 <span i18n:translate="">Vous devez compléter votre description pour pouvoir effectuer une recherche.</span>
+                 <span i18n:translate="">Vous devez compl&eacute;ter votre description pour pouvoir effectuer une recherche.</span>
                  <br />
                  <a href=""
                     tal:attributes="href string:${view/personLink}/edit"

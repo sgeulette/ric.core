@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.1\n"
-"POT-Creation-Date: 2014-08-18 12:57+0000\n"
+"POT-Creation-Date: 2014-08-19 08:57+0000\n"
 "PO-Revision-Date: 2014-08-14 14:30+0000\n"
 "Last-Translator: support@lists.affinitic.be\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,12 +33,17 @@ msgstr ""
 msgid "Cliquez ici pour en ajouter un."
 msgstr ""
 
+#: ric/core/browser/templates/search.pt:19
 #: ric/core/viewlets/profile.pt:11
 msgid "Cliquez ici pour la compl&eacute;ter."
 msgstr ""
 
 #: ric/core/viewlets/email.pt:7
 msgid "Cliquez ici pour la modifier."
+msgstr ""
+
+#: ric/core/browser/templates/forbidden_search.pt:11
+msgid "Cliquez ici pour vous connecter."
 msgstr ""
 
 #: ric/core/content/vocabularies.py:9
@@ -75,12 +80,12 @@ msgid "Envoi_personne_caracteristique_envoi_cotisation"
 msgstr ""
 
 #. Default: "Envoi selon la valeur du champ « envoi mail » d’une personne"
-#: ric/core/mail/templates/send_mail.pt:87
+#: ric/core/mail/templates/send_mail.pt:90
 msgid "Envoi_selon_valeur_champ_envoi_mail"
 msgstr ""
 
 #. Default: "Envoi à tous les membres non connectés depuis un nombre de jours spécifié"
-#: ric/core/mail/templates/send_mail.pt:70
+#: ric/core/mail/templates/send_mail.pt:73
 msgid "Envoi_tous_membres_non_connectes_nombre_jours"
 msgstr ""
 
@@ -105,7 +110,19 @@ msgstr ""
 msgid "Formation"
 msgstr ""
 
-#: ric/core/mail/templates/send_mail.pt:72
+#: ric/core/browser/templates/forbidden_search.pt:9
+msgid "Il faut &ecirc;tre membre du RIC et connect&eacute; au site pour pouvoir effectuer des recherches dans l'annuaire."
+msgstr ""
+
+#: ric/core/browser/templates/search.pt:48
+msgid "Il n'y a pas de r&eacute;sultat correspondant &agrave; votre recherche ..."
+msgstr ""
+
+#: ric/core/browser/templates/search.pt:33
+msgid "Il y a ${number} r&eacute;sultat(s) correspondant &agrave; votre recherche (20 maximum) :"
+msgstr ""
+
+#: ric/core/mail/templates/send_mail.pt:75
 msgid "Jours"
 msgstr ""
 
@@ -141,12 +158,12 @@ msgstr ""
 msgid "Organisation"
 msgstr ""
 
-#: ric/core/browser/search.py:16
+#: ric/core/browser/search.py:23
 msgid "Recherche dans l'annuaire du RIC"
 msgstr ""
 
 #: ric/core/browser/interfaces.py:11
-#: ric/core/browser/search.py:34
+#: ric/core/browser/search.py:44
 msgid "Rechercher"
 msgstr ""
 
@@ -176,6 +193,10 @@ msgstr ""
 
 #: ric/core/viewlets/cotisation.pt:7
 msgid "Votre organisation ne comprend aucun contact de cotisation"
+msgstr ""
+
+#: ric/core/browser/templates/search.pt:17
+msgid "Vous devez compl&eacute;ter votre description pour pouvoir effectuer une recherche."
 msgstr ""
 
 #: ric/core/browser/templates/search.pt:15
