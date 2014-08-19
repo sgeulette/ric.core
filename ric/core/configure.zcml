@@ -25,4 +25,6 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
+  <includeOverrides file="overrides.zcml" />
+
 </configure>

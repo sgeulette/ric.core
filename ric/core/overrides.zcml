@@ -1,0 +1,11 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser">
+
+    <adapter
+        for="collective.contact.membrane.behaviors.personmembraneuser.IPersonMembraneUser"
+        provides="dexterity.membrane.behavior.membraneuser.IMembraneUserObject"
+        factory=".membrane.RICPersonMembraneUserAdapter"
+        />
+
+</configure>
