@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.1\n"
-"POT-Creation-Date: 2014-08-19 08:57+0000\n"
+"POT-Creation-Date: 2014-08-19 14:58+0000\n"
 "PO-Revision-Date: 2014-08-14 14:30+0000\n"
 "Last-Translator: support@lists.affinitic.be\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid "Annee"
 msgstr ""
 
-#: ric/core/content/behaviors.py:32
+#: ric/core/content/behaviors.py:66
 msgid "Année"
 msgstr ""
 
@@ -46,15 +46,11 @@ msgstr ""
 msgid "Cliquez ici pour vous connecter."
 msgstr ""
 
-#: ric/core/content/vocabularies.py:9
-msgid "Contact cotisation"
-msgstr ""
-
-#: ric/core/content/behaviors.py:62
+#: ric/core/content/behaviors.py:96
 msgid "Cotisation"
 msgstr ""
 
-#: ric/core/content/behaviors.py:61
+#: ric/core/content/behaviors.py:95
 msgid "Cotisations"
 msgstr ""
 
@@ -62,15 +58,15 @@ msgstr ""
 msgid "Destinataires"
 msgstr ""
 
-#: ric/core/mail/send_mail.py:30
+#: ric/core/mail/send_mail.py:31
 msgid "E-mail envoyé à"
 msgstr ""
 
-#: ric/core/content/behaviors.py:19
+#: ric/core/content/behaviors.py:40
 msgid "E-mail invalide"
 msgstr ""
 
-#: ric/core/content/behaviors.py:22
+#: ric/core/content/behaviors.py:43
 msgid "Envoi mail"
 msgstr ""
 
@@ -106,8 +102,8 @@ msgstr ""
 msgid "Exporter les organisations et personnes"
 msgstr ""
 
-#: ric/core/content/vocabularies.py:10
-msgid "Formation"
+#: ric/core/content/behaviors.py:48
+msgid "Identifiant de l'utilisateur"
 msgstr ""
 
 #: ric/core/browser/templates/forbidden_search.pt:9
@@ -142,15 +138,19 @@ msgstr ""
 msgid "La description de votre organisation comprend plus de 15% de donn&eacute;es non remplies."
 msgstr ""
 
-#: ric/core/content/behaviors.py:56
+#: ric/core/content/behaviors.py:90
 msgid "Logiciels"
+msgstr ""
+
+#: ric/core/browser/templates/organization.pt:73
+msgid "Membres de cette organisation"
 msgstr ""
 
 #: ric/core/browser/interfaces.py:14
 msgid "Nom à rechercher"
 msgstr ""
 
-#: ric/core/content/behaviors.py:46
+#: ric/core/content/behaviors.py:80
 msgid "Nombre d'habitants"
 msgstr ""
 
@@ -167,11 +167,11 @@ msgstr ""
 msgid "Rechercher"
 msgstr ""
 
-#: ric/core/content/behaviors.py:51
+#: ric/core/content/behaviors.py:85
 msgid "Serveurs"
 msgstr ""
 
-#: ric/core/mail/send_mail.py:74
+#: ric/core/mail/send_mail.py:75
 msgid "Un problème est survenu lors de l'envoi de l'e-mail"
 msgstr ""
 
@@ -183,7 +183,11 @@ msgstr ""
 msgid "Une personne"
 msgstr ""
 
-#: ric/core/content/behaviors.py:35
+#: ric/core/content/behaviors.py:58
+msgid "Utilisateur déjà existant"
+msgstr ""
+
+#: ric/core/content/behaviors.py:69
 msgid "Versement"
 msgstr ""
 
@@ -203,9 +207,19 @@ msgstr ""
 msgid "Vous ne pouvez pas effectuer de recherche"
 msgstr ""
 
+#. Default: "Contact cotisation"
+#: ric/core/profiles/default/registry.xml
+msgid "contact_cotisation"
+msgstr ""
+
 #. Default: "Envoi d'e-mails"
 #: ric/core/mail/templates/send_mail.pt:4
 msgid "envoi_emails"
+msgstr ""
+
+#. Default: "Formation"
+#: ric/core/profiles/default/registry.xml
+msgid "formation"
 msgstr ""
 
 #. Default: "Modifier la template"

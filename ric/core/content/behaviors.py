@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+from five import grok
 from zope import schema
 from zope.component import getMultiAdapter
 from zope.interface import alsoProvides
@@ -8,10 +8,28 @@ from plone.directives import form
 from plone.supermodel import model
 from collective.z3cform.datagridfield import DataGridField, DictRow
 from plone import api
+from plone.registry.interfaces import IRegistry
+from zope.component import getUtility
 from zope.interface import Invalid, invariant
+from zope.schema.interfaces import IContextSourceBinder
+from zope.schema.vocabulary import SimpleVocabulary
 
 from ric.core import RICMessageFactory as _
-from ric.core.content import vocabularies
+
+
+@grok.provider(IContextSourceBinder)
+def multimailTypes(context):
+    registry = getUtility(IRegistry)
+
+    terms = []
+
+    if registry is not None:
+        types = registry.get('ric.core.multimail', {})
+        i = 0
+        for type in types:
+            terms.append(SimpleVocabulary.createTerm(type, i, types[type]))
+            i += 1
+    return SimpleVocabulary(terms)
 
 
 class IRICPerson(model.Schema):
@@ -24,7 +42,7 @@ class IRICPerson(model.Schema):
 
     multimail = schema.List(title=_(u"Envoi mail"),
                             required=False,
-                            value_type=schema.Choice(vocabulary=vocabularies.multimail),
+                            value_type=schema.Choice(source=multimailTypes),
                             )
 
     userid = schema.TextLine(title=_(u"Identifiant de l'utilisateur"),
