@@ -82,7 +82,7 @@ class SendMail(grok.View):
 
         for organization in organizations:
             for subscription in organization.subscriptions:
-                if subscription.get('year') == year and subscription.get('payment') == False:
+                if subscription.get('year') == year and subscription.get('payment') is False:
                     non_contributors.append(organization.email)
 
         return non_contributors
