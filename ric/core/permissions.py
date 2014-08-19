@@ -12,3 +12,7 @@ setDefaultRoles(RICViewWarningViewlets, ('Authenticated', 'Site Administrator', 
 security.declarePublic('RICAdministrator')
 RICAdministrator = 'RIC: Administer website'
 setDefaultRoles(RICAdministrator, ('Site Administrator', 'Manager'))
+
+security.declarePublic('RICActualPersonOwner')
+RICAdministrator = 'RIC: Actual person owner'
+setDefaultRoles(RICAdministrator, ('RICActualPersonOwner', 'Manager', 'Site Administrator'))

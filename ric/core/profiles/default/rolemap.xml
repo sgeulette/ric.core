@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
 <rolemap>
+  <roles>
+    <role name="RICActualPersonOwner"/>
+  </roles>
   <permissions>
     <permission name="RIC: View warning viewlets" acquire="True">
       <role name="Authenticated"/>
@@ -7,6 +10,11 @@
       <role name="Manager"/>
     </permission>
     <permission name="RIC: Administer website" acquire="True">
+      <role name="Site Administrator"/>
+      <role name="Manager"/>
+    </permission>
+    <permission name="RIC: Actual person owner" acquire="True">
+      <role name="RICActualPersonOwner"/>
       <role name="Site Administrator"/>
       <role name="Manager"/>
     </permission>

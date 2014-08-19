@@ -35,7 +35,7 @@ def multimailTypes(context):
 
 class IRICPerson(model.Schema):
 
-    form.read_permission(invalidmail='RIC.Administrator')
+    form.read_permission(invalidmail='RIC.ActualPersonOwner')
     form.write_permission(invalidmail='RIC.Administrator')
     form.widget('invalidmail', RadioFieldWidget)
 
