@@ -40,10 +40,6 @@ class SendMail(grok.View):
             recipients = self.get_non_contributor_organizations(year)
             event = events.SendNonContributor(self.context, recipients)
 
-        elif filter == "cotisation_person":
-            recipients = self.get_cotisation_person()
-            event = events.SendCotisationPerson(self.context, recipients)
-
         elif filter == "organization_members":
             organization = self.request.get('option')
             recipients = self.get_organization_members(organization)
@@ -86,12 +82,6 @@ class SendMail(grok.View):
                     non_contributors.append(organization.email)
 
         return non_contributors
-
-    def get_cotisation_person(self):
-        """
-        Return cotisation registered persons
-        """
-        return []
 
     def get_organization_members(self, organization):
         """

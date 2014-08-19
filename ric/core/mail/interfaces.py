@@ -6,10 +6,6 @@ class ISendNonContributor(IObjectEvent):
     pass
 
 
-class ISendCotisationPerson(IObjectEvent):
-    pass
-
-
 class ISendOrganizationMembers(IObjectEvent):
     pass
 

@@ -27,31 +27,6 @@
         />
 
     <rule
-        name="cotisation_person"
-        title="Cotisation person"
-        description=""
-        event="ric.core.mail.interfaces.ISendCotisationPerson"
-        enabled="True"
-        stop-after="False">
-        <actions>
-            <action type="plone.actions.Mail">
-                <property name="subject">RIC</property>
-                <property name="source"></property>
-                <property name="recipients">${recipients}</property>
-                <property name="exclude_actor">false</property>
-                <property name="message">Mail template</property>
-            </action>
-        </actions>
-    </rule>
-
-    <assignment
-        location="/"
-        name="cotisation_person"
-        enabled="True"
-        bubbles="True"
-        />
-
-    <rule
         name="organization_members"
         title="Organization members"
         description=""

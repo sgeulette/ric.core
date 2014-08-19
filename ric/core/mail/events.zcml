@@ -7,12 +7,6 @@
       />
 
     <interface
-      interface="ric.core.mail.interfaces.ISendCotisationPerson"
-      type="plone.contentrules.rule.interfaces.IRuleEventType"
-      name="RIC: Personne avec caracteristique Envoi Cotisation"
-      />
-
-    <interface
       interface="ric.core.mail.interfaces.ISendOrganizationMembers"
       type="plone.contentrules.rule.interfaces.IRuleEventType"
       name="RIC: Membres d'une organisation"
