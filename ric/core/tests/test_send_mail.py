@@ -128,9 +128,21 @@ class TestSendMail(unittest.TestCase):
         msg = message_from_string(mailhost.messages[0])
         self.assertEqual(msg['To'], members[0])
 
-#     def test_get_non_contributor_organization(self):
-#         """test get_non_contributor_organizations() method"""
-#         self.assertTrue(False)
+    def test_get_non_contributor_organization(self):
+        """test get_non_contributor_organizations() method"""
+        send_mail = SendMail(self.portal, self.request)
+        organizations = send_mail.get_non_contributor_organizations(2014)
+        self.assertEqual(len(organizations), 2)
+        self.assertTrue('info@affinitic.be' in organizations)
+        self.assertTrue('info@imio.be' in organizations)
+
+        organizations = send_mail.get_non_contributor_organizations(2013)
+        self.assertEqual(len(organizations), 1)
+        self.assertTrue('info@imio.be' in organizations)
+
+        organizations = send_mail.get_non_contributor_organizations(2015)
+        self.assertEqual(len(organizations), 0)
+
 
 #     def test_get_organization_members(self):
 #         """test get_organization_members() method"""

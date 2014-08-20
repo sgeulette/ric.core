@@ -1,17 +1,31 @@
 # -*- coding: utf-8 -*-
 
+from plone import api
 from plone.testing import z2
 from plone.app.testing import applyProfile
 from plone.app.testing import FunctionalTesting
 from plone.app.testing import IntegrationTesting
 from plone.app.testing import PloneWithPackageLayer
 from plone.app.robotframework.testing import AUTOLOGIN_LIBRARY_FIXTURE
+from plone.app.testing import (login,
+                               TEST_USER_NAME,
+                               setRoles,
+                               TEST_USER_ID)
 
 import ric.core
 
 
 class RICCorePloneWithPackageLayer(PloneWithPackageLayer):
     """
+    plone (portal root)
+    |
+    `-- 1: Annuaire        (directory)
+        |-- 2: Affinitic   (organization)
+        |   |-- 3: Tintin  (person)
+        |   `-- 3: Haddock
+        |
+        `-- 2: Imio
+            `-- 3: Dupont
     """
 
     products = ('collective.contact.membrane', 'Products.membrane')
@@ -24,6 +38,53 @@ class RICCorePloneWithPackageLayer(PloneWithPackageLayer):
 
     def setUpPloneSite(self, portal):
         applyProfile(portal, 'ric.core:testing')
+
+        setRoles(portal, TEST_USER_ID, ['Manager'])
+        login(portal, TEST_USER_NAME)
+        annuaire = api.content.create(
+            type='directory',
+            title='Annuaire',
+            id='annuaire',
+            container=portal)
+
+        affinitic = api.content.create(
+            type='organization',
+            title='Affinitic',
+            id='affinitic',
+            subscriptions=[
+                {'year':2014,
+                 'payment': False},
+                {'year': 2013,
+                 'payment': True}],
+            email='info@affinitic.be',
+            container=annuaire)
+        api.content.create(
+            type='person',
+            title='Tintin',
+            id='tintin',
+            container=affinitic)
+        api.content.create(
+            type='person',
+            title='Haddock',
+            id='haddock',
+            container=affinitic)
+
+        imio = api.content.create(
+            type='organization',
+            title='Imio',
+            id='imio',
+            subscriptions=[
+                {'year':2014,
+                 'payment': False},
+                {'year': 2013,
+                 'payment': False}],
+            email='info@imio.be',
+            container=annuaire)
+        api.content.create(
+            type='person',
+            title='Dupont',
+            id='dupont',
+            container=imio)
 
 
 RIC_CORE_FIXTURE = RICCorePloneWithPackageLayer(
