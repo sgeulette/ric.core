@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from DateTime import DateTime
+
 from plone import api
 from plone.testing import z2
 from plone.app.testing import applyProfile
@@ -38,6 +40,16 @@ class RICCorePloneWithPackageLayer(PloneWithPackageLayer):
 
     def setUpPloneSite(self, portal):
         applyProfile(portal, 'ric.core:testing')
+
+        old_user_properties = {'last_login_time': DateTime(2000, 1, 1)}
+        api.user.create(email='old_user@example.com',
+                        username='old_user',
+                        properties=old_user_properties)
+
+        new_user_properties = {'last_login_time': DateTime()}
+        api.user.create(email='new_user@example.com',
+                        username='new_user',
+                        properties=new_user_properties)
 
         setRoles(portal, TEST_USER_ID, ['Manager'])
         login(portal, TEST_USER_NAME)

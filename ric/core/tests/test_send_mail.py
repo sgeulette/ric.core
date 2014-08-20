@@ -155,9 +155,12 @@ class TestSendMail(unittest.TestCase):
         self.assertEqual(len(members), 1)
         self.assertTrue('dupont@imio.be' in members)
 
-#     def test_get_non_connected_members(self):
-#         """test get_non_connected_members() method"""
-#         self.assertTrue(False)
+    def test_get_non_connected_members(self):
+        """test get_non_connected_members() method"""
+        send_mail = SendMail(self.portal, self.request)
+        members = send_mail.get_non_connected_members(265)
+        self.assertTrue('old_user@example.com' in members)
+        self.assertTrue('new_user@example.com' not in members)
 
 #     def test_get_person_by_fields(self):
 #         """test get_person_by_fields() method"""

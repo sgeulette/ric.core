@@ -159,7 +159,7 @@ class SendMail(grok.View):
 
 def convert_datetime(plone_datetime):
     """
-    Convert plone DateTime to python datetime
+    Convert zope DateTime to python datetime
     """
     return datetime(year=plone_datetime.year(),
                     month=plone_datetime.month(),
