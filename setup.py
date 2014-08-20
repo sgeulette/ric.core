@@ -48,6 +48,7 @@ setup(name='ric.core',
       extras_require={
           'test': [
               'plone.app.robotframework',
+              'mock',
           ]
       },
       entry_points={},
