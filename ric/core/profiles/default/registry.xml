@@ -18,4 +18,14 @@
         <element key="formation" i18n:translate="formation">Formation</element>
     </value>
   </record>
+
+  <record name="dexterity.membrane.behavior.settings.IDexterityMembraneSettings.local_roles">
+    <value>
+      <element>Reader</element>
+      <element>Editor</element>
+      <element>Creator</element>
+      <element>RICActualPersonOwner</element>
+    </value>
+  </record>
+
 </registry>

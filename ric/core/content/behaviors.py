@@ -35,12 +35,12 @@ def multimailTypes(context):
 
 class IRICPerson(model.Schema):
 
-    form.read_permission(invalidmail='RIC.Administrator')
-    form.write_permission(invalidmail='RIC.Administrator')
-    form.widget('invalidmail', RadioFieldWidget)
-
     invalidmail = schema.Bool(title=_(u"E-mail invalide"),
                               required=True)
+
+    form.read_permission(invalidmail='RIC.ActualPersonOwner')
+    form.write_permission(invalidmail='RIC.Administrator')
+    form.widget('invalidmail', RadioFieldWidget)
 
     multimail = schema.List(title=_(u"Envoi mail"),
                             required=False,
@@ -49,6 +49,9 @@ class IRICPerson(model.Schema):
 
     userid = schema.TextLine(title=_(u"Identifiant de l'utilisateur"),
                              required=False)
+
+    form.read_permission(userid='RIC.Administrator')
+    form.write_permission(userid='RIC.Administrator')
 
     @invariant
     def userid_unique(data):
@@ -74,10 +77,6 @@ class ICotisationRow(model.Schema):
 
 class IRICOrganization(model.Schema):
 
-    form.read_permission(subscriptions='RIC: Administer website')
-    form.write_permission(subscriptions='RIC: Administer website')
-    form.widget('subscriptions', DataGridField)
-
     citizen = schema.TextLine(
         title=_(u"Nombre d'habitants"),
         required=True
@@ -99,6 +98,8 @@ class IRICOrganization(model.Schema):
                            schema=ICotisationRow),
         required=False,
     )
+    form.write_permission(subscriptions='RIC.Administrator')
+    form.widget('subscriptions', DataGridField)
 
 
 alsoProvides(IRICOrganization, IFormFieldProvider)

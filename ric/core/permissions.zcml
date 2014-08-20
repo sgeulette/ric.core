@@ -11,4 +11,9 @@
     title="RIC: Administer website"
     />
 
+  <permission
+    id="RIC.ActualPersonOwner"
+    title="RIC: Actual person owner"
+    />
+
 </configure>
