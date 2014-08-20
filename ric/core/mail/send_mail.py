@@ -48,8 +48,7 @@ class SendMail(grok.View):
 
         elif filter == "non_connected_members":
             days = int(self.request.get('option'))
-            members = self.get_non_connected_members(days)
-            recipients = [member.getProperty('email') for member in members]
+            recipients = self.get_non_connected_members(days)
             event = events.SendNonConnectedMembers(self.context, recipients)
 
         elif filter == "send_mail_field":
@@ -116,7 +115,7 @@ class SendMail(grok.View):
             if last_login_time < date_limit:
                 non_connected_members.append(m)
 
-        return non_connected_members
+        return [member.getProperty('email') for member in non_connected_members]
 
     def get_person_by_fields(self, fields):
         """
