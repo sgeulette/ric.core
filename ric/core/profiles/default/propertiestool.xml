@@ -7,4 +7,7 @@
    <element value="position"/>
   </property>
  </object>
+ <object name="site_properties" meta_type="Plone Property Sheet">
+  <property name="default_language" type="string">fr</property>
+ </object>
 </object>
