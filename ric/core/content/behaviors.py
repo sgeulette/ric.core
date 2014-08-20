@@ -35,12 +35,12 @@ def multimailTypes(context):
 
 class IRICPerson(model.Schema):
 
+    invalidmail = schema.Bool(title=_(u"E-mail invalide"),
+                              required=True)
+
     form.read_permission(invalidmail='RIC.ActualPersonOwner')
     form.write_permission(invalidmail='RIC.Administrator')
     form.widget('invalidmail', RadioFieldWidget)
-
-    invalidmail = schema.Bool(title=_(u"E-mail invalide"),
-                              required=True)
 
     multimail = schema.List(title=_(u"Envoi mail"),
                             required=False,
@@ -49,6 +49,9 @@ class IRICPerson(model.Schema):
 
     userid = schema.TextLine(title=_(u"Identifiant de l'utilisateur"),
                              required=False)
+
+    form.read_permission(userid='RIC.Administrator')
+    form.write_permission(userid='RIC.Administrator')
 
     @invariant
     def userid_unique(data):
