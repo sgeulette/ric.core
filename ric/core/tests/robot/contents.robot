@@ -12,12 +12,14 @@ Test Teardown  Close all browsers
 Test example
     Log in as site owner
     Go to  ${PLONE_URL}/++add++directory
+    Wait Until Page Contains Element  name=form.widgets.IBasic.title  10
     Input text  name=form.widgets.IBasic.title  Annuaire
     Input text  name=form.widgets.position_types.AA.widgets.name  President
     Input text  name=form.widgets.organization_types.AA.widgets.name  ASBL
     Input text  name=form.widgets.organization_levels.AA.widgets.name  Niveau
     Click Button  Save
     Go to  ${PLONE_URL}/annuaire/++add++organization
+    Wait Until Page Contains Element  name=form.widgets.IBasic.title  10
     Input text  name=form.widgets.IBasic.title  Organisation
     Input text  name=form.widgets.IRICOrganization.citizen  100
     Input text  name=form.widgets.IRICOrganization.servers  Linux
