@@ -77,10 +77,6 @@ class ICotisationRow(model.Schema):
 
 class IRICOrganization(model.Schema):
 
-    form.read_permission(subscriptions='RIC: Administer website')
-    form.write_permission(subscriptions='RIC: Administer website')
-    form.widget('subscriptions', DataGridField)
-
     citizen = schema.TextLine(
         title=_(u"Nombre d'habitants"),
         required=True
@@ -102,6 +98,8 @@ class IRICOrganization(model.Schema):
                            schema=ICotisationRow),
         required=False,
     )
+    form.write_permission(subscriptions='RIC.Administrator')
+    form.widget('subscriptions', DataGridField)
 
 
 alsoProvides(IRICOrganization, IFormFieldProvider)
