@@ -11,18 +11,18 @@ Test Teardown  Close all browsers
 
 Test example
     Log in as site owner
-    Go to  ${PLONE_URL}/createObject?type_name=directory
+    Go to  ${PLONE_URL}/++add++directory
     Input text  name=form.widgets.IBasic.title  Annuaire
     Input text  name=form.widgets.position_types.AA.widgets.name  President
     Input text  name=form.widgets.organization_types.AA.widgets.name  ASBL
     Input text  name=form.widgets.organization_levels.AA.widgets.name  Niveau
     Click Button  Save
-    Click Action by id  rename
-    Input text  name=new_ids:list  annuaire
-    Click Button  Rename All
-    Go to  ${PLONE_URL}/annuaire/createObject?type_name=organization
+    Go to  ${PLONE_URL}/annuaire/++add++organization
     Input text  name=form.widgets.IBasic.title  Organisation
     Input text  name=form.widgets.IRICOrganization.citizen  100
     Input text  name=form.widgets.IRICOrganization.servers  Linux
     Input text  name=form.widgets.IRICOrganization.softwares  Firefox
+    Click element  css=#fieldsetlegend-contact_details
+    Input text  name=form.widgets.IContactDetails.email  example@organisation.com
     Click Button  Save
+    Page should contain  Item created
