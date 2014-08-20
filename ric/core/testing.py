@@ -52,7 +52,7 @@ class RICCorePloneWithPackageLayer(PloneWithPackageLayer):
             title='Affinitic',
             id='affinitic',
             subscriptions=[
-                {'year':2014,
+                {'year': 2014,
                  'payment': False},
                 {'year': 2013,
                  'payment': True}],
@@ -62,11 +62,13 @@ class RICCorePloneWithPackageLayer(PloneWithPackageLayer):
             type='person',
             title='Tintin',
             id='tintin',
+            email='tintin@affinitic.be',
             container=affinitic)
         api.content.create(
             type='person',
             title='Haddock',
             id='haddock',
+            email='haddock@affinitic.be',
             container=affinitic)
 
         imio = api.content.create(
@@ -74,7 +76,7 @@ class RICCorePloneWithPackageLayer(PloneWithPackageLayer):
             title='Imio',
             id='imio',
             subscriptions=[
-                {'year':2014,
+                {'year': 2014,
                  'payment': False},
                 {'year': 2013,
                  'payment': False}],
@@ -84,6 +86,7 @@ class RICCorePloneWithPackageLayer(PloneWithPackageLayer):
             type='person',
             title='Dupont',
             id='dupont',
+            email='dupont@imio.be',
             container=imio)
 
 

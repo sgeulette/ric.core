@@ -143,10 +143,17 @@ class TestSendMail(unittest.TestCase):
         organizations = send_mail.get_non_contributor_organizations(2015)
         self.assertEqual(len(organizations), 0)
 
+    def test_get_organization_members(self):
+        """test get_organization_members() method"""
+        send_mail = SendMail(self.portal, self.request)
+        members = send_mail.get_organization_members('affinitic')
+        self.assertEqual(len(members), 2)
+        self.assertTrue('tintin@affinitic.be' in members)
+        self.assertTrue('haddock@affinitic.be' in members)
 
-#     def test_get_organization_members(self):
-#         """test get_organization_members() method"""
-#         self.assertTrue(False)
+        members = send_mail.get_organization_members('imio')
+        self.assertEqual(len(members), 1)
+        self.assertTrue('dupont@imio.be' in members)
 
 #     def test_get_non_connected_members(self):
 #         """test get_non_connected_members() method"""
