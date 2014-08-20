@@ -162,18 +162,49 @@ class TestSendMail(unittest.TestCase):
         self.assertTrue('old_user@example.com' in members)
         self.assertTrue('new_user@example.com' not in members)
 
-#     def test_get_person_by_fields(self):
-#         """test get_person_by_fields() method"""
-#         self.assertTrue(False)
+    def test_get_person_by_fields(self):
+        """test get_person_by_fields() method"""
+        send_mail = SendMail(self.portal, self.request)
+        members = send_mail.get_person_by_fields(['contact_cotisation', 'formation'])
+        self.assertEqual(len(members), 2)
+        self.assertTrue('tintin@affinitic.be' in members)
+        self.assertTrue('dupont@imio.be' in members)
 
-#     def test_get_multimail_fields(self):
-#         """test get_multimail_fields() method"""
-#         self.assertTrue(False)
+        members = send_mail.get_person_by_fields(['contact_cotisation'])
+        self.assertEqual(len(members), 1)
+        self.assertTrue('tintin@affinitic.be' in members)
 
-#     def test_get_all_organizations(self):
-#         """test get_all_organizations() method"""
-#         self.assertTrue(False)
+        members = send_mail.get_person_by_fields(['formation'])
+        self.assertEqual(len(members), 2)
+        self.assertTrue('tintin@affinitic.be' in members)
+        self.assertTrue('dupont@imio.be' in members)
 
-#     def test_convert_datetime(self):
-#         """test convert_datetime() function"""
-#         self.assertTrue(False)
+        members = send_mail.get_person_by_fields(['notexists'])
+        self.assertEqual(len(members), 0)
+
+    def test_get_multimail_fields(self):
+        """test get_multimail_fields() method"""
+        send_mail = SendMail(self.portal, self.request)
+        fields = send_mail.get_multimail_fields()
+        self.assertEqual(len(fields), 2)
+        self.assertEqual(fields,
+                         [(u'contact_cotisation', u'contact_cotisation'),
+                          (u'formation', u'formation')])
+
+    def test_get_all_organizations(self):
+        """test get_all_organizations() method"""
+        send_mail = SendMail(self.portal, self.request)
+        organizations = send_mail.get_all_organizations()
+        self.assertEqual(len(organizations), 2)
+        ids = [org.id for org in organizations]
+        self.assertTrue('affinitic' in ids)
+        self.assertTrue('imio' in ids)
+
+    def test_convert_datetime(self):
+        """test convert_datetime() function"""
+        from ric.core.mail.send_mail import convert_datetime
+        from DateTime import DateTime
+        from datetime import datetime
+        zope_dt = DateTime(2010, 6, 20, 11, 45, 55)
+        python_dt = convert_datetime(zope_dt)
+        self.assertEqual(python_dt, datetime(2010, 6, 20, 11, 45, 55))

@@ -164,5 +164,6 @@ def convert_datetime(plone_datetime):
     return datetime(year=plone_datetime.year(),
                     month=plone_datetime.month(),
                     day=plone_datetime.day(),
+                    hour=plone_datetime.hour(),
                     minute=plone_datetime.minute(),
                     second=int(plone_datetime.second()))

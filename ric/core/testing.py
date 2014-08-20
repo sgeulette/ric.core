@@ -75,12 +75,14 @@ class RICCorePloneWithPackageLayer(PloneWithPackageLayer):
             title='Tintin',
             id='tintin',
             email='tintin@affinitic.be',
+            multimail=['contact_cotisation', 'formation'],
             container=affinitic)
         api.content.create(
             type='person',
             title='Haddock',
             id='haddock',
             email='haddock@affinitic.be',
+            multimail=[],
             container=affinitic)
 
         imio = api.content.create(
@@ -99,6 +101,7 @@ class RICCorePloneWithPackageLayer(PloneWithPackageLayer):
             title='Dupont',
             id='dupont',
             email='dupont@imio.be',
+            multimail=['formation'],
             container=imio)
 
 
