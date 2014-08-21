@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from plone import api
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 from plone.api.portal import show_message
@@ -6,7 +7,6 @@ from plone.registry.interfaces import IRegistry
 
 from five import grok
 from zope.interface import Interface
-from Products.CMFCore.utils import getToolByName
 from ric.core.mail import events
 from zope.event import notify
 from ric.core import RICMessageFactory as _
@@ -87,7 +87,7 @@ class SendMail(grok.View):
         """
         Return all members of a specific organization
         """
-        portal_catalog = getToolByName(self.context, 'portal_catalog')
+        portal_catalog = api.portal.get_tool('portal_catalog')
         queryDict = {}
         queryDict['portal_type'] = 'organization'
         queryDict['sort_on'] = 'getObjPositionInParent'
@@ -105,7 +105,7 @@ class SendMail(grok.View):
         """
         Return members not seen since days time
         """
-        mt = getToolByName(self.context, 'portal_membership')
+        mt = api.portal.get_tool('portal_membership')
         members = mt.listMembers()
 
         non_connected_members = []
@@ -121,7 +121,7 @@ class SendMail(grok.View):
         """
         Return all persons by 'send mail' field selected
         """
-        portal_catalog = getToolByName(self.context, 'portal_catalog')
+        portal_catalog = api.portal.get_tool('portal_catalog')
         queryDict = {}
         queryDict['portal_type'] = 'person'
         queryDict['sort_on'] = 'getObjPositionInParent'
@@ -149,7 +149,7 @@ class SendMail(grok.View):
         """
         Return all organizations registered on the site
         """
-        portal_catalog = getToolByName(self.context, 'portal_catalog')
+        portal_catalog = api.portal.get_tool('portal_catalog')
         queryDict = {}
         queryDict['portal_type'] = 'organization'
         queryDict['sort_on'] = 'getObjPositionInParent'
