@@ -20,11 +20,13 @@ Test user menu action
 Test edit mail template
     Log in as site owner
     Go to  ${PLONE_URL}/send_mail
+    Wait Until Page Contains Element  css=a#edit_non_contributor  10
     Click link  css=a#edit_non_contributor
     Page should contain  Edit Mail Action
     Input text  name=form.message  Nouvelle template
     Click Button  Save
     Go to  ${PLONE_URL}/send_mail
+    Wait Until Page Contains Element  css=a#edit_non_contributor  10
     Click link  css=a#edit_non_contributor
     Page should contain  Nouvelle template
 
@@ -32,5 +34,6 @@ Test edit mail template
 Test send mail
     Log in as site owner
     Go to  ${PLONE_URL}/send_mail
+    Wait Until Page Contains Element  css=input#submit_non_contributor  10
     Click button  css=input#submit_non_contributor
     Wait until page contains  E-mail envoyé à:
