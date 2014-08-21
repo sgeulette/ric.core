@@ -17,7 +17,7 @@ Test example
     Input text  name=form.widgets.position_types.AA.widgets.name  President
     Input text  name=form.widgets.organization_types.AA.widgets.name  ASBL
     Input text  name=form.widgets.organization_levels.AA.widgets.name  Niveau
-    Click Button  Sauvegarder
+    Click Button  Save
     Go to  ${PLONE_URL}/annuaire-1/++add++organization
     Wait Until Page Contains Element  name=form.widgets.IBasic.title  10
     Input text  name=form.widgets.IBasic.title  Organisation
@@ -26,5 +26,5 @@ Test example
     Input text  name=form.widgets.IRICOrganization.softwares  Firefox
     Click element  css=#fieldsetlegend-contact_details
     Input text  name=form.widgets.IContactDetails.email  example@organisation.com
-    Click Button  Sauvegarder
-    Page should contain  Elément créé
+    Click Button  Save
+    Page should contain  Item created

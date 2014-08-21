@@ -21,10 +21,10 @@ Test edit mail template
     Log in as site owner
     Go to  ${PLONE_URL}/send_mail
     Click link  css=a#edit_non_contributor
-    Page should contain  Modifier l'action d'envoi de courriel
+    Page should contain  Edit Mail Action
     Input text  name=form.message  Nouvelle template
-    Click Button  Enregistrer
-    Page should not contain  Modifier l'action d'envoi de courriel
+    Click Button  Save
+    Go to  ${PLONE_URL}/send_mail
     Click link  css=a#edit_non_contributor
     Page should contain  Nouvelle template
 
