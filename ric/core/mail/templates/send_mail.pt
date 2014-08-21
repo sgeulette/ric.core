@@ -20,8 +20,9 @@
       <br />
 
       <div class="edit_mail_template">
-        <a href=""
-           tal:attributes="href string:${portal_url}/++rule++non_contributor/++action++0/edit"
+        <a id="" href=""
+           tal:attributes="href string:${portal_url}/++rule++non_contributor/++action++0/edit;
+                           id string:edit_non_contributor"
            i18n:translate="modifier_la_template">Modifier la template</a>
       </div>
       <br />
@@ -44,8 +45,9 @@
       <br />
 
       <div class="edit_mail_template">
-        <a href=""
-           tal:attributes="href string:${portal_url}/++rule++organization_members/++action++0/edit"
+        <a href="" id=""
+           tal:attributes="href string:${portal_url}/++rule++organization_members/++action++0/edit;
+                           id string:edit_organization_members"
            i18n:translate="modifier_la_template">Modifier la template</a>
       </div>
       <br />
@@ -61,8 +63,9 @@
       <br />
 
       <div class="edit_mail_template">
-        <a href=""
-           tal:attributes="href string:${portal_url}/++rule++non_connected_members/++action++0/edit"
+        <a href="" id=""
+           tal:attributes="href string:${portal_url}/++rule++non_connected_members/++action++0/edit;
+                           id string:edit_non_connected_members"
            i18n:translate="modifier_la_template">Modifier la template</a>
       </div>
       <br />
@@ -79,8 +82,9 @@
       </tal:for>
 
       <div class="edit_mail_template">
-        <a href=""
-           tal:attributes="href string:${portal_url}/++rule++send_mail_field/++action++0/edit"
+        <a href="" id=""
+           tal:attributes="href string:${portal_url}/++rule++send_mail_field/++action++0/edit;
+                           id string:edit_send_mail_field"
            i18n:translate="modifier_la_template">Modifier la template</a>
       </div>
       <br />
