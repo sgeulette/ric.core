@@ -42,6 +42,13 @@ class RICCorePloneWithPackageLayer(PloneWithPackageLayer, MembraneProfilesLayer)
     def setUpPloneSite(self, portal):
         applyProfile(portal, 'ric.core:testing')
 
+        position_types = [{'name': u'Secretaire', 'token': 'secretaire'},
+                          {'name': u'President', 'token': 'president'}]
+        organization_types = [{'name': u'ASBL', 'token': 'asbl'},
+                              {'name': u'PME', 'token': 'pme'}]
+        organization_levels = [{'name': u'Info', 'token': 'info'},
+                               {'name': u'Secretariat', 'token': 'secretariat'}]
+
         old_user_properties = {'last_login_time': DateTime(2000, 1, 1)}
         api.user.create(email='old_user@example.com',
                         username='old_user',
@@ -57,6 +64,9 @@ class RICCorePloneWithPackageLayer(PloneWithPackageLayer, MembraneProfilesLayer)
         annuaire = api.content.create(
             type='directory',
             title='Annuaire',
+            position_types=position_types,
+            organization_types=organization_types,
+            organization_levels=organization_levels,
             id='annuaire',
             container=portal)
 
@@ -70,6 +80,9 @@ class RICCorePloneWithPackageLayer(PloneWithPackageLayer, MembraneProfilesLayer)
                 {'year': 2013,
                  'payment': True}],
             email='info@affinitic.be',
+            citizen=100,
+            servers='Linux',
+            softwares='Firefox',
             container=annuaire)
         api.content.create(
             type='person',
