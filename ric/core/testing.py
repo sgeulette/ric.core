@@ -14,10 +14,11 @@ from plone.app.testing import (login,
                                setRoles,
                                TEST_USER_ID)
 
+from Products.membrane.tests.base import MembraneProfilesLayer
 import ric.core
 
 
-class RICCorePloneWithPackageLayer(PloneWithPackageLayer):
+class RICCorePloneWithPackageLayer(PloneWithPackageLayer, MembraneProfilesLayer):
     """
     plone (portal root)
     |

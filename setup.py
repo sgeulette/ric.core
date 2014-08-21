@@ -47,6 +47,7 @@ setup(name='ric.core',
       ],
       extras_require={
           'test': [
+              'Products.PloneTestCase',
               'plone.app.robotframework',
               'mock',
           ]

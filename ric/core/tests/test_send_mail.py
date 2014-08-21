@@ -14,11 +14,6 @@ import transaction
 from ric.core.mail.send_mail import SendMail
 from ric.core.testing import RIC_CORE_INTEGRATION_TESTING
 
-# See ticket 5907
-import Products.membrane
-# Pep8
-Products.membrane
-
 
 class TestSendMail(unittest.TestCase):
 
