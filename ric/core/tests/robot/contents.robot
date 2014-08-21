@@ -18,7 +18,7 @@ Test example
     Input text  name=form.widgets.organization_types.AA.widgets.name  ASBL
     Input text  name=form.widgets.organization_levels.AA.widgets.name  Niveau
     Click Button  Sauvegarder
-    Go to  ${PLONE_URL}/annuaire/++add++organization
+    Go to  ${PLONE_URL}/annuaire-1/++add++organization
     Wait Until Page Contains Element  name=form.widgets.IBasic.title  10
     Input text  name=form.widgets.IBasic.title  Organisation
     Input text  name=form.widgets.IRICOrganization.citizen  100
