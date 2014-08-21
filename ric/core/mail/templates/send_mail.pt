@@ -20,13 +20,12 @@
       <br />
 
       <div class="edit_mail_template">
-        <a id="" href=""
-           tal:attributes="href string:${portal_url}/++rule++non_contributor/++action++0/edit;
-                           id string:edit_non_contributor"
+        <a id="edit_non_contributor" href=""
+           tal:attributes="href string:${portal_url}/++rule++non_contributor/++action++0/edit"
            i18n:translate="modifier_la_template">Modifier la template</a>
       </div>
       <br />
-      <input type="submit" i18n:attributes="value Envoyer" value="Envoyer" />
+      <input type="submit" id="submit_non_contributor" i18n:attributes="value Envoyer" value="Envoyer" />
     </fieldset>
   </form>
 
@@ -45,13 +44,12 @@
       <br />
 
       <div class="edit_mail_template">
-        <a href="" id=""
-           tal:attributes="href string:${portal_url}/++rule++organization_members/++action++0/edit;
-                           id string:edit_organization_members"
+        <a href="" id="edit_organization_members"
+           tal:attributes="href string:${portal_url}/++rule++organization_members/++action++0/edit"
            i18n:translate="modifier_la_template">Modifier la template</a>
       </div>
       <br />
-      <input type="submit" i18n:attributes="value Envoyer" value="Envoyer" />
+      <input type="submit" id="submit_organization_members" i18n:attributes="value Envoyer" value="Envoyer" />
     </fieldset>
   </form>
 
@@ -63,13 +61,12 @@
       <br />
 
       <div class="edit_mail_template">
-        <a href="" id=""
-           tal:attributes="href string:${portal_url}/++rule++non_connected_members/++action++0/edit;
-                           id string:edit_non_connected_members"
+        <a href="" id="edit_non_connected_members"
+           tal:attributes="href string:${portal_url}/++rule++non_connected_members/++action++0/edit"
            i18n:translate="modifier_la_template">Modifier la template</a>
       </div>
       <br />
-      <input type="submit" i18n:attributes="value Envoyer" value="Envoyer" />
+      <input type="submit" id="submit_non_connected_members" i18n:attributes="value Envoyer" value="Envoyer" />
     </fieldset>
   </form>
 
@@ -82,13 +79,12 @@
       </tal:for>
 
       <div class="edit_mail_template">
-        <a href="" id=""
-           tal:attributes="href string:${portal_url}/++rule++send_mail_field/++action++0/edit;
-                           id string:edit_send_mail_field"
+        <a href="" id="edit_send_mail_field"
+           tal:attributes="href string:${portal_url}/++rule++send_mail_field/++action++0/edit"
            i18n:translate="modifier_la_template">Modifier la template</a>
       </div>
       <br />
-      <input type="submit" i18n:attributes="value Envoyer" value="Envoyer" />
+      <input type="submit" id="submit_send_mail_field" i18n:attributes="value Envoyer" value="Envoyer" />
     </fieldset>
   </form>
 

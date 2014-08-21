@@ -27,3 +27,10 @@ Test edit mail template
     Page should not contain  Modifier l'action d'envoi de courriel
     Click link  css=a#edit_non_contributor
     Page should contain  Nouvelle template
+
+
+Test send mail
+    Log in as site owner
+    Go to  ${PLONE_URL}/send_mail
+    Click button  css=input#submit_non_contributor
+    Wait until page contains  E-mail envoyé à:
