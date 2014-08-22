@@ -10,7 +10,6 @@ Test Teardown  Close all browsers
 *** Test cases ***
 
 Test organization editable by members
-    Pause
     Log in  tintin  secret
     # Organization must be editable by this organization members
     Go to  ${PLONE_URL}/annuaire/affinitic

@@ -18,5 +18,10 @@
       <role name="Site Administrator"/>
       <role name="Manager"/>
     </permission>
+    <permission name="RIC: Actual organization member" acquire="True">
+      <role name="RICActualOrganizationMember"/>
+      <role name="Site Administrator"/>
+      <role name="Manager"/>
+    </permission>
   </permissions>
 </rolemap>

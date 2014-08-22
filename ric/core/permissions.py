@@ -16,3 +16,7 @@ setDefaultRoles(RICAdministrator, ('Site Administrator', 'Manager'))
 security.declarePublic('RICActualPersonOwner')
 RICAdministrator = 'RIC: Actual person owner'
 setDefaultRoles(RICAdministrator, ('RICActualPersonOwner', 'Manager', 'Site Administrator'))
+
+security.declarePublic('RICActualOrganizationMember')
+RICAdministrator = 'RIC: Actual organization member'
+setDefaultRoles(RICAdministrator, ('RICActualOrganizationMember', 'Manager', 'Site Administrator'))

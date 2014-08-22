@@ -9,12 +9,16 @@ from dexterity.membrane.behavior.membranegroup import IMembraneGroup
 
 class MembraneGroupRoleProvider(object):
     """
-    Set local roles for membrane group
+    Set local roles for membrane group members
     """
     implements(ILocalRoleProvider)
     adapts(IMembraneGroup)
 
-    _default_roles = ('Contributor', 'Reviewer', 'Reader', 'Editor')
+    _default_roles = ('Contributor',
+                      'Reviewer',
+                      'Reader',
+                      'Editor',
+                      'RICActualOrganizationMember')
 
     def __init__(self, context):
         self.context = context

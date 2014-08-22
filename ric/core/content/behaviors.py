@@ -99,6 +99,7 @@ class IRICOrganization(model.Schema):
                            schema=ICotisationRow),
         required=False,
     )
+    form.read_permission(subscriptions='RIC.ActualOrganizationMember')
     form.write_permission(subscriptions='RIC.Administrator')
     form.widget('subscriptions', DataGridField)
 

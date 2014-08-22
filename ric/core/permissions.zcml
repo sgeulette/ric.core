@@ -16,4 +16,9 @@
     title="RIC: Actual person owner"
     />
 
+  <permission
+    id="RIC.ActualOrganizationMember"
+    title="RIC: Actual organization member"
+    />
+
 </configure>
