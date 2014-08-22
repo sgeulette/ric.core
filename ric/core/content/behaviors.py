@@ -59,7 +59,8 @@ class IRICPerson(model.Schema):
         request = getattr(portal, "REQUEST", None)
         person = getMultiAdapter((portal, request),
                                  name="get_person_for_user")(data.userid)
-        if person:
+        userName = api.user.get_current().getUserName()
+        if person and data.userid != userName:
             raise Invalid(_(u"Utilisateur déjà existant"))
 
 
