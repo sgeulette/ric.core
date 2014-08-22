@@ -12,6 +12,7 @@ Test Teardown  Close all browsers
 Test example
     Log in as site owner
     Go to  ${PLONE_URL}/folder_factories
+    Wait Until Page Contains Element  css=input#form-field-directory  10
     Select Radio Button  url  form-field-directory
     Click Button  Add
     Input text  name=form.widgets.IBasic.title  Annuaire
@@ -20,6 +21,7 @@ Test example
     Input text  name=form.widgets.organization_levels.AA.widgets.name  Niveau
     Click Button  Save
     Go to  ${PLONE_URL}/annuaire-1/folder_factories
+    Wait Until Page Contains Element  css=input#form-field-organization  10
     Select Radio Button  url  form-field-organization
     Click Button  Add
     Input text  name=form.widgets.IBasic.title  Organisation
