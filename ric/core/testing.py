@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from datetime import datetime
+
 from DateTime import DateTime
 
 from Products.CMFCore.utils import getToolByName
@@ -98,6 +100,19 @@ class RICCorePloneWithPackageLayer(PloneWithPackageLayer, MembraneProfilesLayer)
             userid='tintin',
             password='secret',
             confirm_password='secret',
+            lastname='Tin',
+            firstname='Tin',
+            birthday=datetime(1987, 6, 25),
+            phone='071123456',
+            cell_phone='0488123456',
+            fax='321123456',
+            website='www.affinitic.be',
+            number='26',
+            street='rue du Labrador',
+            additional_address_details='fictif',
+            zip_code='1000',
+            city='Bruxelles',
+            region='Bruxelles',
             container=affinitic)
         haddock = api.content.create(
             type='person',
