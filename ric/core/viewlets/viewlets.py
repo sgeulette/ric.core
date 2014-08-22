@@ -38,7 +38,7 @@ class CotisationViewlet(RICViewletBase):
         contactCotisation = False
         for person in persons:
             personObj = person.getObject()
-            if 'Contact cotisation' in personObj.multimail:
+            if 'contact_cotisation' in personObj.multimail:
                 contactCotisation = True
                 break
         if not contactCotisation:
