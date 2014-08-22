@@ -89,6 +89,16 @@ class RICCorePloneWithPackageLayer(PloneWithPackageLayer, MembraneProfilesLayer)
             citizen=100,
             servers='Linux',
             softwares='Firefox',
+            description='Affinitic description',
+            organization_type='Affinitic type',
+            phone='071123456',
+            cell_phone='0488123456',
+            fax='321123456',
+            website='www.affinitic.be',
+            number='3',
+            street='random street',
+            city='random city',
+            region='random region',
             container=annuaire)
         tintin = api.content.create(
             type='person',
