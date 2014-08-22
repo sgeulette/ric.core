@@ -2,6 +2,8 @@
 
 from DateTime import DateTime
 
+from Products.CMFCore.utils import getToolByName
+
 from plone import api
 from plone.testing import z2
 from plone.app.testing import applyProfile
@@ -41,6 +43,7 @@ class RICCorePloneWithPackageLayer(PloneWithPackageLayer, MembraneProfilesLayer)
         z2.installProduct(app, 'Products.membrane')
 
     def setUpPloneSite(self, portal):
+        catalog = getToolByName(portal, 'portal_catalog')
         applyProfile(portal, 'ric.core:testing')
 
         position_types = [{'name': u'Secretaire', 'token': 'secretaire'},
@@ -85,7 +88,7 @@ class RICCorePloneWithPackageLayer(PloneWithPackageLayer, MembraneProfilesLayer)
             servers='Linux',
             softwares='Firefox',
             container=annuaire)
-        api.content.create(
+        tintin = api.content.create(
             type='person',
             title='Tintin',
             id='tintin',
@@ -96,7 +99,7 @@ class RICCorePloneWithPackageLayer(PloneWithPackageLayer, MembraneProfilesLayer)
             password='secret',
             confirm_password='secret',
             container=affinitic)
-        api.content.create(
+        haddock = api.content.create(
             type='person',
             title='Haddock',
             id='haddock',
@@ -118,8 +121,11 @@ class RICCorePloneWithPackageLayer(PloneWithPackageLayer, MembraneProfilesLayer)
                 {'year': 2013,
                  'payment': False}],
             email='info@imio.be',
+            citizen=100,
+            servers='Linux',
+            softwares='Firefox',
             container=annuaire)
-        api.content.create(
+        dupont = api.content.create(
             type='person',
             title='Dupont',
             id='dupont',
@@ -130,6 +136,13 @@ class RICCorePloneWithPackageLayer(PloneWithPackageLayer, MembraneProfilesLayer)
             password='secret',
             confirm_password='secret',
             container=imio)
+
+        catalog.reindexObject(annuaire)
+        catalog.reindexObject(affinitic)
+        catalog.reindexObject(tintin)
+        catalog.reindexObject(haddock)
+        catalog.reindexObject(imio)
+        catalog.reindexObject(dupont)
 
 
 RIC_CORE_FIXTURE = RICCorePloneWithPackageLayer(

@@ -10,6 +10,7 @@ Test Teardown  Close all browsers
 *** Test cases ***
 
 Test organization editable by members
+    Pause
     Log in  tintin  secret
     # Organization must be editable by this organization members
     Go to  ${PLONE_URL}/annuaire/affinitic
@@ -85,7 +86,7 @@ Test subscription must be editable only by admin
     Page should not contain  Cotisations
 
     Go to  ${PLONE_URL}
-    logout
+    Log out
     Log in as site owner
     Go to  ${PLONE_URL}/annuaire/affinitic/edit
     Wait until page contains  affinitic
@@ -99,15 +100,15 @@ Test subscription must be visible only by admin and organization members
     Page should contain  Cotisations
 
     Go to  ${PLONE_URL}
-    logout
+    Log out
     Log in as site owner
     Go to  ${PLONE_URL}/annuaire/affinitic
     Wait until page contains  affinitic
     Page should contain  Cotisations
 
     Go to  ${PLONE_URL}
-    logout
-    Log in  dupon  secret
+    Log out
+    Log in  dupont  secret
     Go to  ${PLONE_URL}/annuaire/affinitic
     Wait until page contains  affinitic
     Page should not contain  Cotisations
