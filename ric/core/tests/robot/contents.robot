@@ -11,15 +11,17 @@ Test Teardown  Close all browsers
 
 Test example
     Log in as site owner
-    Go to  ${PLONE_URL}/++add++directory
-    Wait Until Page Contains  Add Directory
+    Go to  ${PLONE_URL}/folder_factories
+    Select Radio Button  url  form-field-directory
+    Click Button  Add
     Input text  name=form.widgets.IBasic.title  Annuaire
     Input text  name=form.widgets.position_types.AA.widgets.name  President
     Input text  name=form.widgets.organization_types.AA.widgets.name  ASBL
     Input text  name=form.widgets.organization_levels.AA.widgets.name  Niveau
     Click Button  Save
-    Go to  ${PLONE_URL}/annuaire-1/++add++organization
-    Wait Until Page Contains Element  name=form.widgets.IBasic.title  10
+    Go to  ${PLONE_URL}/annuaire-1/folder_factories
+    Select Radio Button  url  form-field-organization
+    Click Button  Add
     Input text  name=form.widgets.IBasic.title  Organisation
     Input text  name=form.widgets.IRICOrganization.citizen  100
     Input text  name=form.widgets.IRICOrganization.servers  Linux
