@@ -37,6 +37,7 @@ class RICCorePloneWithPackageLayer(PloneWithPackageLayer, MembraneProfilesLayer)
         """Set up Zope."""
         self.loadZCML(package=ric.core,
                       name='testing.zcml')
+        z2.installProduct(app, 'collective.indexing')
         z2.installProduct(app, 'Products.membrane')
 
     def setUpPloneSite(self, portal):

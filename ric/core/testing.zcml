@@ -6,6 +6,7 @@
   <include package="dexterity.membrane" />
   <include package="Products.membrane" />
   <include package="collective.contact.membrane" />
+  <include package="collective.indexing" />
 
   <genericsetup:registerProfile
       name="testing"
