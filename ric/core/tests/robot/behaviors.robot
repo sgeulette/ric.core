@@ -69,10 +69,45 @@ Test userid must be editable only by admin
     Go to  ${PLONE_URL}/annuaire/affinitic/tintin/edit
     Wait until page contains  tintin
     Page should not contain  Identifiant de l'utilisateur 
-    Go to  ${PLONE_URL}
 
+    Go to  ${PLONE_URL}
     Log out
     Log in as site owner
     Go to  ${PLONE_URL}/annuaire/affinitic/tintin/edit
     Wait until page contains  tintin
     Page should contain  Identifiant de l'utilisateur 
+
+
+Test subscription must be editable only by admin
+    Log in  tintin  secret
+    Go to  ${PLONE_URL}/annuaire/affinitic/edit
+    Wait until page contains  affinitic
+    Page should not contain  Cotisations
+
+    Go to  ${PLONE_URL}
+    logout
+    Log in as site owner
+    Go to  ${PLONE_URL}/annuaire/affinitic/edit
+    Wait until page contains  affinitic
+    Page should contain  Cotisations
+
+
+Test subscription must be visible only by admin and organization members
+    Log in  tintin  secret
+    Go to  ${PLONE_URL}/annuaire/affinitic
+    Wait until page contains  affinitic
+    Page should contain  Cotisations
+
+    Go to  ${PLONE_URL}
+    logout
+    Log in as site owner
+    Go to  ${PLONE_URL}/annuaire/affinitic
+    Wait until page contains  affinitic
+    Page should contain  Cotisations
+
+    Go to  ${PLONE_URL}
+    logout
+    Log in  dupon  secret
+    Go to  ${PLONE_URL}/annuaire/affinitic
+    Wait until page contains  affinitic
+    Page should not contain  Cotisations
