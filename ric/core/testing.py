@@ -91,6 +91,10 @@ class RICCorePloneWithPackageLayer(PloneWithPackageLayer, MembraneProfilesLayer)
             id='tintin',
             email='tintin@affinitic.be',
             multimail=['contact_cotisation', 'formation'],
+            invalidmail=False,
+            userid='tintin',
+            password='secret',
+            confirm_password='secret',
             container=affinitic)
         api.content.create(
             type='person',
@@ -98,6 +102,10 @@ class RICCorePloneWithPackageLayer(PloneWithPackageLayer, MembraneProfilesLayer)
             id='haddock',
             email='haddock@affinitic.be',
             multimail=[],
+            invalidmail=False,
+            userid='haddock',
+            password='secret',
+            confirm_password='secret',
             container=affinitic)
 
         imio = api.content.create(
@@ -117,6 +125,10 @@ class RICCorePloneWithPackageLayer(PloneWithPackageLayer, MembraneProfilesLayer)
             id='dupont',
             email='dupont@imio.be',
             multimail=['formation'],
+            invalidmail=False,
+            userid='dupont',
+            password='secret',
+            confirm_password='secret',
             container=imio)
 
 
