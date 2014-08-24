@@ -134,6 +134,7 @@ class RICCorePloneWithPackageLayer(PloneWithPackageLayer, MembraneProfilesLayer)
             userid='haddock',
             password='secret',
             confirm_password='secret',
+            lastname='Haddock',
             container=affinitic)
 
         imio = api.content.create(
@@ -149,7 +150,8 @@ class RICCorePloneWithPackageLayer(PloneWithPackageLayer, MembraneProfilesLayer)
             citizen=100,
             servers='Linux',
             softwares='Firefox',
-            container=annuaire)
+            container=annuaire,
+            use_parent_address=False)
         dupont = api.content.create(
             type='person',
             title='Dupont',

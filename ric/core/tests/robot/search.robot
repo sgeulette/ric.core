@@ -30,9 +30,9 @@ Test search with organization member uncompleted profile
     Go to  ${PLONE_URL}/annuaire
     Input text  name=form.widgets.contentName  affinitic
     Click button  Rechercher
-    Wait until page contains  Vous ne pouvez pas effectuer de recherche
+    Wait until page contains element  css=div#ric-search-warning
 
 
 Test search with anonymous
     Go to  ${PLONE_URL}/annuaire
-    Wait until page contains  Il faut être membre du RIC et connecté au site pour pouvoir effectuer des recherches dans l'annuaire. 
+    Wait until page contains element  css=div#ric-search-error

@@ -54,3 +54,24 @@ Test 'profile completion' viewlet for person
     Input text  name=form.widgets.IContactDetails.region  Here
     Click Button  Save
     Element should not be visible  css=#ric-profile-viewlet .person-link
+
+
+Test 'profile completion' viewlet for organization
+    Log in  dupont  secret
+    Go to  ${PLONE_URL}
+    Wait until page contains  Dupont
+    Element should be visible  css=#ric-profile-viewlet .organization-link
+    Click link  css=#ric-profile-viewlet a.organization-link
+    Click element  css=#fieldsetlegend-contact_details
+    Input text  name=form.widgets.IContactDetails.phone  1234
+    Input text  name=form.widgets.IContactDetails.cell_phone  1234
+    Input text  name=form.widgets.IContactDetails.fax  1234
+    Input text  name=form.widgets.IContactDetails.website  http://www.google.com
+    Click element  css=#fieldsetlegend-address
+    Input text  name=form.widgets.IContactDetails.number  1
+    Input text  name=form.widgets.IContactDetails.street  Rue haute
+    Input text  name=form.widgets.IContactDetails.zip_code  1500
+    Input text  name=form.widgets.IContactDetails.city  SuperCity
+    Input text  name=form.widgets.IContactDetails.region  Here
+    Click Button  Save
+    Element should not be visible  css=#ric-profile-viewlet .organization-link
