@@ -6,11 +6,13 @@
 
     <div metal:fill-slot="content-core">
 
+      <div id="ric-search-error">
         <span i18n:translate="">Il faut &ecirc;tre membre du RIC et connect&eacute; au site pour pouvoir effectuer des recherches dans l'annuaire.</span>
         <br />
         <a href=""
            tal:attributes="href string:${context/absolute_url}/login"
            i18n:translate="">Cliquez ici pour vous connecter.</a>
+      </div>
 
     </div>
 
