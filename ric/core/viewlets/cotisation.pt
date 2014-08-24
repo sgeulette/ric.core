@@ -8,6 +8,7 @@
            tal:condition="not: view/isManager">Votre organisation ne comprend aucun contact de cotisation</span>
      <br />
      <a href=""
+        class="organization-link"
         tal:attributes="href view/organizationlink"
         i18n:translate="">Cliquez ici pour en ajouter un.</a>
 

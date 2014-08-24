@@ -9,6 +9,7 @@
                tal:condition="not: view/isManager">Votre description comprend plus de 15% de donn&eacute;es non remplies.</span>
          <br />
          <a href=""
+            class="person-link"
             tal:attributes="href string:${view/personlink}/edit"
             i18n:translate="">Cliquez ici pour la compl&eacute;ter.</a>
          <br />
@@ -22,6 +23,7 @@
                tal:condition="not: view/isManager">La description de votre organisation comprend plus de 15% de donn&eacute;es non remplies.</span>
          <br />
          <a href=""
+            class="organization-link"
             tal:attributes="href string:${view/organizationlink}/edit"
             i18n:translate="">Cliquez ici pour la compl&eacute;ter.</a>
      </tal:if>
