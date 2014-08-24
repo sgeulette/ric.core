@@ -106,7 +106,7 @@ class RICCorePloneWithPackageLayer(PloneWithPackageLayer, MembraneProfilesLayer)
             id='tintin',
             email='tintin@affinitic.be',
             multimail=['contact_cotisation', 'formation'],
-            invalidmail=False,
+            invalidmail=True,
             userid='tintin',
             password='secret',
             confirm_password='secret',
@@ -160,6 +160,8 @@ class RICCorePloneWithPackageLayer(PloneWithPackageLayer, MembraneProfilesLayer)
             userid='dupont',
             password='secret',
             confirm_password='secret',
+            lastname='Dupont',
+            birthday=datetime(1980, 1, 1),
             container=imio)
 
         catalog.reindexObject(annuaire)
