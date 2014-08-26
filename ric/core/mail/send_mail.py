@@ -38,7 +38,7 @@ class SendMail(grok.View):
         """
         if filter == "non_contributor":
             year = int(self.request.get('option'))
-            recipients = self.get_non_contributor_organizations(year)
+            recipients = self.get_non_contributor_organizations_members(year)
             event = events.SendNonContributor(self.context, recipients)
 
         elif filter == "organization_members":
@@ -69,7 +69,7 @@ class SendMail(grok.View):
         except:
             raise(Exception(_(u"Un problème est survenu lors de l'envoi de l'e-mail")))
 
-    def get_non_contributor_organizations(self, year):
+    def get_non_contributor_organizations_members(self, year):
         """
         Return organizations that are not contributor at a specific year
         """
@@ -79,7 +79,7 @@ class SendMail(grok.View):
         for organization in organizations:
             for subscription in organization.subscriptions:
                 if subscription.get('year') == year and subscription.get('payment') is False:
-                    non_contributors.append(organization.email)
+                    non_contributors.extend(self.get_organization_members(organization.id))
 
         return non_contributors
 
@@ -155,6 +155,10 @@ class SendMail(grok.View):
         queryDict['sort_on'] = 'getObjPositionInParent'
         results = portal_catalog.searchResults(queryDict)
         return [result.getObject() for result in results]
+
+    @staticmethod
+    def get_current_year():
+        return str(datetime.now().year)
 
 
 def convert_datetime(plone_datetime):

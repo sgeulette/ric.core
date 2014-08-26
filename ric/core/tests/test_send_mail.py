@@ -64,7 +64,7 @@ class TestSendMail(unittest.TestCase):
         """test send_mail() for non contributors method"""
         send_mail = SendMail(self.portal, self.request)
         members = ['non_contributor@example.com']
-        send_mail.get_non_contributor_organizations = Mock(return_value=members)
+        send_mail.get_non_contributor_organizations_members = Mock(return_value=members)
         send_mail.request.set('option', '2014')
         recipients = send_mail.send_mail('non_contributor')
         self.assertEqual(recipients, members)
@@ -126,17 +126,18 @@ class TestSendMail(unittest.TestCase):
     def test_get_non_contributor_organization(self):
         """test get_non_contributor_organizations() method"""
         send_mail = SendMail(self.portal, self.request)
-        organizations = send_mail.get_non_contributor_organizations(2014)
-        self.assertEqual(len(organizations), 2)
-        self.assertTrue('info@affinitic.be' in organizations)
-        self.assertTrue('info@imio.be' in organizations)
+        members = send_mail.get_non_contributor_organizations_members(2014)
+        self.assertEqual(len(members), 3)
+        self.assertTrue('tintin@affinitic.be' in members)
+        self.assertTrue('haddock@affinitic.be' in members)
+        self.assertTrue('dupont@imio.be' in members)
 
-        organizations = send_mail.get_non_contributor_organizations(2013)
-        self.assertEqual(len(organizations), 1)
-        self.assertTrue('info@imio.be' in organizations)
+        members = send_mail.get_non_contributor_organizations_members(2013)
+        self.assertEqual(len(members), 1)
+        self.assertTrue('dupont@imio.be' in members)
 
-        organizations = send_mail.get_non_contributor_organizations(2015)
-        self.assertEqual(len(organizations), 0)
+        members = send_mail.get_non_contributor_organizations_members(2015)
+        self.assertEqual(len(members), 0)
 
     def test_get_organization_members(self):
         """test get_organization_members() method"""

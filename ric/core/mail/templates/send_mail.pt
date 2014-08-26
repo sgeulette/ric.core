@@ -16,7 +16,7 @@
     <fieldset>
       <legend i18n:translate="non_cotisants_annee_specifiee">Non-cotisants une année spécifiée</legend>
       <input type="hidden" name="filter" value="non_contributor" />
-      <span i18n:translate="Annee">Ann&eacute;e</span>: <input type="text" name="option" value="2014" />
+      <span i18n:translate="Annee">Ann&eacute;e</span>: <input type="text" name="option" value="" tal:attributes="value view/get_current_year" />
       <br />
 
       <div class="edit_mail_template">
