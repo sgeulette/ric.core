@@ -99,7 +99,8 @@ class RICCorePloneWithPackageLayer(PloneWithPackageLayer, MembraneProfilesLayer)
             street='random street',
             city='random city',
             region='random region',
-            container=annuaire)
+            container=annuaire,
+            use_parent_address=False)
         tintin = api.content.create(
             type='person',
             title='Tintin',

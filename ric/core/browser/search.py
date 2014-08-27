@@ -26,6 +26,7 @@ class RICSearchForm(form.Form):
     _data = None
     canSearch = True
     personLink = ""
+    organizationLink = ""
 
     def update(self):
         if api.user.is_anonymous():
@@ -39,6 +40,16 @@ class RICSearchForm(form.Form):
             if not isCompleted:
                 self.personLink = person.absolute_url()
                 self.canSearch = False
+
+        organization = getMultiAdapter((self.context, self.request),
+                                       name="get_organization_for_user")()
+        if organization:
+            isCompleted = getMultiAdapter((organization, self.request),
+                                          name="is_profile_completed")()
+            if not isCompleted:
+                self.organizationLink = organization.absolute_url()
+                self.canSearch = False
+
         super(RICSearchForm, self).update()
 
     @button.buttonAndHandler(_(u'Rechercher'))

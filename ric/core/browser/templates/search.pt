@@ -13,11 +13,19 @@
              tal:condition="python: not canSearch and results is not None">
 
              <h3 i18n:translate="">Vous ne pouvez pas effectuer de recherche</h3>
-             <p>
+             <p tal:condition="view/personLink">
                  <span i18n:translate="">Vous devez compl&eacute;ter votre description pour pouvoir effectuer une recherche.</span>
                  <br />
                  <a href=""
                     tal:attributes="href string:${view/personLink}/edit"
+                    i18n:translate="">Cliquez ici pour la compl&eacute;ter.</a>
+             </p>
+
+             <p tal:condition="view/organizationLink">
+                 <span i18n:translate="">Vous devez compl&eacute;ter la description de votre organisation pour pouvoir effectuer une recherche.</span>
+                 <br />
+                 <a href=""
+                    tal:attributes="href string:${view/organizationLink}/edit"
                     i18n:translate="">Cliquez ici pour la compl&eacute;ter.</a>
              </p>
              
