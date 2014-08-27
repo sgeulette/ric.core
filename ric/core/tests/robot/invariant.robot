@@ -14,6 +14,9 @@ Test userid invariant valid
     Go to  ${PLONE_URL}/annuaire/affinitic/haddock/edit
     Click Button  Save
     Page should not contain  Utilisateur déjà existant
+    Go to  ${PLONE_URL}/annuaire/affinitic/++add++person
+    Click Button  Save
+    Page should not contain  Utilisateur déjà existant
 
 Test userid invariant invalid
     Log in as site owner
@@ -21,3 +24,7 @@ Test userid invariant invalid
     Input text  name=form.widgets.IRICPerson.userid  tintin
     Click Button  Save
     Wait Until Page Contains  Utilisateur déjà existant
+    Go to  ${PLONE_URL}/annuaire/affinitic/++add++person
+    Input text  name=form.widgets.IRICPerson.userid  tintin
+    Click Button  Save
+    Page should contain  Utilisateur déjà existant

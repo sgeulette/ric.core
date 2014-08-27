@@ -63,11 +63,16 @@ class IRICPerson(model.Schema):
 
     @invariant
     def userid_unique(data):
+        if not data.userid:
+            return
         portal = api.portal.get()
         request = getattr(portal, "REQUEST", None)
         person = getMultiAdapter((portal, request),
                                  name="get_person_for_user")(data.userid)
-        if person and data.userid != data.__context__.userid:
+        olduserid = None
+        if data.__context__:
+            olduserid = data.__context__.userid
+        if person and data.userid != olduserid:
             raise Invalid(_(u"Utilisateur déjà existant"))
 
 
