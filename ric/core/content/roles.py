@@ -26,7 +26,7 @@ class MembraneGroupRoleProvider(object):
     def getRoles(self, user_id):
         """
         """
-        if user_id in [person.id for person in self._getAllPersons()]:
+        if user_id in [person.userid for person in self._getAllPersons()]:
             return self._default_roles
         else:
             return ()
