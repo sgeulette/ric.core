@@ -18,19 +18,27 @@ from zope.schema.vocabulary import SimpleVocabulary
 from ric.core import RICMessageFactory as _
 
 
-@grok.provider(IContextSourceBinder)
-def multimailTypes(context):
-    registry = getUtility(IRegistry)
+class MultimailTypes(object):
+    grok.implements(IContextSourceBinder)
 
-    terms = []
+    def __call__(self, context):
+        registry = getUtility(IRegistry)
 
-    if registry is not None:
-        types = registry.get('ric.core.multimail', {})
-        i = 0
-        for type in types:
-            terms.append(SimpleVocabulary.createTerm(type, i, types[type]))
-            i += 1
-    return SimpleVocabulary(terms)
+        terms = []
+
+        if registry is not None:
+            types = registry.get('ric.core.multimail', {})
+            i = 0
+            for type in types:
+                terms.append(SimpleVocabulary.createTerm(type, i, types[type]))
+                i += 1
+        return SimpleVocabulary(terms)
+
+    def getTermByToken(self, token):
+        registry = getUtility(IRegistry)
+        if registry is not None:
+            types = registry.get('ric.core.multimail', {})
+            return SimpleVocabulary.createTerm(types[token])
 
 
 class IRICPerson(model.Schema):
@@ -44,7 +52,7 @@ class IRICPerson(model.Schema):
 
     multimail = schema.List(title=_(u"Envoi mail"),
                             required=False,
-                            value_type=schema.Choice(source=multimailTypes),
+                            value_type=schema.Choice(source=MultimailTypes()),
                             )
 
     userid = schema.TextLine(title=_(u"Identifiant de l'utilisateur"),
