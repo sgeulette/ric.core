@@ -33,6 +33,7 @@ class UtilsView(BrowserView):
             userName = api.user.get_current().getUserName()
         membrane = api.portal.get_tool('membrane_tool')
         membraneInfos = membrane.unrestrictedSearchResults(getUserId=userName)
+        persons_final = []
         if membraneInfos:
             try:
                 # Temporary fix because of insufficient rights on parent
@@ -40,12 +41,11 @@ class UtilsView(BrowserView):
                 persons = [mi.getObject() for mi in membraneInfos]
             except Unauthorized:
                 return
-            persons_final = []
             for person in persons:
                 # Temporary check because of membrane returning organization
                 if person.portal_type == 'person':
                     persons_final.append(person)
-            return persons_final
+        return persons_final
 
     def getOrganizationsForUser(self):
         """
@@ -54,7 +54,7 @@ class UtilsView(BrowserView):
         """
         persons = self.getPersonsForUser()
         if not persons:
-            return
+            return []
         parents = [aq_parent(person) for person in persons]
         parents_final = []
         for parent in parents:

@@ -25,30 +25,34 @@ class RICSearchForm(form.Form):
     ignoreContext = True
     _data = None
     canSearch = True
-    personLink = ""
-    organizationLink = ""
+    personsToComplete = []
+    organizationsToComplete = []
 
     def update(self):
+        self.personsToComplete = []
+        self.organizationsToComplete = []
+
         if api.user.is_anonymous():
             self.request.response.redirect("%s/@@nosearch" % self.context.absolute_url())
             return ''
-        person = getMultiAdapter((self.context, self.request),
-                                 name="get_persons_for_user")()
-        if person:
+        persons = getMultiAdapter((self.context, self.request),
+                                  name="get_persons_for_user")()
+        for person in persons:
             isCompleted = getMultiAdapter((person, self.request),
                                           name="is_profile_completed")()
             if not isCompleted:
-                self.personLink = person.absolute_url()
-                self.canSearch = False
+                self.personsToComplete.append(person)
 
-        organization = getMultiAdapter((self.context, self.request),
-                                       name="get_organizations_for_user")()
-        if organization:
+        organizations = getMultiAdapter((self.context, self.request),
+                                        name="get_organizations_for_user")()
+        for organization in organizations:
             isCompleted = getMultiAdapter((organization, self.request),
                                           name="is_profile_completed")()
             if not isCompleted:
-                self.organizationLink = organization.absolute_url()
-                self.canSearch = False
+                self.organizationsToComplete.append(organization)
+
+        if self.personsToComplete or self.organizationsToComplete:
+            self.canSearch = False
 
         super(RICSearchForm, self).update()
 
