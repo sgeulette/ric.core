@@ -60,7 +60,7 @@
 
   <browser:page
       for="*"
-      name="get_person_for_user"
+      name="get_persons_for_user"
       class=".utils.PersonView"
       attribute="getPersonsForUser"
       permission="zope.Public"
