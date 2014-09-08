@@ -137,6 +137,19 @@ class RICCorePloneWithPackageLayer(PloneWithPackageLayer, MembraneProfilesLayer)
             confirm_password='secret',
             lastname='Haddock',
             container=affinitic)
+        professeur = api.content.create(
+            type='person',
+            title='Professeur',
+            id='professeur',
+            email='tournicoti@imio.be',
+            multimail=[],
+            invalidmail=False,
+            userid='tournicoti',
+            password='secret',
+            confirm_password='secret',
+            lastname='Professeur',
+            birthday=datetime(1980, 1, 1),
+            container=affinitic)
 
         imio = api.content.create(
             type='organization',
@@ -166,13 +179,28 @@ class RICCorePloneWithPackageLayer(PloneWithPackageLayer, MembraneProfilesLayer)
             lastname='Dupont',
             birthday=datetime(1980, 1, 1),
             container=imio)
+        tournesol = api.content.create(
+            type='person',
+            title='Tournesol',
+            id='tournesol',
+            email='tournicoti@imio.be',
+            multimail=[],
+            invalidmail=False,
+            userid='tournicoti',
+            password='secret',
+            confirm_password='secret',
+            lastname='Tournesol',
+            birthday=datetime(1980, 1, 1),
+            container=imio)
 
         catalog.reindexObject(annuaire)
         catalog.reindexObject(affinitic)
         catalog.reindexObject(tintin)
         catalog.reindexObject(haddock)
+        catalog.reindexObject(professeur)
         catalog.reindexObject(imio)
         catalog.reindexObject(dupont)
+        catalog.reindexObject(tournesol)
 
 
 RIC_CORE_FIXTURE = RICCorePloneWithPackageLayer(
