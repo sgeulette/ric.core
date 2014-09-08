@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.1\n"
-"POT-Creation-Date: 2014-08-19 15:06+0000\n"
+"POT-Creation-Date: 2014-09-08 13:34+0000\n"
 "PO-Revision-Date: 2014-08-14 14:30+0000\n"
 "Last-Translator: support@lists.affinitic.be\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,15 +21,15 @@ msgstr ""
 msgid "Annee"
 msgstr ""
 
-#: ric/core/content/behaviors.py:66
+#: ric/core/content/behaviors.py:67
 msgid "Année"
 msgstr ""
 
-#: ric/core/viewlets/cotisation.pt:5
-msgid "Cette organisation ne comprend aucun contact de cotisation"
+#: ric/core/viewlets/cotisation.pt:7
+msgid "Cette organisation ne comprend aucun contact de cotisation."
 msgstr ""
 
-#: ric/core/viewlets/cotisation.pt:10
+#: ric/core/viewlets/cotisation.pt:11
 msgid "Cliquez ici pour en ajouter un."
 msgstr ""
 
@@ -38,19 +38,19 @@ msgstr ""
 msgid "Cliquez ici pour la compl&eacute;ter."
 msgstr ""
 
-#: ric/core/viewlets/email.pt:7
+#: ric/core/viewlets/email.pt:8
 msgid "Cliquez ici pour la modifier."
 msgstr ""
 
-#: ric/core/browser/templates/forbidden_search.pt:11
+#: ric/core/browser/templates/forbidden_search.pt:12
 msgid "Cliquez ici pour vous connecter."
 msgstr ""
 
-#: ric/core/content/behaviors.py:96
+#: ric/core/content/behaviors.py:93
 msgid "Cotisation"
 msgstr ""
 
-#: ric/core/content/behaviors.py:95
+#: ric/core/content/behaviors.py:92
 msgid "Cotisations"
 msgstr "Cotisations "
 
@@ -62,11 +62,11 @@ msgstr ""
 msgid "E-mail envoyé à"
 msgstr ""
 
-#: ric/core/content/behaviors.py:40
+#: ric/core/content/behaviors.py:43
 msgid "E-mail invalide"
 msgstr "E-mail invalide "
 
-#: ric/core/content/behaviors.py:43
+#: ric/core/content/behaviors.py:50
 msgid "Envoi mail"
 msgstr "Envoi mail "
 
@@ -97,19 +97,19 @@ msgstr ""
 msgid "Exporter les organisations et personnes"
 msgstr ""
 
-#: ric/core/content/behaviors.py:48
+#: ric/core/content/behaviors.py:55
 msgid "Identifiant de l'utilisateur"
 msgstr "Identifiant de l'utilisateur "
 
-#: ric/core/browser/templates/forbidden_search.pt:9
+#: ric/core/browser/templates/forbidden_search.pt:10
 msgid "Il faut &ecirc;tre membre du RIC et connect&eacute; au site pour pouvoir effectuer des recherches dans l'annuaire."
 msgstr ""
 
-#: ric/core/browser/templates/search.pt:48
+#: ric/core/browser/templates/search.pt:56
 msgid "Il n'y a pas de r&eacute;sultat correspondant &agrave; votre recherche ..."
 msgstr ""
 
-#: ric/core/browser/templates/search.pt:33
+#: ric/core/browser/templates/search.pt:41
 msgid "Il y a ${number} r&eacute;sultat(s) correspondant &agrave; votre recherche (20 maximum) :"
 msgstr ""
 
@@ -117,23 +117,23 @@ msgstr ""
 msgid "Jours"
 msgstr ""
 
-#: ric/core/viewlets/email.pt:5
-msgid "L'adresse email renseign&eacute;e dans votre description n'est pas valide."
+#: ric/core/viewlets/email.pt:7
+msgid "L'adresse email renseign&eacute;e dans votre description (${title}) n'est pas valide."
 msgstr ""
 
-#: ric/core/viewlets/profile.pt:6
+#: ric/core/viewlets/profile.pt:7
 msgid "La description de ce profil comprend plus de 15% de donn&eacute;es non remplies."
 msgstr ""
 
-#: ric/core/viewlets/profile.pt:19
+#: ric/core/viewlets/profile.pt:20
 msgid "La description de cette organisation comprend plus de 15% de donn&eacute;es non remplies."
 msgstr ""
 
-#: ric/core/viewlets/profile.pt:21
-msgid "La description de votre organisation comprend plus de 15% de donn&eacute;es non remplies."
+#: ric/core/viewlets/profile.pt:23
+msgid "La description de votre organisation (${title}) comprend plus de 15% de donn&eacute;es non remplies."
 msgstr ""
 
-#: ric/core/content/behaviors.py:90
+#: ric/core/content/behaviors.py:87
 msgid "Logiciels"
 msgstr "Logiciels "
 
@@ -145,7 +145,7 @@ msgstr ""
 msgid "Nom à rechercher"
 msgstr ""
 
-#: ric/core/content/behaviors.py:80
+#: ric/core/content/behaviors.py:77
 msgid "Nombre d'habitants"
 msgstr "Nombre d'habitants "
 
@@ -158,15 +158,15 @@ msgid "Recherche dans l'annuaire du RIC"
 msgstr ""
 
 #: ric/core/browser/interfaces.py:11
-#: ric/core/browser/search.py:44
+#: ric/core/browser/search.py:59
 msgid "Rechercher"
 msgstr ""
 
-#: ric/core/content/behaviors.py:85
+#: ric/core/content/behaviors.py:82
 msgid "Serveurs"
 msgstr "Serveurs "
 
-#: ric/core/mail/send_mail.py:71
+#: ric/core/mail/send_mail.py:70
 msgid "Un problème est survenu lors de l'envoi de l'e-mail"
 msgstr ""
 
@@ -178,24 +178,24 @@ msgstr ""
 msgid "Une personne"
 msgstr ""
 
-#: ric/core/content/behaviors.py:58
-msgid "Utilisateur déjà existant"
-msgstr ""
-
-#: ric/core/content/behaviors.py:69
+#: ric/core/content/behaviors.py:70
 msgid "Versement"
 msgstr ""
 
-#: ric/core/viewlets/profile.pt:8
-msgid "Votre description comprend plus de 15% de donn&eacute;es non remplies."
+#: ric/core/viewlets/profile.pt:10
+msgid "Votre description (${title}) comprend plus de 15% de donn&eacute;es non remplies."
 msgstr ""
 
-#: ric/core/viewlets/cotisation.pt:7
-msgid "Votre organisation ne comprend aucun contact de cotisation"
+#: ric/core/viewlets/cotisation.pt:10
+msgid "Votre organisation (${title}) ne comprend aucun contact de cotisation."
+msgstr ""
+
+#: ric/core/browser/templates/search.pt:25
+msgid "Vous devez compl&eacute;ter la description de votre organisation (${title}) pour pouvoir effectuer une recherche."
 msgstr ""
 
 #: ric/core/browser/templates/search.pt:17
-msgid "Vous devez compl&eacute;ter votre description pour pouvoir effectuer une recherche."
+msgid "Vous devez compl&eacute;ter votre description (${title}) pour pouvoir effectuer une recherche."
 msgstr ""
 
 #: ric/core/browser/templates/search.pt:15
