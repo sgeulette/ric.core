@@ -81,12 +81,14 @@ class ProfileViewlet(RICViewletBase):
 
 class EmailViewlet(RICViewletBase):
     render = ViewPageTemplateFile('email.pt')
-    link = ""
+    linksInfos = {}
 
     def available(self):
-        person = getMultiAdapter((self.context, self.request),
+        persons = getMultiAdapter((self.context, self.request),
                                  name="get_persons_for_user")()
-        if person and person.invalidmail == True:
-            self.link = person.absolute_url()
-            return True
-        return False
+        if not persons:
+            return False
+        for person in persons:
+            if person.invalidmail:
+                self.linksInfos[person.absolute_url()] = person.Title()
+        return bool(self.linksInfos)
