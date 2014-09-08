@@ -31,7 +31,7 @@ Test search with organization member uncompleted profile
     Input text  name=form.widgets.contentName  affinitic
     Click button  Rechercher
     Wait until page contains element  css=div#ric-search-warning
-    Wait until page contains  Vous devez compléter votre description pour pouvoir effectuer une recherche.
+    Wait until page contains  Vous devez compléter votre description (Haddock) pour pouvoir effectuer une recherche.
 
 
 Test search with organization member organization uncompleted profile
@@ -40,7 +40,7 @@ Test search with organization member organization uncompleted profile
     Input text  name=form.widgets.contentName  imio
     Click button  Rechercher
     Wait until page contains element  css=div#ric-search-warning
-    Wait until page contains  Vous devez compléter la description de votre organisation pour pouvoir effectuer une recherche.
+    Wait until page contains  Vous devez compléter la description de votre organisation (Imio) pour pouvoir effectuer une recherche.
 
 
 Test search with anonymous
