@@ -27,13 +27,13 @@ class CotisationViewlet(RICViewletBase):
             self.organizationlink = self.context.absolute_url()
             self.isManager = True
             return True
-        organization = getMultiAdapter((self.context, self.request),
-                                       name="get_organization_for_user")()
-        if not organization:
+        organizations = getMultiAdapter((self.context, self.request),
+                                       name="get_organizations_for_user")()
+        if not organizations:
             return False
         catalog = api.portal.get_tool('portal_catalog')
         persons = catalog.searchResults(portal_type="person",
-                                        path={'query': '/'.join(organization.getPhysicalPath()),
+                                        path={'query': '/'.join(organizations.getPhysicalPath()),
                                               'depth': 1})
         contactCotisation = False
         for person in persons:
@@ -42,7 +42,7 @@ class CotisationViewlet(RICViewletBase):
                 contactCotisation = True
                 break
         if not contactCotisation:
-            self.organizationlink = organization.absolute_url()
+            self.organizationlink = organizations.absolute_url()
             return True
         return False
 
@@ -69,13 +69,13 @@ class ProfileViewlet(RICViewletBase):
                                           name="is_profile_completed")()
             if not isCompleted:
                 self.personlink = person.absolute_url()
-        organization = getMultiAdapter((self.context, self.request),
+        organizations = getMultiAdapter((self.context, self.request),
                                        name="get_organization_for_user")()
-        if organization:
-            isCompleted = getMultiAdapter((organization, self.request),
+        if organizations:
+            isCompleted = getMultiAdapter((organizations, self.request),
                                           name="is_profile_completed")()
             if not isCompleted:
-                self.organizationlink = organization.absolute_url()
+                self.organizationlink = organizations.absolute_url()
         return bool(self.personlink or self.organizationlink)
 
 

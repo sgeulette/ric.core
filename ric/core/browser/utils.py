@@ -25,7 +25,7 @@ class UtilsView(BrowserView):
         completion = float(completedFields) / len(self.importantFields)
         return completion > 0.85
 
-    def getPersonForUser(self, userName=None):
+    def getPersonsForUser(self, userName=None):
         """
         Returns Person object associated to logged in user (if any)
         """
@@ -37,24 +37,30 @@ class UtilsView(BrowserView):
             try:
                 # Temporary fix because of insufficient rights on parent
                 # organization
-                person = membraneInfos[0].getObject()
+                persons = [mi.getObject() for mi in membraneInfos]
             except Unauthorized:
                 return
-            if person.portal_type == 'person':
+            persons_final = []
+            for person in persons:
                 # Temporary check because of membrane returning organization
-                return person
+                if person.portal_type == 'person':
+                    persons_final.append(person)
+            return persons_final
 
-    def getOrganizationForUser(self):
+    def getOrganizationsForUser(self):
         """
         Returns Organization object associated to Person of logged in user
         (if any)
         """
-        person = self.getPersonForUser()
-        if not person:
+        persons = self.getPersonsForUser()
+        if not persons:
             return
-        parent = aq_parent(person)
-        if parent.portal_type == 'organization':
-            return parent
+        parents = [aq_parent(person) for person in persons]
+        parents_final = []
+        for parent in parents:
+            if parent.portal_type == 'organization':
+                parents_final.append(parent)
+        return parents_final
 
 
 class OrganizationView(UtilsView):

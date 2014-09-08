@@ -62,16 +62,16 @@
       for="*"
       name="get_person_for_user"
       class=".utils.PersonView"
-      attribute="getPersonForUser"
+      attribute="getPersonsForUser"
       permission="zope.Public"
       layer="..interfaces.IRICCoreLayer"
       />
 
   <browser:page
       for="*"
-      name="get_organization_for_user"
+      name="get_organizations_for_user"
       class=".utils.PersonView"
-      attribute="getOrganizationForUser"
+      attribute="getOrganizationsForUser"
       permission="zope.Public"
       layer="..interfaces.IRICCoreLayer"
       />
