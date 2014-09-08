@@ -63,14 +63,14 @@ class ProfileViewlet(RICViewletBase):
             self.isManager = True
             return True
         person = getMultiAdapter((self.context, self.request),
-                                 name="get_person_for_user")()
+                                 name="get_persons_for_user")()
         if person:
             isCompleted = getMultiAdapter((person, self.request),
                                           name="is_profile_completed")()
             if not isCompleted:
                 self.personlink = person.absolute_url()
         organizations = getMultiAdapter((self.context, self.request),
-                                       name="get_organization_for_user")()
+                                       name="get_organizations_for_user")()
         if organizations:
             isCompleted = getMultiAdapter((organizations, self.request),
                                           name="is_profile_completed")()
@@ -85,7 +85,7 @@ class EmailViewlet(RICViewletBase):
 
     def available(self):
         person = getMultiAdapter((self.context, self.request),
-                                 name="get_person_for_user")()
+                                 name="get_persons_for_user")()
         if person and person.invalidmail == True:
             self.link = person.absolute_url()
             return True

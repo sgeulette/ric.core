@@ -27,7 +27,7 @@ class UtilsView(BrowserView):
 
     def getPersonsForUser(self, userName=None):
         """
-        Returns Person object associated to logged in user (if any)
+        Returns Person objects associated to logged in user (if any)
         """
         if userName is None:
             userName = api.user.get_current().getUserName()
@@ -49,7 +49,7 @@ class UtilsView(BrowserView):
 
     def getOrganizationsForUser(self):
         """
-        Returns Organization object associated to Person of logged in user
+        Returns Organization objects associated to Persons of logged in user
         (if any)
         """
         persons = self.getPersonsForUser()

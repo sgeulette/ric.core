@@ -33,7 +33,7 @@ class RICSearchForm(form.Form):
             self.request.response.redirect("%s/@@nosearch" % self.context.absolute_url())
             return ''
         person = getMultiAdapter((self.context, self.request),
-                                 name="get_person_for_user")()
+                                 name="get_persons_for_user")()
         if person:
             isCompleted = getMultiAdapter((person, self.request),
                                           name="is_profile_completed")()
@@ -42,7 +42,7 @@ class RICSearchForm(form.Form):
                 self.canSearch = False
 
         organization = getMultiAdapter((self.context, self.request),
-                                       name="get_organization_for_user")()
+                                       name="get_organizations_for_user")()
         if organization:
             isCompleted = getMultiAdapter((organization, self.request),
                                           name="is_profile_completed")()
