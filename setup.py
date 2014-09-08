@@ -48,8 +48,9 @@ setup(name='ric.core',
       extras_require={
           'test': [
               'Products.PloneTestCase',
-              'plone.app.robotframework',
+              'collective.monkeypatcher',
               'mock',
+              'plone.app.robotframework',
           ]
       },
       entry_points={},

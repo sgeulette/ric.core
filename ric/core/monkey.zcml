@@ -1,0 +1,14 @@
+<configure xmlns:monkey="http://namespaces.plone.org/monkey">
+
+    <include package="collective.monkeypatcher" />
+
+    <monkey:patch
+      description="Allow to have several object linked to one membrane user #5926"
+      class="Products.membrane.tools.membrane.MembraneTool"
+      replacement=".patch.getUserObject"
+      original="getUserObject"
+      docstringWarning="false"
+      ignoreOriginal="true"
+      />
+
+</configure>

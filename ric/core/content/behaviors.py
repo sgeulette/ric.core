@@ -1,16 +1,13 @@
 # -*- coding: utf-8 -*-
 from five import grok
 from zope import schema
-from zope.component import getMultiAdapter
 from zope.interface import alsoProvides
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.autoform import directives as form
 from plone.supermodel import model
 from collective.z3cform.datagridfield import DataGridField, DictRow
-from plone import api
 from plone.registry.interfaces import IRegistry
 from zope.component import getUtility
-from zope.interface import Invalid, invariant
 from z3c.form.browser.radio import RadioFieldWidget
 from zope.schema.interfaces import IContextSourceBinder
 from zope.schema.vocabulary import SimpleVocabulary
@@ -60,20 +57,6 @@ class IRICPerson(model.Schema):
 
     form.read_permission(userid='RIC.Administrator')
     form.write_permission(userid='RIC.Administrator')
-
-    @invariant
-    def userid_unique(data):
-        if not data.userid:
-            return
-        portal = api.portal.get()
-        request = getattr(portal, "REQUEST", None)
-        person = getMultiAdapter((portal, request),
-                                 name="get_person_for_user")(data.userid)
-        olduserid = None
-        if data.__context__:
-            olduserid = data.__context__.userid
-        if person and data.userid != olduserid:
-            raise Invalid(_(u"Utilisateur déjà existant"))
 
 
 alsoProvides(IRICPerson, IFormFieldProvider)
