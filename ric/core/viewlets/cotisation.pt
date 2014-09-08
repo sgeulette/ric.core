@@ -2,14 +2,17 @@
      i18n:domain="ric"
      tal:condition="view/available">
 
-     <span i18n:translate=""
-           tal:condition="view/isManager">Cette organisation ne comprend aucun contact de cotisation</span>
-     <span i18n:translate=""
-           tal:condition="not: view/isManager">Votre organisation ne comprend aucun contact de cotisation</span>
-     <br />
-     <a href=""
-        class="organization-link"
-        tal:attributes="href view/organizationlink"
-        i18n:translate="">Cliquez ici pour en ajouter un.</a>
+     <tal:bcl tal:repeat="organization view/organizations">
+        <div>
+             <span i18n:translate=""
+                   tal:condition="view/isManager">Cette organisation ne comprend aucun contact de cotisation.</span>
+             <span i18n:translate=""
+                   tal:condition="not: view/isManager">Votre organisation (<span i18n:name="title" tal:replace="organization/Title" />) ne comprend aucun contact de cotisation.</span>
+             <a href=""
+                class="organization-link"
+                tal:attributes="href organization/absolute_url"
+                i18n:translate="">Cliquez ici pour en ajouter un.</a>
+        </div>
+     </tal:bcl>
 
 </div>

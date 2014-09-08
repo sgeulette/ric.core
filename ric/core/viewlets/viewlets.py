@@ -19,76 +19,82 @@ class RICViewletBase(ViewletBase):
 
 class CotisationViewlet(RICViewletBase):
     render = ViewPageTemplateFile('cotisation.pt')
-    organizationlink = ""
+    organizations = []
     isManager = False
 
     def available(self):
+        self.organizations = []
+        self.isManager = False
         if self.viewletsToShowTomanager() == 'organization':
-            self.organizationlink = self.context.absolute_url()
+            self.organizations = [self.context]
             self.isManager = True
             return True
         organizations = getMultiAdapter((self.context, self.request),
-                                       name="get_organizations_for_user")()
+                                        name="get_organizations_for_user")()
         if not organizations:
             return False
         catalog = api.portal.get_tool('portal_catalog')
-        persons = catalog.searchResults(portal_type="person",
-                                        path={'query': '/'.join(organizations.getPhysicalPath()),
-                                              'depth': 1})
-        contactCotisation = False
-        for person in persons:
-            personObj = person.getObject()
-            if 'contact_cotisation' in personObj.multimail:
-                contactCotisation = True
-                break
-        if not contactCotisation:
-            self.organizationlink = organizations.absolute_url()
-            return True
-        return False
+        for organization in organizations:
+            persons = catalog.searchResults(portal_type="person",
+                                            path={'query': '/'.join(organization.getPhysicalPath()),
+                                                  'depth': 1})
+            contactCotisation = False
+            for person in persons:
+                personObj = person.getObject()
+                if 'contact_cotisation' in personObj.multimail:
+                    contactCotisation = True
+                    break
+            if not contactCotisation:
+                self.organizations.append(organization)
+        return bool(self.organizations)
 
 
 class ProfileViewlet(RICViewletBase):
     render = ViewPageTemplateFile('profile.pt')
-    personlink = ""
-    organizationlink = ""
+    persons = []
+    organizations = []
     isManager = False
 
     def available(self):
+        self.persons = []
+        self.organizations = []
+        self.isManager = False
         if self.viewletsToShowTomanager() == 'organization':
-            self.organizationlink = self.context.absolute_url()
+            self.organizations = [self.context]
             self.isManager = True
             return True
         elif self.viewletsToShowTomanager() == 'person':
-            self.personlink = self.context.absolute_url()
+            self.persons = [self.context]
             self.isManager = True
             return True
-        person = getMultiAdapter((self.context, self.request),
-                                 name="get_persons_for_user")()
-        if person:
+        persons = getMultiAdapter((self.context, self.request),
+                                  name="get_persons_for_user")()
+        for person in persons:
             isCompleted = getMultiAdapter((person, self.request),
                                           name="is_profile_completed")()
             if not isCompleted:
-                self.personlink = person.absolute_url()
+                self.persons.append(person)
         organizations = getMultiAdapter((self.context, self.request),
-                                       name="get_organizations_for_user")()
-        if organizations:
-            isCompleted = getMultiAdapter((organizations, self.request),
+                                        name="get_organizations_for_user")()
+        for organization in organizations:
+            isCompleted = getMultiAdapter((organization, self.request),
                                           name="is_profile_completed")()
             if not isCompleted:
-                self.organizationlink = organizations.absolute_url()
-        return bool(self.personlink or self.organizationlink)
+                self.organizations.append(organization)
+        return bool(self.persons or self.organizations)
 
 
 class EmailViewlet(RICViewletBase):
     render = ViewPageTemplateFile('email.pt')
-    links = []
+    persons = []
 
     def available(self):
+        self.persons = []
         persons = getMultiAdapter((self.context, self.request),
                                   name="get_persons_for_user")()
         if not persons:
             return False
         for person in persons:
             if person.invalidmail:
-                self.links.append(person)
-        return bool(self.links)
+                self.persons.append(person)
+        return bool(self.persons)
