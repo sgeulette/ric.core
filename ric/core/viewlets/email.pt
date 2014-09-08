@@ -2,14 +2,12 @@
      i18n:domain="ric"
      tal:condition="view/available">
 
-     <tal:bcl tal:define="linksInfos view/linksInfos"
-              tal:repeat="linkInfo linksInfos">
-        <div tal:define="url linkInfo;
-                         title python:linksInfos[linkInfo]">
-             <span i18n:translate="">L'adresse email renseign&eacute;e dans votre description (<span i18n:name="title" tal:replace="title" />) n'est pas valide.</span>
+     <tal:bcl tal:repeat="link view/links">
+        <div>
+             <span i18n:translate="">L'adresse email renseign&eacute;e dans votre description (<span i18n:name="title" tal:replace="link/Title" />) n'est pas valide.</span>
              <a href=""
                 class="person-link"
-                tal:attributes="href string:${url}/edit#fieldsetlegend-contact_details"
+                tal:attributes="href string:${link/absolute_url}/edit#fieldsetlegend-contact_details"
                 i18n:translate="">Cliquez ici pour la modifier.</a>
         </div>
      </tal:bcl>
